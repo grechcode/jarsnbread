@@ -11,7 +11,8 @@ function App() {
     tg.disableVerticalSwipes();
     const date = new Date();
     const hour = date.getHours();
-    if (hour > 21) {
+    console.log(hour);
+    if (hour >= 21) {
       showAlert("Уже поздно, доставка не работает!", () => {
         tg.close();
       });
