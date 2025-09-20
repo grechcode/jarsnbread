@@ -8,6 +8,8 @@ export const MENU = {
         description: "",
         price: 360,
         isAvailable: true,
+        hit: true,
+        new: true,
       },
       {
         id: "wine_duck",

@@ -55,35 +55,37 @@ export const Menu = () => {
           <div className={styles.dishListContainer}>
             <ul className={styles.dishList}>
               {MENU[category].dishes.map((dish) => (
-                <li key={dish.id} className={styles.dish}>
-                  <article className={styles.dishCard}>
-                    {cart[dish.id] > 0 && (
-                      <span className={styles.countSticker}>{cart[dish.id]}</span>
-                    )}
-                    <img className={styles.dishImg} src="baguette.jpeg" alt={dish.id} />
-                    <span className={styles.dishName}>{dish.name}</span>
-                    <div className={styles.buttonBar}>
-                      <button
-                        type="button"
-                        className={cn(styles.removeBtn, cart[dish.id] && styles.showBtn)}
-                        onClick={() => onRemove(dish.id)}
-                      >
-                        -
-                      </button>
-                      <button
-                        type="button"
-                        className={styles.addBtn}
-                        onClick={() => onAdd(dish.id)}
-                        disabled={!dish.isAvailable}
-                      >
-                        {cart[dish.id]
-                          ? "+"
-                          : dish.isAvailable
-                          ? `${dish.price} ₽`
-                          : "Всё сьели :("}
-                      </button>
-                    </div>
-                  </article>
+                <li key={dish.id} className={styles.dishCard}>
+                  {cart[dish.id] > 0 && (
+                    <span className={styles.countSticker}>{cart[dish.id]}</span>
+                  )}
+                  <div className={styles.tagList}>
+                    {dish?.hit > 0 && <span className={styles.hitTag}>HiT</span>}
+                    {dish?.new > 0 && <span className={styles.newTag}>NeW</span>}
+                  </div>
+                  <img className={styles.dishImg} src="baguette.jpeg" alt={dish.id} />
+                  <span className={styles.dishName}>{dish.name}</span>
+                  <div className={styles.buttonBar}>
+                    <button
+                      type="button"
+                      className={cn(styles.removeBtn, cart[dish.id] && styles.showBtn)}
+                      onClick={() => onRemove(dish.id)}
+                    >
+                      -
+                    </button>
+                    <button
+                      type="button"
+                      className={styles.addBtn}
+                      onClick={() => onAdd(dish.id)}
+                      disabled={!dish.isAvailable}
+                    >
+                      {cart[dish.id]
+                        ? "+"
+                        : dish.isAvailable
+                        ? `${dish.price} ₽`
+                        : "Всё сьели :("}
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>

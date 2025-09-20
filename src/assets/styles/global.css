@@ -2,6 +2,7 @@
 
 body {
   color: var(--tg-theme-text-color);
+  background-color: var(--tg-theme-bg-color);
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
 }
@@ -10,9 +11,8 @@ body {
   display: contents;
 }
 
-svg * {
-  transition-duration: var(--transition);
-  transition-property: fill, stroke;
+button {
+  color: var(--tg-theme-button-text-color);
 }
 
 *:focus {
