@@ -1,8 +1,9 @@
 export const isCartEmpty = (cart) => {
-  Object.keys(cart).forEach((position) => {
+  let res = true;
+  Object.keys(cart).map((position) => {
     if (cart[position] > 0) {
-      return false;
+      res = false;
     }
   });
-  return true;
+  return res;
 };

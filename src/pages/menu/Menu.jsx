@@ -5,12 +5,13 @@ import { cn, isCartEmpty } from "@/utils";
 import { useEffect } from "react";
 
 export const Menu = () => {
-  const { currentPage, setCart, cart } = useAppContext();
+  const { setCart, cart } = useAppContext();
 
   useEffect(() => {
     let tg = window.Telegram.WebApp;
     if (isCartEmpty(cart)) {
       tg.MainButton.hide();
+      tg.showAlert("Корзина пуста!");
     } else {
       tg.MainButton.show();
     }

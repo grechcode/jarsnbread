@@ -1,34 +1,9 @@
-@font-face {
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/SourceSans3-Regular.woff2') format('woff2');
-  font-family: 'Source Sans 3';
-  font-display: swap;
-}
-
-@font-face {
-  font-style: normal;
-  font-weight: 600;
-  src: url('../fonts/SourceSans3-SemiBold.woff2') format('woff2');
-  font-family: 'Source Sans 3';
-  font-display: swap;
-}
-
-@font-face {
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/SourceSans3-Bold.woff2') format('woff2');
-  font-family: 'Source Sans 3';
-  font-display: swap;
-}
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 body {
-  transition: background-color var(--transition);
-  background-color: var(--neutral-0);
-  min-width: 1280px;
-  overflow-y: hidden;
-  color: var(--neutral-800);
-  font-family: 'Source Sans 3', sans-serif;
+  color: var(--tg-theme-text-color);
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
 }
 
 #root {

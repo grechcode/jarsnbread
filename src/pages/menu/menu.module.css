@@ -31,7 +31,6 @@
   min-height: 250px;
   border-radius: 10px;
   position: relative;
-  background-color: var(--tg-theme-destructive-text-color);
 }
 
 .countSticker {
@@ -66,7 +65,7 @@
 }
 
 .removeBtn {
-  background-color: #ff0000;
+  background-color: var(--tg-theme-destructive-text-color);
   padding: 0;
   border: none;
   width: 0%;
@@ -74,16 +73,18 @@
   border-radius: 10px;
   overflow: hidden;
   transition: all 0.3s;
+  color: var(--tg-theme-button-text-color);
 }
 
 .addBtn {
   height: 30px;
   border-radius: 10px;
-  background-color: green;
+  background-color: var(--secondary-light-300);
   transition: all 0.3s;
   padding: 0;
   border: none;
   width: 100%;
+  color: var(--tg-theme-button-text-color);
 
   &:disabled {
     opacity: 0.5;
