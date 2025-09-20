@@ -1,32 +1,10 @@
 import { MENU } from "@/constants";
 import styles from "./menu.module.css";
 import { useAppContext } from "@/hooks";
-import { cn, isCartEmpty } from "@/utils";
-import { useEffect } from "react";
+import { cn } from "@/utils";
 
 export const Menu = () => {
-  const { setCurrentPage, currentPage, setCart, cart } = useAppContext();
-
-  useEffect(() => {
-    let tg = window.Telegram.WebApp;
-    if (isCartEmpty(cart)) {
-      tg.MainButton.hide();
-    } else {
-      if (currentPage === "menu") {
-        tg.MainButton.setText("К корзине");
-        tg.MainButton.onClick(() => {
-          setCurrentPage("cart");
-        });
-      } else {
-        tg.MainButton.setText("Вернуться в меню");
-        tg.MainButton.onClick(() => {
-          setCurrentPage("menu");
-        });
-      }
-
-      tg.MainButton.show();
-    }
-  }, [cart]);
+  const { setCart, cart } = useAppContext();
 
   const onAdd = (dish) => {
     setCart((prev) => {
