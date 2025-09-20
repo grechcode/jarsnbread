@@ -1,0 +1,96 @@
+.menu {
+}
+
+.categoryLabel {
+  color: var(--tg-theme-section-header-text-color);
+}
+
+.dishListContainer {
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.dishList {
+  padding: 0;
+  display: flex;
+  list-style: none;
+  column-gap: 10px;
+}
+
+.dish {
+  scroll-snap-align: start;
+}
+
+.dishCard {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  width: 40vw;
+  min-height: 250px;
+  border-radius: 10px;
+  position: relative;
+  background-color: var(--tg-theme-destructive-text-color);
+}
+
+.countSticker {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 20px;
+  background-color: orange;
+}
+
+.dishImg {
+  border-radius: 10px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.dishName {
+}
+
+.dishPrice {
+}
+
+.buttonBar {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+}
+
+.removeBtn {
+  background-color: #ff0000;
+  padding: 0;
+  border: none;
+  width: 0%;
+  height: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.addBtn {
+  height: 30px;
+  border-radius: 10px;
+  background-color: green;
+  transition: all 0.3s;
+  padding: 0;
+  border: none;
+  width: 100%;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.showBtn {
+  width: 100%;
+  margin-right: 4px;
+}

@@ -1,0 +1,176 @@
+:root {
+  --font-family: 'Source Sans 3', sans-serif;
+
+  /* NEUTRAL LIGHT COLORS */
+  --neutral-light-0: #ffffff;
+  --neutral-light-100: #fbfbfb;
+  --neutral-light-200: #f3f3f3;
+  --neutral-light-300: #ececec;
+  --neutral-light-400: #bfbfbf;
+  --neutral-light-500: #8c8c8c;
+  --neutral-light-600: #6c6c6c;
+  --neutral-light-700: #393939;
+  --neutral-light-800: #1c1c1c;
+  --neutral-light-900: #141414;
+
+  /* NEUTRAL DARK COLORS */
+  --neutral-dark-0: #141414;
+  --neutral-dark-100: #1c1c1c;
+  --neutral-dark-200: #262626;
+  --neutral-dark-300: #333333;
+  --neutral-dark-400: #6c6c6c;
+  --neutral-dark-500: #8c8c8c;
+  --neutral-dark-600: #bfbfbf;
+  --neutral-dark-700: #ececec;
+  --neutral-dark-800: #fbfbfb;
+  --neutral-dark-900: #ffffff;
+
+  /* PRIMARY LIGHT COLORS */
+  --primary-light-0: #fff4f4;
+  --primary-light-100: #ffcece;
+  --primary-light-200: #fca9a9;
+  --primary-light-300: #f25959;
+  --primary-light-400: #d51010;
+  --primary-light-500: #a60c0c;
+  --primary-light-600: #760909;
+
+  /* PRIMARY DARK COLORS */
+  --primary-dark-0: #300b0b;
+  --primary-dark-100: #461313;
+  --primary-dark-200: #760909;
+  --primary-dark-300: #a60c0c;
+  --primary-dark-400: #d51010;
+  --primary-dark-500: #f25959;
+  --primary-dark-600: #760909;
+
+  /* SECONDARY LIGHT COLORS */
+  --secondary-light-0: #f5f0ff;
+  --secondary-light-100: #eadfff;
+  --secondary-light-200: #d9c5ff;
+  --secondary-light-300: #b792ff;
+  --secondary-light-400: #742cff;
+  --secondary-light-500: #581bcc;
+
+  /* SECONDARY DARK COLORS */
+  --secondary-dark-0: #261c3c;
+  --secondary-dark-100: #441a96;
+  --secondary-dark-200: #5500f8;
+  --secondary-dark-300: #803eff;
+  --secondary-dark-400: #742cff;
+  --secondary-dark-500: #b792ff;
+
+  /* BASE NEUTRAL COLORS */
+  --base-white: #ffffff;
+  --base-600: #6c6c6c;
+  --base-800: #262626;
+  --base-900: #141414;
+  --base-black: #000000;
+
+  /* BASE PRIMARY COLORS */
+  --base-100: #ffcece;
+  --base-300: #f25959;
+  --base-400: #d51010;
+  --base-500: #a60c0c;
+  --base-400-500: linear-gradient(180deg, #d51010 0%, #a60c0c 100%);
+
+  /* LIGHT-THEME SET */
+  --neutral-0: var(--neutral-light-0);
+  --neutral-100: var(--neutral-light-100);
+  --neutral-200: var(--neutral-light-200);
+  --neutral-300: var(--neutral-light-300);
+  --neutral-400: var(--neutral-light-400);
+  --neutral-500: var(--neutral-light-500);
+  --neutral-600: var(--neutral-light-600);
+  --neutral-700: var(--neutral-light-700);
+  --neutral-800: var(--neutral-light-800);
+  --neutral-900: var(--neutral-light-900);
+
+  --primary-0: var(--primary-light-0);
+  --primary-100: var(--primary-light-100);
+  --primary-200: var(--primary-light-200);
+  --primary-300: var(--primary-light-300);
+  --primary-400: var(--primary-light-400);
+  --primary-500: var(--primary-light-500);
+  --primary-600: var(--primary-light-600);
+
+  --secondary-0: var(--secondary-light-0);
+  --secondary-100: var(--secondary-light-100);
+  --secondary-200: var(--secondary-light-200);
+  --secondary-300: var(--secondary-light-300);
+  --secondary-400: var(--secondary-light-400);
+  --secondary-500: var(--secondary-light-500);
+
+  --shadow-lg: var(--shadow-light-lg);
+  --shadow-base-default: var(--shadow-light-base-default);
+  --shadow-base-hover: var(--shadow-light-base-hover);
+  --shadow-sm-default: var(--shadow-light-sm-default);
+  --shadow-sm-hover: var(--shadow-light-sm-hover);
+
+  /* TYPOGRAPHY */
+  --heading-h1: 700 32px/40px var(--font-family);
+  --heading-h2: 700 24px/32px var(--font-family);
+  --heading-h3: 700 18px/24px var(--font-family);
+  --body-lg-semibold: 600 18px/24px var(--font-family);
+  --body-lg-regular: 400 18px/24px var(--font-family);
+  --body-md-bold: 700 16px/24px var(--font-family);
+  --body-md-semibold: 600 16px/24px var(--font-family);
+  --body-md-regular: 400 16px/24px var(--font-family);
+  --body-sm-semibold: 600 14px/20px var(--font-family);
+  --body-sm-regular: 400 14px/20px var(--font-family);
+
+  /* SHADOWS LIGHT */
+  --shadow-light-lg: 0px 0px 12px 4px #0000001a;
+  --shadow-light-base-default: 2px 2px 4px 0px #00000033;
+  --shadow-light-base-hover: 2px 8px 12px 0px #00000040;
+  --shadow-light-sm-default: 2px 2px 4px 0px #0000001a;
+  --shadow-light-sm-hover: 2px 8px 12px 0px #00000033;
+
+  /* SHADOWS DARK */
+  --shadow-dark-lg: 0px 0px 16px 8px #00000066;
+  --shadow-dark-base-default: 2px 2px 4px 0px #00000080;
+  --shadow-dark-base-hover: 2px 8px 12px 0px #000000cc;
+  --shadow-dark-sm-default: 2px 2px 4px 0px #0000004d;
+  --shadow-dark-sm-hover: 2px 8px 12px 0px #04010199;
+
+  /* RADIUSES */
+  --border-radius: 8px;
+
+  /* TRANTITIONS */
+  --transition: 0.2s;
+}
+
+/* DARK-THEME SET */
+
+[data-theme='dark'] {
+  --neutral-0: var(--neutral-dark-0);
+  --neutral-100: var(--neutral-dark-100);
+  --neutral-200: var(--neutral-dark-200);
+  --neutral-300: var(--neutral-dark-300);
+  --neutral-400: var(--neutral-dark-400);
+  --neutral-500: var(--neutral-dark-500);
+  --neutral-600: var(--neutral-dark-600);
+  --neutral-700: var(--neutral-dark-700);
+  --neutral-800: var(--neutral-dark-800);
+  --neutral-900: var(--neutral-dark-900);
+
+  --primary-0: var(--primary-dark-0);
+  --primary-100: var(--primary-dark-100);
+  --primary-200: var(--primary-dark-200);
+  --primary-300: var(--primary-dark-300);
+  --primary-400: var(--primary-dark-400);
+  --primary-500: var(--primary-dark-500);
+  --primary-600: var(--primary-dark-600);
+
+  --secondary-0: var(--secondary-dark-0);
+  --secondary-100: var(--secondary-dark-100);
+  --secondary-200: var(--secondary-dark-200);
+  --secondary-300: var(--secondary-dark-300);
+  --secondary-400: var(--secondary-dark-400);
+  --secondary-500: var(--secondary-dark-500);
+
+  --shadow-lg: var(--shadow-dark-lg);
+  --shadow-base-default: var(--shadow-dark-base-default);
+  --shadow-base-hover: var(--shadow-dark-base-hover);
+  --shadow-sm-default: var(--shadow-dark-sm-default);
+  --shadow-sm-hover: var(--shadow-dark-sm-hover);
+}
