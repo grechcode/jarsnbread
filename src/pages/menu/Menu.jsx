@@ -11,7 +11,7 @@ export const Menu = () => {
     let tg = window.Telegram.WebApp;
     if (isCartEmpty(cart)) {
       tg.MainButton.hide();
-      tg.showAlert("Корзина пуста!");
+      tg.showPopup();
     } else {
       tg.MainButton.show();
     }
