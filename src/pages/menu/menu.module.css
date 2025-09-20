@@ -134,16 +134,16 @@
 }
 
 .removeBtn {
-  background-color: var(--primary-200);
+  background-color: var(--primary-300);
   width: 0%;
 
   &:active {
-    background-color: var(--primary-300);
+    background-color: var(--primary-400);
   }
 }
 
 .addBtn {
-  background-color: var(--secondary-200);
+  background-color: var(--secondary-300);
   width: 100%;
 
   &:disabled {
@@ -151,7 +151,7 @@
   }
 
   &:active {
-    background-color: var(--secondary-300);
+    background-color: var(--secondary-400);
   }
 }
 

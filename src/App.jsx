@@ -9,7 +9,13 @@ function App() {
   useEffect(() => {
     let tg = window.Telegram.WebApp;
     tg.disableVerticalSwipes();
-    tg.showPopup({ title: "Корзина", message: "fdsgfsdgd" });
+    const date = new Date();
+    const hour = date.getHours();
+    if (hour > 21) {
+      showAlert("Уже поздно, доставка не работает!", () => {
+        tg.close();
+      });
+    }
   }, []);
 
   useEffect(() => {
