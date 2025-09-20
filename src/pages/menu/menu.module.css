@@ -10,9 +10,6 @@
   }
 }
 
-.menu {
-}
-
 .categoryLabel {
   color: var(--tg-theme-section-header-text-color);
   font: var(--heading-h3);

@@ -13,7 +13,7 @@ function App() {
     const hour = date.getHours();
     console.log(hour);
     if (hour >= 21) {
-      showAlert("Уже поздно, доставка не работает!", () => {
+      tg.showAlert("Уже поздно, доставка не работает!", () => {
         tg.close();
       });
     }
