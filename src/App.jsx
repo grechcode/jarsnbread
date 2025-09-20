@@ -11,12 +11,11 @@ function App() {
     tg.disableVerticalSwipes();
     const date = new Date();
     const hour = date.getHours();
-    console.log(hour);
-    if (hour >= 21) {
-      tg.showAlert("Уже поздно, доставка не работает!", () => {
-        tg.close();
-      });
-    }
+    // if (9 >= hour >= 21) {
+    //   tg.showAlert("Уже поздно, доставка не работает!", () => {
+    //     tg.close();
+    //   });
+    // }
   }, []);
 
   useEffect(() => {
