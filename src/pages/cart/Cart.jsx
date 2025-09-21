@@ -7,6 +7,7 @@ import { useState } from "react";
 export const Cart = () => {
   const [discount, setDiscount] = useState(null);
   const { cart, setPromocode, setOrderComment } = useAppContext();
+  const todayDate = new Date().toISOString().split("T")[0];
 
   const replaceImgWithError = (e) => {
     e.target.onerror = null;
@@ -60,43 +61,52 @@ export const Cart = () => {
           )}
         </footer>
       </ul>
-      <label className={styles.inputLabel}>
-        <input
-          className={styles.input}
-          type="text"
-          placeholder="Комментарий к заказу..."
-          onChange={(e) => setOrderComment(e.target.value)}
-        />
-        <span>Особые детали и пожелания к заказу</span>
-      </label>
-      <label className={styles.inputLabel}>
-        <input
-          className={styles.input}
-          type="text"
-          placeholder="Промокод..."
-          onChange={promocodeHandler}
-        />
-        <span>Получи свою скидку!</span>
-      </label>
-      <label className={styles.inputLabel}>
-        <select className={styles.input}>
-          <option value="self">Самовывоз</option>
-          <option value="delivery">Доставка</option>
-        </select>
-        <span>Выбери способ получения заказа</span>
-      </label>
-      <label className={styles.inputLabel}>
-        <input className={styles.input} type="text" placeholder="г. Екатеринбург..." />
-        <span>Введи адрес доставки</span>
-      </label>
-      <label className={styles.inputLabel}>
-        <input className={styles.input} type="date" />
-        <span>Выбери дату доставки</span>
-      </label>
-      <label className={styles.inputLabel}>
-        <input className={styles.input} type="time" />
-        <span>Выбери время доставки</span>
-      </label>
+      <form action="">
+        {" "}
+        <label className={styles.inputLabel}>
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="Комментарий к заказу..."
+            onChange={(e) => setOrderComment(e.target.value)}
+          />
+          <span>Особые детали и пожелания к заказу</span>
+        </label>
+        <label className={styles.inputLabel}>
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="Промокод..."
+            onChange={promocodeHandler}
+          />
+          <span>Получи свою скидку!</span>
+        </label>
+        <label className={styles.inputLabel}>
+          <select className={styles.input}>
+            <option value="self">Самовывоз</option>
+            <option value="delivery">Доставка</option>
+          </select>
+          <span>Выбери способ получения заказа</span>
+        </label>
+        <label className={styles.inputLabel}>
+          <input className={styles.input} type="text" placeholder="г. Екатеринбург..." />
+          <span>Введи адрес доставки</span>
+        </label>
+        <label className={styles.inputLabel}>
+          <input
+            className={styles.input}
+            type="date"
+            value={todayDate}
+            min={todayDate}
+            max="2025-12-31"
+          />
+          <span>Выбери дату доставки</span>
+        </label>
+        <label className={styles.inputLabel}>
+          <input className={styles.input} type="time" min="09:00:00" max="21:00:00" />
+          <span>Выбери время доставки</span>
+        </label>
+      </form>
     </div>
   );
 };

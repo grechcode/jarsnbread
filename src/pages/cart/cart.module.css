@@ -70,6 +70,7 @@
   row-gap: 8px;
   font: var(--body-xs-regular);
   color: var(--tg-theme-subtitle-text-color);
+  border-radius: 0;
 
   & span {
     padding-inline: 12px;
@@ -80,6 +81,7 @@
   height: 48px;
   padding-inline: 12px;
   padding-block: 8px;
+  border-radius: 0;
   overflow: hidden;
   font: var(--body-md-regular);
   text-overflow: ellipsis;
