@@ -16,6 +16,18 @@ button {
   color: var(--tg-theme-button-text-color);
 }
 
+button:active,
+input:active {
+  outline: none;
+  border: none;
+}
+
+button:disabled,
+input:disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
 *:focus {
   outline: none;
 }
