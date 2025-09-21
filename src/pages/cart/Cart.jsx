@@ -34,18 +34,24 @@ export const Cart = () => {
           </li>
         ))}
       </ul>
-      <input
-        className={styles.input}
-        type="text"
-        placeholder="Комментарий к заказу..."
-        onChange={(e) => setOrderComment(e.target.value)}
-      />
-      <input
-        className={styles.input}
-        type="text"
-        placeholder="Промокод..."
-        onChange={promocodeHandler}
-      />
+      <label className={styles.inputLabel}>
+        <input
+          className={styles.input}
+          type="text"
+          placeholder="Комментарий к заказу..."
+          onChange={(e) => setOrderComment(e.target.value)}
+        />
+        <span>Особые детали и пожелания к заказу</span>
+      </label>
+      <label className={styles.inputLabel}>
+        <input
+          className={styles.input}
+          type="text"
+          placeholder="Промокод..."
+          onChange={promocodeHandler}
+        />
+        <span>Получи свою скидку!</span>
+      </label>
     </div>
   );
 };

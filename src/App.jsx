@@ -9,6 +9,7 @@ function App() {
   useEffect(() => {
     let tg = window.Telegram.WebApp;
     tg.disableVerticalSwipes();
+    tg.enableClosingConfirmation();
     tg.MainButton.color = "#b792ff";
     const date = new Date();
     const hour = date.getHours();
@@ -36,7 +37,15 @@ function App() {
           setCurrentPage("cart");
         });
       } else {
-        tg.BackButton.onClick(() => setCurrentPage("menu"));
+        tg.BackButton.onClick(() => {
+          tg.MainButton.offClick(() => {
+            tg.showAlert("Заказ создан!");
+          });
+          tg.MainButton.onClick(() => {
+            setCurrentPage("cart");
+          });
+          setCurrentPage("menu");
+        });
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
         tg.MainButton.setText("Создать заказ");
