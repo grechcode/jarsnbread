@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { AppContext } from "@/contexts";
-import { PAGES } from "@/constants";
 
 export const AppProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState("menu");
+  // const [cart, setCart] = useState({ wine_duck: 6, baguette: 2, cream_turkey: 1 });
   const [cart, setCart] = useState({});
   const [orderComment, setOrderComment] = useState(null);
   const [promocode, setPromocode] = useState(null);
@@ -17,6 +17,8 @@ export const AppProvider = ({ children }) => {
         setCart,
         orderComment,
         setOrderComment,
+        promocode,
+        setPromocode,
       }}
     >
       {children}

@@ -27,13 +27,15 @@ function App() {
       if (currentPage === "menu") {
         tg.BackButton.hide();
         let finalCartPrice = calculateCart(cart);
+        tg.MainButton.hasShineEffect = false;
         tg.MainButton.setText(`К корзине • ${finalCartPrice} ₽`);
         tg.MainButton.onClick(() => {
           setCurrentPage("cart");
         });
       } else {
-        tg.BackButton.onClick(() => setCurrentPage("cart"));
+        tg.BackButton.onClick(() => setCurrentPage("menu"));
         tg.BackButton.show();
+        tg.MainButton.hasShineEffect = true;
         tg.MainButton.setText("Создать заказ");
         tg.MainButton.onClick(() => {
           tg.showAlert("Заказ создан!");

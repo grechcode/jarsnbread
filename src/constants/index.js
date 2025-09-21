@@ -1,2 +1,2 @@
 export { PAGES } from "./PAGES";
-export { MENU } from "./MENU";
+export * from "./APP_CONFIG";

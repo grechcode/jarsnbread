@@ -1,0 +1,43 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.label {
+  color: var(--tg-theme-section-header-text-color);
+  font: var(--heading-h3);
+  padding-bottom: 18px;
+}
+
+.cartList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  background-color: var(--tg-theme-section-bg-color);
+}
+
+.dish {
+  display: flex;
+  height: 50px;
+  column-gap: 8px;
+}
+
+.dishImg {
+  border-radius: var(--border-radius);
+  height: 50px;
+  aspect-ratio: 1 / 1;
+}
+
+.dishName {
+}
+
+.dishCount {
+}
+
+.dishPrice {
+  margin-left: auto;
+}
+
+.input {
+}

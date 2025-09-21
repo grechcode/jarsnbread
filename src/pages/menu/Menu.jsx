@@ -6,6 +6,11 @@ import { cn } from "@/utils";
 export const Menu = () => {
   const { setCart, cart } = useAppContext();
 
+  const replaceImgWithError = (e) => {
+    e.target.onerror = null;
+    e.target.src = "/logo.jpg";
+  };
+
   const onAdd = (dish) => {
     setCart((prev) => {
       if (!prev[dish]) {
@@ -41,7 +46,12 @@ export const Menu = () => {
                     {dish?.hit > 0 && <span className={styles.hitTag}>HiT</span>}
                     {dish?.new > 0 && <span className={styles.newTag}>NeW</span>}
                   </div>
-                  <img className={styles.dishImg} src="baguette.jpeg" alt={dish.id} />
+                  <img
+                    className={styles.dishImg}
+                    src={`/${dish.id}.jpg`}
+                    onError={replaceImgWithError}
+                    alt={dish.id}
+                  />
                   <span className={styles.dishName}>{dish.name}</span>
                   <div className={styles.buttonBar}>
                     <button
