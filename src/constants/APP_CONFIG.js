@@ -8,14 +8,13 @@ export const MENU = {
         description: "",
         price: 360,
         isAvailable: true,
-        hit: true,
-        new: true,
       },
       {
         id: "wine_duck",
         name: 'Парфе "Винная утка"',
         description: "",
         price: 340,
+        hit: true,
         isAvailable: true,
       },
       {
@@ -58,6 +57,7 @@ export const MENU = {
         description: "",
         price: 200,
         isAvailable: true,
+        new: true,
       },
     ],
   },
@@ -77,6 +77,7 @@ export const MENU = {
         description: "",
         price: 270,
         isAvailable: true,
+        new: true,
       },
       {
         id: "caramel",

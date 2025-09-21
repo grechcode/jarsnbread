@@ -72,31 +72,25 @@
   row-gap: 4px;
 }
 
-.hitTag {
-  padding-inline: 4px;
-  height: 20px;
-  font-size: 10px;
-  line-height: 20px;
-  text-align: center;
-  background-size: 100% 100%;
-  background-position: 0px 0px;
-  background-image: linear-gradient(246deg, #ff0000ff 0%, #e4a719ff 100%);
-  border-radius: var(--border-radius);
-  animation: flash 10s infinite;
-}
-
+.hitTag,
 .newTag {
   padding-inline: 4px;
   height: 20px;
   font-size: 10px;
   line-height: 20px;
   text-align: center;
-  background-color: chocolate;
-  border-radius: var(--border-radius);
   background-size: 100% 100%;
   background-position: 0px 0px;
-  background-image: linear-gradient(90deg, rgb(155, 76, 201) 0%, #71c4ffff 100%);
+  border-radius: var(--border-radius);
   animation: flash 10s infinite;
+  color: white;
+}
+.hitTag {
+  background-image: linear-gradient(180deg, rgb(232, 61, 61) 0%, #e4a719ff 100%);
+}
+
+.newTag {
+  background-image: linear-gradient(90deg, rgb(155, 76, 201) 0%, #71c4ffff 100%);
 }
 
 @keyframes flash {

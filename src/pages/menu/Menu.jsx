@@ -47,8 +47,8 @@ export const Menu = () => {
                     <span className={styles.countSticker}>{cart[dish.id]}</span>
                   )}
                   <div className={styles.tagList}>
-                    {dish?.hit > 0 && <span className={styles.hitTag}>HiT</span>}
-                    {dish?.new > 0 && <span className={styles.newTag}>NeW</span>}
+                    {dish?.hit > 0 && <span className={styles.hitTag}>HIT</span>}
+                    {dish?.new > 0 && <span className={styles.newTag}>NEW</span>}
                   </div>
                   <img
                     className={styles.dishImg}
