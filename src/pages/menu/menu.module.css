@@ -10,9 +10,16 @@
   }
 }
 
+.menu {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
 .categoryLabel {
   color: var(--tg-theme-section-header-text-color);
   font: var(--heading-h3);
+  padding-bottom: 18px;
 }
 
 .dishListContainer {
@@ -34,7 +41,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 8px;
-  width: 180px;
+  width: 160px;
   border-radius: 10px;
   position: relative;
 }
@@ -51,6 +58,7 @@
   border-radius: 20px;
   background-color: var(--secondary-300);
   animation: counter 0.3s;
+  color: white;
 }
 
 .tagList {

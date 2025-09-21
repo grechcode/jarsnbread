@@ -1,6 +1,6 @@
 import { useAppContext } from "@/hooks";
 import { Cart, Menu } from "@/pages";
-import { isCartEmpty } from "@/utils";
+import { calculateCart, isCartEmpty } from "@/utils";
 import { useEffect } from "react";
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
   useEffect(() => {
     let tg = window.Telegram.WebApp;
     tg.disableVerticalSwipes();
+    tg.MainButton.color = "#b792ff";
     const date = new Date();
     const hour = date.getHours();
     // if (9 >= hour >= 21) {
@@ -24,14 +25,18 @@ function App() {
       tg.MainButton.hide();
     } else {
       if (currentPage === "menu") {
-        tg.MainButton.setText("К корзине");
+        tg.BackButton.hide();
+        let finalCartPrice = calculateCart(cart);
+        tg.MainButton.setText(`К корзине • ${finalCartPrice} ₽`);
         tg.MainButton.onClick(() => {
           setCurrentPage("cart");
         });
       } else {
-        tg.MainButton.setText("Вернуться в меню");
+        tg.BackButton.onClick(() => setCurrentPage("cart"));
+        tg.BackButton.show();
+        tg.MainButton.setText("Создать заказ");
         tg.MainButton.onClick(() => {
-          setCurrentPage("menu");
+          tg.showAlert("Заказ создан!");
         });
       }
       tg.MainButton.show();
