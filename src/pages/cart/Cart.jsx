@@ -78,6 +78,25 @@ export const Cart = () => {
         />
         <span>Получи свою скидку!</span>
       </label>
+      <label className={styles.inputLabel}>
+        <select className={styles.input}>
+          <option value="self">Самовывоз</option>
+          <option value="delivery">Доставка</option>
+        </select>
+        <span>Выбери способ получения заказа</span>
+      </label>
+      <label className={styles.inputLabel}>
+        <input className={styles.input} type="text" placeholder="г. Екатеринбург..." />
+        <span>Введи адрес доставки</span>
+      </label>
+      <label className={styles.inputLabel}>
+        <input className={styles.input} type="date" />
+        <span>Выбери дату доставки</span>
+      </label>
+      <label className={styles.inputLabel}>
+        <input className={styles.input} type="time" />
+        <span>Выбери время доставки</span>
+      </label>
     </div>
   );
 };

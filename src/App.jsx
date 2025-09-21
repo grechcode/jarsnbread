@@ -9,6 +9,7 @@ function App() {
   useEffect(() => {
     let tg = window.Telegram.WebApp;
     tg.disableVerticalSwipes();
+    tg.expand();
     tg.MainButton.color = "#b792ff";
     const date = new Date();
     const hour = date.getHours();
@@ -34,7 +35,6 @@ function App() {
         };
         if (phone) {
           tg.sendData(JSON.stringify(info));
-          tg.showAlert("Заказ создан!");
           tg.HapticFeedback.notificationOccurred("success");
           tg.close();
         } else {
