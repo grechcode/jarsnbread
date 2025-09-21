@@ -27,8 +27,11 @@ function App() {
     };
 
     const cartMainButtonHandler = () => {
-      tg.showAlert("Заказ создан!");
-      tg.HapticFeedback.notificationOccurred("success");
+      tg.requestContact(() => {
+        tg.sendData(JSON.stringify(cart));
+        tg.showAlert("Заказ создан!");
+        tg.HapticFeedback.notificationOccurred("success");
+      });
     };
 
     const backButtonHandler = () => {
