@@ -31,7 +31,11 @@ function App() {
       tg.HapticFeedback.notificationOccurred("success");
     };
 
-    const backButtonHandler = () => setCurrentPage("menu");
+    const backButtonHandler = () => {
+      tg.MainButton.offClick(cartMainButtonHandler);
+      tg.MainButton.onClick(menuMainButtonHandler);
+      setCurrentPage("menu");
+    };
 
     if (isCartEmpty(cart)) {
       tg.disableClosingConfirmation();
