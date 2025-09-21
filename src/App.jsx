@@ -37,6 +37,7 @@ function App() {
           tg.sendData(JSON.stringify(info));
           tg.showAlert("Заказ создан!");
           tg.HapticFeedback.notificationOccurred("success");
+          tg.close();
         } else {
           tg.showAlert(
             "Чтобы создать заказ, необходимо поделиться номером телефона! Это нужно чтобы оператор мог связаться с вами!"
