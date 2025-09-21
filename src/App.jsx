@@ -29,7 +29,7 @@ function App() {
     const cartMainButtonHandler = () => {
       tg.requestContact((phone) => {
         if (phone) {
-          tg.sendData(JSON.stringify(data));
+          tg.sendData(JSON.stringify(cart));
           tg.showAlert("Заказ создан!");
           tg.HapticFeedback.notificationOccurred("success");
         } else {
