@@ -21,13 +21,17 @@ function App() {
 
   useEffect(() => {
     let tg = window.Telegram.WebApp;
+
     const menuMainButtonHandler = () => {
       setCurrentPage("cart");
     };
+
     const cartMainButtonHandler = () => {
       tg.showAlert("Заказ создан!");
       tg.HapticFeedback.notificationOccurred("success");
     };
+
+    const backButtonHandler = () => setCurrentPage("menu");
 
     if (isCartEmpty(cart)) {
       tg.disableClosingConfirmation();
@@ -42,11 +46,7 @@ function App() {
         tg.MainButton.offClick(cartMainButtonHandler);
         tg.MainButton.onClick(menuMainButtonHandler);
       } else {
-        tg.BackButton.onClick(() => {
-          setCurrentPage("menu");
-          tg.MainButton.offClick(cartMainButtonHandler);
-          tg.MainButton.onClick(menuMainButtonHandler);
-        });
+        tg.BackButton.onClick(backButtonHandler);
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
         tg.MainButton.setText("Создать заказ");

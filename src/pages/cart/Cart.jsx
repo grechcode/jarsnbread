@@ -19,20 +19,23 @@ export const Cart = () => {
     <div className={styles.cart}>
       <ul className={styles.cartList}>
         <h3 className={styles.label}>ВАШ ЗАКАЗ</h3>
-        {Object.keys(cart).map((dish) => (
-          <li className={styles.dish}>
-            <img
-              className={styles.dishImg}
-              src={`/${dish}.jpg`}
-              onError={replaceImgWithError}
-            />
-            <span className={styles.dishName}>{getDishProperty(dish, "name")}</span>
-            <span className={styles.dishCount}>{cart[dish]}x</span>
-            <span className={styles.dishPrice}>
-              {getDishProperty(dish, "price") * cart[dish]} ₽
-            </span>
-          </li>
-        ))}
+        {Object.keys(cart).map(
+          (dish) =>
+            cart[dish] > 0 && (
+              <li className={styles.dish}>
+                <img
+                  className={styles.dishImg}
+                  src={`/${dish}.jpg`}
+                  onError={replaceImgWithError}
+                />
+                <span className={styles.dishName}>{getDishProperty(dish, "name")}</span>
+                <span className={styles.dishCount}>{cart[dish]}x</span>
+                <span className={styles.dishPrice}>
+                  {getDishProperty(dish, "price") * cart[dish]} ₽
+                </span>
+              </li>
+            )
+        )}
       </ul>
       <label className={styles.inputLabel}>
         <input

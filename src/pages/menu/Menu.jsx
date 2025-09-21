@@ -50,12 +50,16 @@ export const Menu = () => {
                     {dish?.hit > 0 && <span className={styles.hitTag}>HIT</span>}
                     {dish?.new > 0 && <span className={styles.newTag}>NEW</span>}
                   </div>
-                  <img
-                    className={styles.dishImg}
-                    src={`/${dish.id}.jpg`}
-                    onError={replaceImgWithError}
-                    alt={dish.id}
-                  />
+                  <label htmlFor={dish.id} className={styles.checkboxLabel}>
+                    <input type="checkbox" id={dish.id} className={styles.checkbox} />
+                    <img
+                      className={styles.dishImg}
+                      src={`/${dish.id}.jpg`}
+                      onError={replaceImgWithError}
+                      alt={dish.id}
+                    />
+                    <span className={styles.dishDesc}>{dish.description}</span>
+                  </label>
                   <span className={styles.dishName}>{dish.name}</span>
                   <div className={styles.buttonBar}>
                     <button
