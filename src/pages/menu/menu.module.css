@@ -15,12 +15,14 @@
   flex-direction: column;
   row-gap: 20px;
   background-color: var(--tg-theme-section-bg-color);
+  padding: 4px;
+  border-radius: var(--border-radius);
 }
 
 .categoryLabel {
   color: var(--tg-theme-section-header-text-color);
   font: var(--heading-h3);
-  padding-bottom: 18px;
+  padding-block: 12px;
 }
 
 .dishListContainer {
@@ -43,7 +45,7 @@
   flex-direction: column;
   row-gap: 8px;
   width: 160px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   position: relative;
 }
 

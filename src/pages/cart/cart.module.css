@@ -7,7 +7,7 @@
 .label {
   color: var(--tg-theme-section-header-text-color);
   font: var(--heading-h3);
-  padding-bottom: 12px;
+  padding-block: 12px;
 }
 
 .cartList {
@@ -47,7 +47,7 @@
 }
 
 .input {
-  height: 20px;
+  height: 40px;
   overflow: hidden;
   font: var(--body-sm-regular);
   text-overflow: ellipsis;
