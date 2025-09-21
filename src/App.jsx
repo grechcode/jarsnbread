@@ -26,7 +26,7 @@ function App() {
     };
     const cartMainButtonHandler = () => {
       tg.showAlert("Заказ создан!");
-      tg.notificationOccurred("success");
+      tg.HapticFeedback.notificationOccurred("success");
     };
 
     if (isCartEmpty(cart)) {

@@ -13,7 +13,7 @@ export const Menu = () => {
 
   const onAdd = (dish) => {
     let tg = window.Telegram.WebApp;
-    tg.selectionChanged();
+    tg.HapticFeedback.selectionChanged();
     setCart((prev) => {
       if (!prev[dish]) {
         prev[dish] = 0;
@@ -25,7 +25,7 @@ export const Menu = () => {
 
   const onRemove = (dish) => {
     let tg = window.Telegram.WebApp;
-    tg.selectionChanged();
+    tg.HapticFeedback.selectionChanged();
     setCart((prev) => {
       if (prev[dish] > 0) {
         prev[dish] -= 1;
