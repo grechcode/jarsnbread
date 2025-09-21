@@ -18,6 +18,11 @@ button {
   -webkit-appearance: none;
 }
 
+input {
+  -webkit-tap-highlight-color: none;
+  -webkit-appearance: none;
+}
+
 *:active {
   outline: none;
   border: none;
