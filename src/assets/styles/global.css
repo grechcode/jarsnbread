@@ -19,15 +19,6 @@ button {
 *:active {
   outline: none;
   border: none;
-  pointer-events: none;
-  filter: none;
-}
-
-*:hover {
-  outline: none;
-  border: none;
-  pointer-events: none;
-  filter: none;
 }
 
 button:disabled,
