@@ -42,9 +42,9 @@ function App() {
       tg.MainButton.hide();
     } else {
       tg.enableClosingConfirmation();
+      let finalCartPrice = calculateCart(cart);
       if (currentPage === "menu") {
         tg.BackButton.hide();
-        let finalCartPrice = calculateCart(cart);
         tg.MainButton.hasShineEffect = false;
         tg.MainButton.setText(`К корзине • ${finalCartPrice} ₽`);
         tg.MainButton.offClick(cartMainButtonHandler);
@@ -53,7 +53,7 @@ function App() {
         tg.BackButton.onClick(backButtonHandler);
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
-        tg.MainButton.setText("Создать заказ");
+        tg.MainButton.setText(`Создать заказ • ${finalCartPrice} ₽`);
         tg.MainButton.offClick(menuMainButtonHandler);
         tg.MainButton.onClick(cartMainButtonHandler);
       }
