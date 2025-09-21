@@ -27,8 +27,12 @@ function App() {
     };
 
     const cartMainButtonHandler = () => {
-      tg.requestContact(() => {
-        tg.sendData(JSON.stringify(cart));
+      tg.requestContact((phone) => {
+        let data = {
+          phone: phone,
+          cart: cart,
+        };
+        tg.sendData(JSON.stringify(data));
         tg.showAlert("Заказ создан!");
         tg.HapticFeedback.notificationOccurred("success");
       });
