@@ -5,9 +5,6 @@ body {
   background-color: var(--tg-theme-secondary-bg-color);
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  padding-inline: 8px;
-  padding-top: var(--tg-safe-area-inset-top);
-  padding-bottom: var(--tg-safe-area-inset-bottom);
 }
 
 #root {

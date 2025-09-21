@@ -18,7 +18,7 @@ export const Cart = () => {
   return (
     <div className={styles.cart}>
       <ul className={styles.cartList}>
-        <h3 className={styles.label}>Ваш заказ</h3>
+        <h3 className={styles.label}>ВАШ ЗАКАЗ</h3>
         {Object.keys(cart).map((dish) => (
           <li className={styles.dish}>
             <img

@@ -15,14 +15,13 @@
   flex-direction: column;
   row-gap: 20px;
   background-color: var(--tg-theme-section-bg-color);
-  padding: 4px;
-  border-radius: var(--border-radius);
+  padding: 12px;
 }
 
 .categoryLabel {
   color: var(--tg-theme-section-header-text-color);
   font: var(--heading-h3);
-  padding-block: 12px;
+  padding-bottom: 12px;
 }
 
 .dishListContainer {
