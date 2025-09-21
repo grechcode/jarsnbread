@@ -29,6 +29,9 @@ function App() {
         let finalCartPrice = calculateCart(cart);
         tg.MainButton.hasShineEffect = false;
         tg.MainButton.setText(`К корзине • ${finalCartPrice} ₽`);
+        tg.MainButton.offClick(() => {
+          tg.showAlert("Заказ создан!");
+        });
         tg.MainButton.onClick(() => {
           setCurrentPage("cart");
         });
@@ -37,6 +40,9 @@ function App() {
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
         tg.MainButton.setText("Создать заказ");
+        tg.MainButton.offClick(() => {
+          setCurrentPage("cart");
+        });
         tg.MainButton.onClick(() => {
           tg.showAlert("Заказ создан!");
         });

@@ -7,10 +7,11 @@
 .label {
   color: var(--tg-theme-section-header-text-color);
   font: var(--heading-h3);
-  padding-bottom: 18px;
+  padding-bottom: 12px;
 }
 
 .cartList {
+  border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
   row-gap: 12px;
@@ -21,23 +22,34 @@
   display: flex;
   height: 50px;
   column-gap: 8px;
+  padding: 4px;
+  align-items: start;
 }
 
 .dishImg {
   border-radius: var(--border-radius);
-  height: 50px;
+  height: 100%;
   aspect-ratio: 1 / 1;
 }
 
 .dishName {
+  font: var(--body-md-semibold);
 }
 
 .dishCount {
+  font: var(--body-sm-semibold);
+  color: var(--secondary-300);
 }
 
 .dishPrice {
   margin-left: auto;
+  font: var(--body-sm-regular);
 }
 
 .input {
+  height: 20px;
+  overflow: hidden;
+  font: var(--body-sm-regular);
+  text-overflow: ellipsis;
+  background-color: var(--tg-theme-section-bg-color);
 }

@@ -17,8 +17,8 @@ export const Cart = () => {
 
   return (
     <div className={styles.cart}>
-      <h3 className={styles.label}>Ваш заказ</h3>
       <ul className={styles.cartList}>
+        <h3 className={styles.label}>Ваш заказ</h3>
         {Object.keys(cart).map((dish) => (
           <li className={styles.dish}>
             <img
@@ -27,7 +27,7 @@ export const Cart = () => {
               onError={replaceImgWithError}
             />
             <span className={styles.dishName}>{getDishProperty(dish, "name")}</span>
-            <span className={styles.dishCount}>{cart[dish]}</span>
+            <span className={styles.dishCount}>{cart[dish]}x</span>
             <span className={styles.dishPrice}>
               {getDishProperty(dish, "price") * cart[dish]} ₽
             </span>
