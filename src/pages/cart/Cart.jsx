@@ -61,8 +61,7 @@ export const Cart = () => {
           )}
         </footer>
       </ul>
-      <form action="">
-        {" "}
+      <form action="" className={styles.form}>
         <label className={styles.inputLabel}>
           <input
             className={styles.input}

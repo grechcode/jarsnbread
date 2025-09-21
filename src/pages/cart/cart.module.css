@@ -64,6 +64,12 @@
   margin-left: auto;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
 .inputLabel {
   display: flex;
   flex-direction: column;
