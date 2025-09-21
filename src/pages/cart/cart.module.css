@@ -46,6 +46,24 @@
   font: var(--body-sm-regular);
 }
 
+.footer {
+  padding-block: 20px;
+  font: var(--body-lg-semibold);
+  display: flex;
+}
+
+.oldPrice {
+  margin-left: auto;
+  margin-right: 18px;
+  scale: 0.9;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.finalPrice {
+  margin-left: auto;
+}
+
 .inputLabel {
   display: flex;
   flex-direction: column;

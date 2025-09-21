@@ -1,9 +1,11 @@
 import { useAppContext } from "@/hooks";
 import styles from "./cart.module.css";
-import { getDishProperty } from "@/utils";
+import { calculateCart, cn, getDishProperty } from "@/utils";
 import { PROMOCODES } from "@/constants";
+import { useState } from "react";
 
 export const Cart = () => {
+  const [discount, setDiscount] = useState(null);
   const { cart, setPromocode, setOrderComment } = useAppContext();
 
   const replaceImgWithError = (e) => {
@@ -12,7 +14,15 @@ export const Cart = () => {
   };
 
   const promocodeHandler = (e) => {
-    setPromocode(e.target.value);
+    let value = e.target.value;
+    setPromocode(value);
+    setDiscount(null);
+    Object.keys(PROMOCODES).map((code) => {
+      if (value === code) {
+        let discount = PROMOCODES[code];
+        setDiscount(discount);
+      }
+    });
   };
 
   return (
@@ -36,6 +46,19 @@ export const Cart = () => {
               </li>
             )
         )}
+        <footer className={styles.footer}>
+          <span>ИТОГО</span>
+          {discount ? (
+            <>
+              <span className={styles.oldPrice}>{calculateCart(cart)} ₽</span>
+              <span>
+                {calculateCart(cart) - (calculateCart(cart) * discount) / 100} ₽
+              </span>
+            </>
+          ) : (
+            <span className={styles.finalPrice}>{calculateCart(cart)} ₽</span>
+          )}
+        </footer>
       </ul>
       <label className={styles.inputLabel}>
         <input

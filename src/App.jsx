@@ -53,7 +53,7 @@ function App() {
         tg.BackButton.onClick(backButtonHandler);
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
-        tg.MainButton.setText(`Создать заказ • ${finalCartPrice} ₽`);
+        tg.MainButton.setText(`Создать заказ`);
         tg.MainButton.offClick(menuMainButtonHandler);
         tg.MainButton.onClick(cartMainButtonHandler);
       }
