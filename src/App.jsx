@@ -21,6 +21,14 @@ function App() {
 
   useEffect(() => {
     let tg = window.Telegram.WebApp;
+    const menuMainButtonHandler = () => {
+      setCurrentPage("cart");
+    };
+    const cartMainButtonHandler = () => {
+      tg.showAlert("Заказ создан!");
+      tg.notificationOccurred("success");
+    };
+
     if (isCartEmpty(cart)) {
       tg.disableClosingConfirmation();
       tg.MainButton.hide();
@@ -31,30 +39,22 @@ function App() {
         let finalCartPrice = calculateCart(cart);
         tg.MainButton.hasShineEffect = false;
         tg.MainButton.setText(`К корзине • ${finalCartPrice} ₽`);
-        tg.MainButton.onClick(() => {
-          setCurrentPage("cart");
-        });
+        tg.MainButton.offClick(cartMainButtonHandler);
+        tg.MainButton.onClick(menuMainButtonHandler);
       } else {
         tg.BackButton.onClick(() => {
           setCurrentPage("menu");
+          tg.MainButton.offClick(cartMainButtonHandler);
+          tg.MainButton.onClick(menuMainButtonHandler);
         });
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
         tg.MainButton.setText("Создать заказ");
-        tg.MainButton.onClick(() => {
-          tg.showAlert("Заказ создан!");
-        });
+        tg.MainButton.offClick(menuMainButtonHandler);
+        tg.MainButton.onClick(cartMainButtonHandler);
       }
       tg.MainButton.show();
     }
-    return () => {
-      tg.MainButton.offClick(() => {
-        tg.showAlert("Заказ создан!");
-      });
-      tg.MainButton.offClick(() => {
-        setCurrentPage("cart");
-      });
-    };
   }, [cart, currentPage]);
 
   const PAGES = {
