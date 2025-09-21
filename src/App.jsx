@@ -9,7 +9,6 @@ function App() {
   useEffect(() => {
     let tg = window.Telegram.WebApp;
     tg.disableVerticalSwipes();
-    tg.enableClosingConfirmation();
     tg.MainButton.color = "#b792ff";
     const date = new Date();
     const hour = date.getHours();
@@ -23,41 +22,39 @@ function App() {
   useEffect(() => {
     let tg = window.Telegram.WebApp;
     if (isCartEmpty(cart)) {
+      tg.disableClosingConfirmation();
       tg.MainButton.hide();
     } else {
+      tg.enableClosingConfirmation();
       if (currentPage === "menu") {
         tg.BackButton.hide();
         let finalCartPrice = calculateCart(cart);
         tg.MainButton.hasShineEffect = false;
         tg.MainButton.setText(`К корзине • ${finalCartPrice} ₽`);
-        tg.MainButton.offClick(() => {
-          tg.showAlert("Заказ создан!");
-        });
         tg.MainButton.onClick(() => {
           setCurrentPage("cart");
         });
       } else {
         tg.BackButton.onClick(() => {
-          tg.MainButton.offClick(() => {
-            tg.showAlert("Заказ создан!");
-          });
-          tg.MainButton.onClick(() => {
-            setCurrentPage("cart");
-          });
           setCurrentPage("menu");
         });
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
         tg.MainButton.setText("Создать заказ");
-        tg.MainButton.offClick(() => {
-          setCurrentPage("cart");
-        });
         tg.MainButton.onClick(() => {
           tg.showAlert("Заказ создан!");
         });
       }
       tg.MainButton.show();
     }
+    return () => {
+      tg.MainButton.offClick(() => {
+        tg.showAlert("Заказ создан!");
+      });
+      tg.MainButton.offClick(() => {
+        setCurrentPage("cart");
+      });
+    };
   }, [cart, currentPage]);
 
   const PAGES = {
