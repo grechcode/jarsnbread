@@ -29,8 +29,7 @@ function App() {
     const cartMainButtonHandler = () => {
       tg.requestContact((phone, data) => {
         let info = {
-          phone: phone,
-          data: data,
+          contact: data,
           cart: cart,
         };
         if (phone) {
