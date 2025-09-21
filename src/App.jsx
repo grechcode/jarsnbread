@@ -28,13 +28,16 @@ function App() {
 
     const cartMainButtonHandler = () => {
       tg.requestContact((phone) => {
-        let data = {
-          phone: phone,
-          cart: cart,
-        };
-        tg.sendData(JSON.stringify(data));
-        tg.showAlert("Заказ создан!");
-        tg.HapticFeedback.notificationOccurred("success");
+        if (phone) {
+          tg.sendData(JSON.stringify(data));
+          tg.showAlert("Заказ создан!");
+          tg.HapticFeedback.notificationOccurred("success");
+        } else {
+          tg.showAlert(
+            "Чтобы создать заказ, необходимо поделиться номером телефона! Это нужно чтобы оператор мог связаться с вами!"
+          );
+          tg.HapticFeedback.notificationOccurred("error");
+        }
       });
     };
 
