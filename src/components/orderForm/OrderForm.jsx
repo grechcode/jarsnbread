@@ -63,7 +63,7 @@ export const OrderForm = () => {
           readOnly={receiving === "pickup" ? true : false}
           onChange={setDeliveryAddressHandler}
         />
-        <span>
+        <span className={styles.inputDescription}>
           {receiving === "pickup"
             ? "Заказ будет доступен по адресу"
             : "Введи адрес доставки"}
@@ -79,7 +79,7 @@ export const OrderForm = () => {
           onChange={setDeliveryDateHandler}
           required={true}
         />
-        <span>Выбери дату получения</span>
+        <span className={styles.inputDescription}>Выбери дату получения</span>
       </label>
       <label className={styles.inputLabel}>
         <input
@@ -91,7 +91,7 @@ export const OrderForm = () => {
           onChange={setDeliveryTimeHandler}
           required={true}
         />
-        <span>Выбери время получения</span>
+        <span className={styles.inputDescription}>Выбери время получения</span>
       </label>
       <label className={styles.inputLabel}>
         <input
@@ -100,7 +100,9 @@ export const OrderForm = () => {
           placeholder="Комментарий к заказу..."
           onChange={setOrderCommentHandler}
         />
-        <span>Особые детали и пожелания к заказу</span>
+        <span className={styles.inputDescription}>
+          Особые детали и пожелания к заказу
+        </span>
       </label>
     </form>
   );
