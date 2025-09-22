@@ -38,14 +38,14 @@ function App() {
 
     const cartMainButtonHandler = () => {
       tg.requestContact((phone, contactData) => {
-        const detailText = generateOrderDetailsText(
+        const detailText = generateOrderDetailsText({
           cart,
           receiving,
           deliveryAddress,
           deliveryDate,
           deliveryTime,
-          orderComment
-        );
+          orderComment,
+        });
         let info = {
           contact: contactData,
           detail: detailText,
