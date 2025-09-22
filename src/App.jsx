@@ -68,8 +68,7 @@ function App() {
       tg.MainButton.onClick(menuMainButtonHandler);
       setCurrentPage("menu");
     };
-    tg.MainButton.offClick(cartMainButtonHandler);
-    tg.MainButton.onClick(cartMainButtonHandler);
+
     if (isCartEmpty(cart)) {
       tg.disableClosingConfirmation();
       tg.MainButton.hide();
@@ -102,6 +101,39 @@ function App() {
     deliveryTime,
     orderComment,
   ]);
+
+  useEffect(() => {
+    let tg = window.Telegram.WebApp;
+    const cartMainButtonHandler = () => {
+      tg.requestContact((phone, contactData) => {
+        let detailText = generateOrderDetailsText({
+          cart,
+          receiving,
+          deliveryAddress,
+          deliveryDate,
+          deliveryTime,
+          orderComment,
+        });
+        let info = {
+          contact: contactData,
+          detail: detailText,
+        };
+        if (phone) {
+          tg.sendData(JSON.stringify(info));
+          tg.HapticFeedback.notificationOccurred("success");
+          tg.close();
+        } else {
+          tg.showAlert(
+            "Чтобы создать заказ, необходимо поделиться номером телефона! Это нужно чтобы оператор мог связаться с вами!"
+          );
+          tg.HapticFeedback.notificationOccurred("error");
+        }
+      });
+    };
+
+    tg.MainButton.offClick(cartMainButtonHandler);
+    tg.MainButton.onClick(cartMainButtonHandler);
+  }, [receiving, deliveryAddress, deliveryDate, deliveryTime, orderComment]);
 
   const PAGES = {
     menu: <Menu />,
