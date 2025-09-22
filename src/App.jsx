@@ -46,6 +46,7 @@ function App() {
           deliveryTime,
           orderComment,
         });
+        tg.showAlert(detailText);
         let info = {
           contact: contactData,
           detail: detailText,
