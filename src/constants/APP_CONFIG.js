@@ -103,7 +103,3 @@ export const MENU = {
     ],
   },
 };
-
-export const PROMOCODES = {
-  METROBOT: 10,
-};
