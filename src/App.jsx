@@ -30,6 +30,18 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (receiving === "delivery") {
+      let tg = window.Telegram.WebApp;
+
+      if (deliveryAddress.trim().length === "") {
+        tg.MainButton.disable();
+      } else {
+        tg.MainButton.enable();
+      }
+    }
+  }, [receiving, deliveryAddress]);
+
+  useEffect(() => {
     let tg = window.Telegram.WebApp;
 
     const menuMainButtonHandler = () => {
@@ -38,36 +50,28 @@ function App() {
 
     const cartMainButtonHandler = () => {
       tg.requestContact((phone, data) => {
-        const requiredOrderParams = [deliveryAddress, deliveryDate, deliveryTime];
-        requiredOrderParams.forEach((param) => {
-          if (param.length.trim() === "") {
-            tg.showAlert("Заполни обязательные параметры!");
-            tg.HapticFeedback.notificationOccurred("error");
-          } else {
-            const detailText = generateOrderDetailsText(
-              cart,
-              receiving,
-              deliveryAddress,
-              deliveryDate,
-              deliveryTime,
-              orderComment
-            );
-            let info = {
-              contact: data,
-              detail: detailText,
-            };
-            if (phone) {
-              tg.sendData(JSON.stringify(info));
-              tg.HapticFeedback.notificationOccurred("success");
-              tg.close();
-            } else {
-              tg.showAlert(
-                "Чтобы создать заказ, необходимо поделиться номером телефона! Это нужно чтобы оператор мог связаться с вами!"
-              );
-              tg.HapticFeedback.notificationOccurred("error");
-            }
-          }
-        });
+        const detailText = generateOrderDetailsText(
+          cart,
+          receiving,
+          deliveryAddress,
+          deliveryDate,
+          deliveryTime,
+          orderComment
+        );
+        let info = {
+          contact: data,
+          detail: detailText,
+        };
+        if (phone) {
+          tg.sendData(JSON.stringify(info));
+          tg.HapticFeedback.notificationOccurred("success");
+          tg.close();
+        } else {
+          tg.showAlert(
+            "Чтобы создать заказ, необходимо поделиться номером телефона! Это нужно чтобы оператор мог связаться с вами!"
+          );
+          tg.HapticFeedback.notificationOccurred("error");
+        }
       });
     };
 
@@ -84,6 +88,7 @@ function App() {
       tg.enableClosingConfirmation();
       let finalCartPrice = calculateCart(cart);
       if (currentPage === "menu") {
+        tg.MainButton.enable();
         tg.BackButton.hide();
         tg.MainButton.hasShineEffect = false;
         tg.MainButton.setText(`К корзине • ${finalCartPrice} ₽`);
