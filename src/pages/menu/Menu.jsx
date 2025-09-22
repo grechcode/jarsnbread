@@ -80,7 +80,7 @@ export const Menu = () => {
                       onClick={() => onAdd(dish.id)}
                       disabled={!dish.isAvailable}
                     >
-                      {cart[dish.id]
+                      {cart[dish.id]?.count > 0
                         ? "+"
                         : dish.isAvailable
                         ? `${dish.price} ₽`
