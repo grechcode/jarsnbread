@@ -19,7 +19,7 @@
 }
 
 .categoryLabel {
-  color: var(--tg-theme-section-header-text-color);
+  color: var(--tg-theme-subtitle-text-color);
   font: var(--heading-h3);
   padding-bottom: 12px;
 }
