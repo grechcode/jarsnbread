@@ -6,7 +6,7 @@ export const generateOrderDetailsText = (
   deliveryTime,
   orderComment
 ) => {
-  const detailText = "Чек:\n";
+  let detailText = "Чек:\n";
   Object.keys(cart).forEach((dish) => {
     detailText += `• ${cart[dish].name} .......... ${cart[dish].price} (${cart[dish].count})\n`;
   });
