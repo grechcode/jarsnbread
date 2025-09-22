@@ -10,11 +10,9 @@ export const generateOrderDetailsText = ({
   Object.keys(cart).forEach((dish) => {
     detailText += `• ${cart[dish].name}\n⌙ x${cart[dish].count}  . . . . . . . . . . . . . . . . . . . . ${cart[dish].price} ₽\n`;
   });
-  if (receiving === "pickup") {
-    detailText += `Заказ доступен по адресу: г. Екатеринбург, ул. Шейнкмана, д. 19\n`;
-  } else {
-    detailText += `Адрес доставки: ${deliveryAddress}\n`;
-  }
+  receiving === "pickup"
+    ? (detailText += `Заказ доступен по адресу: г. Екатеринбург, ул. Шейнкмана, д. 19\n`)
+    : (detailText += `Адрес доставки: ${deliveryAddress}\n`);
   detailText += `Дата получения: ${deliveryDate}\n`;
   detailText += `Время получения: ${deliveryTime}\n`;
   if (orderComment.trim().length > 0) {
