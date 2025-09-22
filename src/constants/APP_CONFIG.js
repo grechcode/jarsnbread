@@ -60,7 +60,7 @@ export const MENU = {
         name: "Рожь, изюм и тмин",
         description: "Состав: мука ржаная, вода, изюм, тмин, морская соль, дрожжи",
         price: 100,
-        isAvailable: true,
+        isAvailable: false,
       },
       {
         id: "rye_bacon_and_onion",
