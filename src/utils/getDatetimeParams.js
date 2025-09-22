@@ -4,14 +4,17 @@ export const getDatetimeParams = () => {
 
   const date = new Date();
   const currentDate = date.toISOString().split("T")[0];
-  const minWaitingTime = new Date(date.getTime() + MINIMIM_WAITING_TIME_MS);
+  const minWaitingTime = new Date(date.getTime() + MINIMIM_WAITING_TIME_MS)
+    .toISOString()
+    .split("T")[1]
+    .slice(0, 5);
   const maxDate = new Date(date.getTime() + MAXIMUM_POSSIBLE_DATE_MS)
     .toISOString()
     .split("T")[0];
 
   return {
     currentDate: currentDate,
-    minWaitingTime: `${minWaitingTime.getHours()}:${minWaitingTime.getMinutes()}`,
+    minWaitingTime: minWaitingTime,
     maxDate: maxDate,
   };
 };
