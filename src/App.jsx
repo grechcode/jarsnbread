@@ -92,7 +92,15 @@ function App() {
       }
       tg.MainButton.show();
     }
-  }, [cart, currentPage]);
+  }, [
+    cart,
+    currentPage,
+    receiving,
+    deliveryAddress,
+    deliveryDate,
+    deliveryTime,
+    orderComment,
+  ]);
 
   const PAGES = {
     menu: <Menu />,
