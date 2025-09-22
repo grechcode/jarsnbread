@@ -68,7 +68,7 @@ export const Menu = () => {
                       type="button"
                       className={cn(
                         styles.removeBtn,
-                        cart[dish.id].count > 0 && styles.showBtn
+                        cart[dish.id]?.count > 0 && styles.showBtn
                       )}
                       onClick={() => onRemove(dish.id)}
                     >
