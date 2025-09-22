@@ -6,6 +6,9 @@ export const generateOrderDetailsText = (
   deliveryTime,
   orderComment
 ) => {
+  const dateString = deliveryDate?.split("T")[0];
+  const timeString = deliveryTime?.split("T")[1]?.slice(0, 5);
+
   let detailText = "Чек:\n";
   Object.keys(cart).forEach((dish) => {
     detailText += `• ${cart[dish].name}\n⌙ x${cart[dish].count}  . . . . . . . . . . . . . . . . . . . . ${cart[dish].price} ₽\n`;
@@ -14,8 +17,8 @@ export const generateOrderDetailsText = (
   receiving === "pickup"
     ? (detailText += `Заказ доступен по адресу: г. Екатеринбург, ул. Шейнкмана, д. 19\n`)
     : (detailText += `Адрес доставки: ${deliveryAddress}\n`);
-  detailText += `Дата доставки: ${deliveryDate}\n`;
-  detailText += `Время доставки: ${deliveryTime}\n`;
+  detailText += `Дата доставки: ${deliveryDate || dateString}\n`;
+  detailText += `Время доставки: ${deliveryTime || timeString}\n`;
   if (orderComment.trim().length > 0) {
     detailText += `Комментарий: ${orderComment}\n`;
   }
