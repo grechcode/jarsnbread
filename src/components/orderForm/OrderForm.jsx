@@ -1,6 +1,6 @@
 import styles from "./orderForm.module.css";
 import { useAppContext } from "@/hooks";
-import { cn, getDatetimeParams } from "@/utils";
+import { cn, generateOrderDetailsText, getDatetimeParams } from "@/utils";
 import { useEffect } from "react";
 
 export const OrderForm = () => {

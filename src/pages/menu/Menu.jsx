@@ -6,8 +6,6 @@ import { cn, getDishProperty } from "@/utils";
 export const Menu = () => {
   const { setCart, cart } = useAppContext();
 
-  console.log(cart);
-
   const replaceImgWithError = (e) => {
     e.target.onerror = null;
     e.target.src = "/logo.jpg";

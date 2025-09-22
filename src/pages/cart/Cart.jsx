@@ -1,6 +1,6 @@
 import { useAppContext } from "@/hooks";
 import styles from "./cart.module.css";
-import { calculateCart, cn, getDishProperty } from "@/utils";
+import { calculateCart } from "@/utils";
 import { OrderForm } from "@/components";
 
 export const Cart = () => {

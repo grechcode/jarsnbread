@@ -30,18 +30,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (receiving === "delivery") {
-      let tg = window.Telegram.WebApp;
-
-      if (deliveryAddress.trim().length === "") {
-        tg.MainButton.disable();
-      } else {
-        tg.MainButton.enable();
-      }
-    }
-  }, [receiving, deliveryAddress]);
-
-  useEffect(() => {
     let tg = window.Telegram.WebApp;
 
     const menuMainButtonHandler = () => {
@@ -49,7 +37,7 @@ function App() {
     };
 
     const cartMainButtonHandler = () => {
-      tg.requestContact((phone, data) => {
+      tg.requestContact((phone, contactData) => {
         const detailText = generateOrderDetailsText(
           cart,
           receiving,
@@ -59,7 +47,7 @@ function App() {
           orderComment
         );
         let info = {
-          contact: data,
+          contact: contactData,
           detail: detailText,
         };
         if (phone) {
