@@ -14,22 +14,16 @@ body {
 
 button {
   color: var(--tg-theme-button-text-color);
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
 }
 
-input {
+* {
+  outline: none;
+  border: none;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-}
-
-*:active {
-  outline: none;
-  border: none;
 }
 
 button:disabled,

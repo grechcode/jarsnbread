@@ -6,6 +6,8 @@ import { cn, getDishProperty } from "@/utils";
 export const Menu = () => {
   const { setCart, cart } = useAppContext();
 
+  console.log(cart);
+
   const replaceImgWithError = (e) => {
     e.target.onerror = null;
     e.target.src = "/logo.jpg";
@@ -18,8 +20,8 @@ export const Menu = () => {
       if (!prev[dish]) {
         prev[dish] = { count: 0, name: getDishProperty(dish, "name"), price: 0 };
       }
-      prev[dish]["count"] += 1;
-      prev[dish]["price"] += getDishProperty(dish, "price");
+      prev[dish].count += 1;
+      prev[dish].price += getDishProperty(dish, "price");
       return { ...prev };
     });
   };
@@ -28,9 +30,9 @@ export const Menu = () => {
     let tg = window.Telegram.WebApp;
     tg.HapticFeedback.selectionChanged();
     setCart((prev) => {
-      if (prev[dish] > 0) {
-        prev[dish]["count"] -= 1;
-        prev[dish]["price"] -= getDishProperty(dish, "price");
+      if (prev[dish].count > 0) {
+        prev[dish].count -= 1;
+        prev[dish].price -= getDishProperty(dish, "price");
       }
       return { ...prev };
     });
@@ -45,8 +47,8 @@ export const Menu = () => {
             <ul className={styles.dishList}>
               {MENU[category].dishes.map((dish) => (
                 <li key={dish.id} className={styles.dishCard}>
-                  {cart[dish.id] > 0 && (
-                    <span className={styles.countSticker}>{cart[dish.id]}</span>
+                  {cart[dish.id]?.count > 0 && (
+                    <span className={styles.countSticker}>{cart[dish.id].count}</span>
                   )}
                   <div className={styles.tagList}>
                     {dish?.hit > 0 && <span className={styles.hitTag}>HIT</span>}
