@@ -41,7 +41,7 @@ export const OrderForm = () => {
   const setOrderCommentHandler = (e) => setOrderComment(e.target.value);
 
   return (
-    <form className={styles.form}>
+    <div className={styles.form}>
       <button
         className={styles.receiveButton}
         onClick={setReceivingHandler}
@@ -108,6 +108,6 @@ export const OrderForm = () => {
           Особые детали и пожелания к заказу
         </span>
       </label>
-    </form>
+    </div>
   );
 };
