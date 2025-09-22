@@ -36,16 +36,8 @@ function App() {
       setCurrentPage("cart");
     };
 
-    const cartMainButtonHandler = () => {
+    const cartMainButtonHandler = (detailText) => {
       tg.requestContact((phone, contactData) => {
-        let detailText = generateOrderDetailsText({
-          cart,
-          receiving,
-          deliveryAddress,
-          deliveryDate,
-          deliveryTime,
-          orderComment,
-        });
         let info = {
           contact: contactData,
           detail: detailText,
@@ -83,16 +75,32 @@ function App() {
         tg.MainButton.offClick(cartMainButtonHandler);
         tg.MainButton.onClick(menuMainButtonHandler);
       } else {
+        let detailText = generateOrderDetailsText({
+          cart,
+          receiving,
+          deliveryAddress,
+          deliveryDate,
+          deliveryTime,
+          orderComment,
+        });
         tg.BackButton.onClick(backButtonHandler);
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
         tg.MainButton.setText(`Создать заказ`);
         tg.MainButton.offClick(menuMainButtonHandler);
-        tg.MainButton.onClick(cartMainButtonHandler);
+        tg.MainButton.onClick(() => cartMainButtonHandler(detailText));
       }
       tg.MainButton.show();
     }
-  }, [cart, currentPage]);
+  }, [
+    cart,
+    currentPage,
+    receiving,
+    deliveryAddress,
+    deliveryDate,
+    deliveryTime,
+    orderComment,
+  ]);
 
   const PAGES = {
     menu: <Menu />,
