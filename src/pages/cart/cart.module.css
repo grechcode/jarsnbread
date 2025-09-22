@@ -47,6 +47,7 @@
 .dishPrice {
   margin-left: auto;
   font: var(--body-sm-regular);
+  white-space: nowrap;
 }
 
 .footer {
