@@ -68,7 +68,7 @@ function App() {
       tg.MainButton.onClick(menuMainButtonHandler);
       setCurrentPage("menu");
     };
-    tg.MainButton.offClick(menuMainButtonHandler);
+    tg.MainButton.offClick(cartMainButtonHandler);
     tg.MainButton.onClick(cartMainButtonHandler);
     if (isCartEmpty(cart)) {
       tg.disableClosingConfirmation();
