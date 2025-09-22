@@ -17,18 +17,16 @@ export const Cart = () => {
         <h3 className={styles.label}>ВАШ ЗАКАЗ</h3>
         {Object.keys(cart).map(
           (dish) =>
-            cart[dish] > 0 && (
-              <li className={styles.dish}>
+            cart[dish].count > 0 && (
+              <li className={styles.dish} key={dish}>
                 <img
                   className={styles.dishImg}
                   src={`/${dish}.jpg`}
                   onError={replaceImgWithError}
                 />
-                <span className={styles.dishName}>{getDishProperty(dish, "name")}</span>
-                <span className={styles.dishCount}>{cart[dish]}x</span>
-                <span className={styles.dishPrice}>
-                  {getDishProperty(dish, "price") * cart[dish]} ₽
-                </span>
+                <span className={styles.dishName}>{cart[dish].name}</span>
+                <span className={styles.dishCount}>{cart[dish].count}x</span>
+                <span className={styles.dishPrice}>{cart[dish].price} ₽</span>
               </li>
             )
         )}

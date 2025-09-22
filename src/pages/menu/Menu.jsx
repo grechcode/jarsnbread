@@ -1,7 +1,7 @@
 import { MENU } from "@/constants";
 import styles from "./menu.module.css";
 import { useAppContext } from "@/hooks";
-import { cn } from "@/utils";
+import { cn, getDishProperty } from "@/utils";
 
 export const Menu = () => {
   const { setCart, cart } = useAppContext();
@@ -16,9 +16,10 @@ export const Menu = () => {
     tg.HapticFeedback.selectionChanged();
     setCart((prev) => {
       if (!prev[dish]) {
-        prev[dish] = 0;
+        prev[dish] = { count: 0, name: getDishProperty(dish, "name"), price: 0 };
       }
-      prev[dish] += 1;
+      prev[dish]["count"] += 1;
+      prev[dish]["price"] += getDishProperty(dish, "price");
       return { ...prev };
     });
   };
@@ -28,7 +29,8 @@ export const Menu = () => {
     tg.HapticFeedback.selectionChanged();
     setCart((prev) => {
       if (prev[dish] > 0) {
-        prev[dish] -= 1;
+        prev[dish]["count"] -= 1;
+        prev[dish]["price"] -= getDishProperty(dish, "price");
       }
       return { ...prev };
     });

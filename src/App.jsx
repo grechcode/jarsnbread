@@ -1,10 +1,19 @@
 import { useAppContext } from "@/hooks";
 import { Cart, Menu } from "@/pages";
-import { calculateCart, isCartEmpty } from "@/utils";
+import { calculateCart, isCartEmpty, generateOrderDetailsText } from "@/utils";
 import { useEffect } from "react";
 
 function App() {
-  const { currentPage, setCurrentPage, cart } = useAppContext();
+  const {
+    currentPage,
+    setCurrentPage,
+    cart,
+    receiving,
+    deliveryAddress,
+    deliveryDate,
+    deliveryTime,
+    orderComment,
+  } = useAppContext();
 
   useEffect(() => {
     let tg = window.Telegram.WebApp;
@@ -29,9 +38,17 @@ function App() {
 
     const cartMainButtonHandler = () => {
       tg.requestContact((phone, data) => {
+        const detailText = generateOrderDetailsText(
+          cart,
+          receiving,
+          deliveryAddress,
+          deliveryDate,
+          deliveryTime,
+          orderComment
+        );
         let info = {
           contact: data,
-          cart: cart,
+          detail: detailText,
         };
         if (phone) {
           tg.sendData(JSON.stringify(info));

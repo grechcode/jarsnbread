@@ -1,7 +1,6 @@
-import { useAppContext } from "@/hooks";
 import styles from "./orderForm.module.css";
-import { cn } from "@/utils";
-import { getDatetimeParams } from "@/utils";
+import { useAppContext } from "@/hooks";
+import { cn, getDatetimeParams } from "@/utils";
 import { useEffect } from "react";
 
 export const OrderForm = () => {
@@ -98,6 +97,7 @@ export const OrderForm = () => {
           className={styles.input}
           type="text"
           placeholder="Комментарий к заказу..."
+          value={orderComment}
           onChange={setOrderCommentHandler}
         />
         <span className={styles.inputDescription}>

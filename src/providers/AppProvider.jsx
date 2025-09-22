@@ -3,7 +3,11 @@ import { AppContext } from "@/contexts";
 
 export const AppProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState("menu");
-  // const [cart, setCart] = useState({ wine_duck: 6, baguette: 3, cream_turkey: 1 });
+  // const [cart, setCart] = useState({
+  //   wine_duck: { count: 4, name: 'Парфе "Винная утка"', price: 1360 },
+  //   baguette: { count: 2, name: "Багет", price: 320 },
+  //   cream_turkey: { count: 1, name: "Индейка со сливками", price: 360 },
+  // });
   const [cart, setCart] = useState({});
   const [receiving, setReceiving] = useState("pickup");
   const [deliveryAddress, setDeliveryAddress] = useState("");

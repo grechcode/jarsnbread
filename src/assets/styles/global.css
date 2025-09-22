@@ -14,13 +14,17 @@ body {
 
 button {
   color: var(--tg-theme-button-text-color);
-  -webkit-tap-highlight-color: none;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 input {
-  -webkit-tap-highlight-color: none;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 *:active {
