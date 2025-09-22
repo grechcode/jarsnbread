@@ -32,21 +32,20 @@ function App() {
   useEffect(() => {
     let tg = window.Telegram.WebApp;
 
-    let detailText = generateOrderDetailsText({
-      cart,
-      receiving,
-      deliveryAddress,
-      deliveryDate,
-      deliveryTime,
-      orderComment,
-    });
-
     const menuMainButtonHandler = () => {
       setCurrentPage("cart");
     };
 
     const cartMainButtonHandler = () => {
       tg.requestContact((phone, contactData) => {
+        let detailText = generateOrderDetailsText({
+          cart,
+          receiving,
+          deliveryAddress,
+          deliveryDate,
+          deliveryTime,
+          orderComment,
+        });
         let info = {
           contact: contactData,
           detail: detailText,
