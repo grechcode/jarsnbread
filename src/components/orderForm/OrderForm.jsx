@@ -25,7 +25,11 @@ export const OrderForm = () => {
   }, []);
 
   const setReceivingHandler = () => {
-    receiving == "pickup" ? setReceiving("delivery") : setReceiving("pickup");
+    if (receiving === "pickup") {
+      setReceiving("delivery");
+    } else {
+      setReceiving("pickup");
+    }
   };
 
   const setDeliveryAddressHandler = (e) => setDeliveryAddress(e.target.value);
