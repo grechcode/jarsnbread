@@ -38,28 +38,36 @@ function App() {
 
     const cartMainButtonHandler = () => {
       tg.requestContact((phone, data) => {
-        const detailText = generateOrderDetailsText(
-          cart,
-          receiving,
-          deliveryAddress,
-          deliveryDate,
-          deliveryTime,
-          orderComment
-        );
-        let info = {
-          contact: data,
-          detail: detailText,
-        };
-        if (phone) {
-          tg.sendData(JSON.stringify(info));
-          tg.HapticFeedback.notificationOccurred("success");
-          tg.close();
-        } else {
-          tg.showAlert(
-            "Чтобы создать заказ, необходимо поделиться номером телефона! Это нужно чтобы оператор мог связаться с вами!"
-          );
-          tg.HapticFeedback.notificationOccurred("error");
-        }
+        const requiredOrderParams = [deliveryAddress, deliveryDate, deliveryTime];
+        requiredOrderParams.forEach((param) => {
+          if (param.length.trim() === "") {
+            tg.showAlert("Заполни обязательные параметры!");
+            tg.HapticFeedback.notificationOccurred("error");
+          } else {
+            const detailText = generateOrderDetailsText(
+              cart,
+              receiving,
+              deliveryAddress,
+              deliveryDate,
+              deliveryTime,
+              orderComment
+            );
+            let info = {
+              contact: data,
+              detail: detailText,
+            };
+            if (phone) {
+              tg.sendData(JSON.stringify(info));
+              tg.HapticFeedback.notificationOccurred("success");
+              tg.close();
+            } else {
+              tg.showAlert(
+                "Чтобы создать заказ, необходимо поделиться номером телефона! Это нужно чтобы оператор мог связаться с вами!"
+              );
+              tg.HapticFeedback.notificationOccurred("error");
+            }
+          }
+        });
       });
     };
 

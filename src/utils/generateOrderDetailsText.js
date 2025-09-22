@@ -8,7 +8,7 @@ export const generateOrderDetailsText = (
 ) => {
   let detailText = "Чек:\n";
   Object.keys(cart).forEach((dish) => {
-    detailText += `• ${cart[dish].name} .......... ${cart[dish].price} (${cart[dish].count})\n`;
+    detailText += `• ${cart[dish].name}\n⌙ x${cart[dish].count}  . . . . . . . . . . . . . . . . . . . . ${cart[dish].price} ₽\n`;
   });
   detailText += `Способ получения: ${receiving}\n`;
   receiving === "pickup"
