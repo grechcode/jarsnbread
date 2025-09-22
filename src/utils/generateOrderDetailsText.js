@@ -1,3 +1,5 @@
+import { calculateCart } from "./calculateCart";
+
 export const generateOrderDetailsText = ({
   cart,
   receiving,
@@ -10,6 +12,10 @@ export const generateOrderDetailsText = ({
   Object.keys(cart).forEach((dish) => {
     detailText += `• ${cart[dish].name}\n⌙ x${cart[dish].count}  . . . . . . . . . . . . . . . . . . . . ${cart[dish].price} ₽\n`;
   });
+  detailText += `⌙ ИТОГО . . . . . . . . . . . . . . . . . . . ${calculateCart(
+    cart
+  )} ₽\n`;
+
   receiving === "pickup"
     ? (detailText += `Заказ доступен по адресу: г. Екатеринбург, ул. Шейнкмана, д. 19\n`)
     : (detailText += `Адрес доставки: ${deliveryAddress}\n`);
