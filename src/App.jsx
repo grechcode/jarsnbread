@@ -15,7 +15,7 @@ function App() {
     orderComment,
   } = useAppContext();
 
-  const detailText = generateOrderDetailsText({
+  let detailText = generateOrderDetailsText({
     cart,
     receiving,
     deliveryAddress,
