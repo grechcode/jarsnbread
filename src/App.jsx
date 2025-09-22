@@ -15,6 +15,15 @@ function App() {
     orderComment,
   } = useAppContext();
 
+  const detailText = generateOrderDetailsText({
+    cart,
+    receiving,
+    deliveryAddress,
+    deliveryDate,
+    deliveryTime,
+    orderComment,
+  });
+
   useEffect(() => {
     let tg = window.Telegram.WebApp;
     tg.disableVerticalSwipes();
@@ -38,15 +47,6 @@ function App() {
 
     const cartMainButtonHandler = () => {
       tg.requestContact((phone, contactData) => {
-        const detailText = generateOrderDetailsText({
-          cart,
-          receiving,
-          deliveryAddress,
-          deliveryDate,
-          deliveryTime,
-          orderComment,
-        });
-        tg.showAlert(detailText);
         let info = {
           contact: contactData,
           detail: detailText,
