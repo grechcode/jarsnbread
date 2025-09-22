@@ -27,7 +27,7 @@
   left: 4%;
   top: 8px;
   bottom: 8px;
-  z-index: -1;
+  z-index: 1;
   border-radius: var(--border-radius);
 }
 
@@ -37,6 +37,7 @@
 
 .receiveType {
   width: 100%;
+  z-index: 2;
 }
 
 .inputLabel {

@@ -15,15 +15,6 @@ function App() {
     orderComment,
   } = useAppContext();
 
-  let detailText = generateOrderDetailsText({
-    cart,
-    receiving,
-    deliveryAddress,
-    deliveryDate,
-    deliveryTime,
-    orderComment,
-  });
-
   useEffect(() => {
     let tg = window.Telegram.WebApp;
     tg.disableVerticalSwipes();
@@ -40,6 +31,15 @@ function App() {
 
   useEffect(() => {
     let tg = window.Telegram.WebApp;
+
+    let detailText = generateOrderDetailsText({
+      cart,
+      receiving,
+      deliveryAddress,
+      deliveryDate,
+      deliveryTime,
+      orderComment,
+    });
 
     const menuMainButtonHandler = () => {
       setCurrentPage("cart");
