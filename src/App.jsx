@@ -64,8 +64,6 @@ function App() {
     };
 
     const backButtonHandler = () => {
-      tg.MainButton.offClick(cartMainButtonHandler);
-      tg.MainButton.onClick(menuMainButtonHandler);
       setCurrentPage("menu");
     };
 
@@ -80,14 +78,12 @@ function App() {
         tg.BackButton.hide();
         tg.MainButton.hasShineEffect = false;
         tg.MainButton.setText(`К корзине • ${finalCartPrice} ₽`);
-        tg.MainButton.offClick(cartMainButtonHandler);
         tg.MainButton.onClick(menuMainButtonHandler);
       } else {
         tg.BackButton.onClick(backButtonHandler);
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
         tg.MainButton.setText(`Создать заказ`);
-        tg.MainButton.offClick(menuMainButtonHandler);
         tg.MainButton.onClick(cartMainButtonHandler);
       }
       tg.MainButton.show();
