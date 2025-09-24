@@ -12,7 +12,7 @@ export const generateOrderDetailsText = ({
   Object.keys(cart).forEach((dish) => {
     detailText += `• ${cart[dish].name}\n⌙ x${cart[dish].count}  . . . . . . . . . . . . . . . . . . . . ${cart[dish].price} ₽\n`;
   });
-  detailText += `⌙ ИТОГО . . . . . . . . . . . . . . . . ${calculateCart(cart)} ₽\n`;
+  detailText += `\n⌙ ИТОГО . . . . . . . . . . . . . . . . ${calculateCart(cart)} ₽\n`;
 
   receiving === "pickup"
     ? (detailText += `Заказ доступен по адресу: г. Екатеринбург, ул. Шейнкмана, д. 19\n`)
