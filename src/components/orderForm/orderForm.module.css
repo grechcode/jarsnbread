@@ -20,7 +20,7 @@
 
 .slider {
   position: absolute;
-  background-color: var(--secondary-300);
+  background-color: var(--primary-accent-color);
   transition-duration: var(--transition);
   transition-property: transform;
   width: 45%;

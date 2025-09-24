@@ -21,7 +21,7 @@
 
 .dishCount {
   font: var(--body-sm-semibold);
-  color: var(--secondary-300);
+  color: var(--primary-accent-color);
 }
 
 .dishPrice {
