@@ -26,4 +26,5 @@
 
 .finalPrice {
   margin-left: auto;
+  color: var(--primary-accent-color);
 }
