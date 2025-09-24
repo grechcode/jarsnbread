@@ -18,6 +18,7 @@ export const MENU = {
         price: 340,
         hit: true,
         isAvailable: true,
+        publicationUrl: "https://t.me/jarsnbread/49",
       },
       {
         id: "carrot_rabbit",
@@ -46,6 +47,7 @@ export const MENU = {
         description: "Состав: мука пшеничная, вода, морская соль, дрожжи",
         price: 160,
         isAvailable: true,
+        publicationUrl: "https://t.me/jarsnbread/56",
       },
       {
         id: "ciabatta_grande",
@@ -82,6 +84,7 @@ export const MENU = {
           "Состав: утиная печень, масло сливочное, яйца куриные, карамельный соус (выпаренное белое вино, выпаренный бренди, лук, коричневый сахар, пряности), соль",
         price: 220,
         isAvailable: true,
+        publicationUrl: "https://t.me/jarsnbread/45",
       },
       {
         id: "new_york_cheesecake",
@@ -91,6 +94,7 @@ export const MENU = {
         price: 270,
         isAvailable: true,
         new: true,
+        publicationUrl: "https://t.me/jarsnbread/48",
       },
       {
         id: "caramel",

@@ -38,17 +38,16 @@ export const useTelegram = () => {
 
     const cartMainButtonHandler = () => {
       tg.requestContact((phonePermission, contactData) => {
-        let detailText = generateOrderDetailsText({
-          cart,
-          receiving,
-          deliveryAddress,
-          deliveryDate,
-          deliveryTime,
-          orderComment,
-        });
-        let info = {
+        const info = {
           contact: contactData,
-          detail: detailText,
+          detail: {
+            cart,
+            receiving,
+            deliveryAddress,
+            deliveryDate,
+            deliveryTime,
+            orderComment,
+          },
         };
         if (phonePermission) {
           tg.sendData(JSON.stringify(info));
@@ -56,7 +55,7 @@ export const useTelegram = () => {
           tg.close();
         } else {
           tg.showAlert(
-            "Чтобы создать заказ, необходимо поделиться номером телефона! Это нужно чтобы оператор мог связаться с вами!"
+            "Чтобы создать заказ, необходимо поделиться номером телефона!\nЭто нужно, чтобы менеджер мог связаться с вами!"
           );
           tg.HapticFeedback.notificationOccurred("error");
         }
