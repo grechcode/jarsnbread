@@ -64,7 +64,7 @@ export const validateDatetimeValues = ({ dateValue, timeValue }) => {
     if (minAvailableMS <= userSelectMS && userSelectMS <= maxAvailableMS) {
       validTime = timeValue;
     } else {
-      validTime = "12:00";
+      validTime = "13:00";
     }
   }
 
