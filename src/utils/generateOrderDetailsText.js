@@ -10,7 +10,9 @@ export const generateOrderDetailsText = ({
 }) => {
   let detailText = "Чек:\n";
   Object.keys(cart).forEach((dish) => {
-    detailText += `• ${cart[dish].name}\n⌙ x${cart[dish].count}  . . . . . . . . . . . . . . . . . . . . ${cart[dish].price} ₽\n`;
+    if (cart[dish].count > 0) {
+      detailText += `• ${cart[dish].name}\n⌙ x${cart[dish].count}  . . . . . . . . . . . . . . . . . . . . ${cart[dish].price} ₽\n`;
+    }
   });
   detailText += `⌙\n⌙ ИТОГО . . . . . . . . . . . . . . . . ${calculateCart(cart)} ₽\n`;
 
