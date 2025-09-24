@@ -38,8 +38,17 @@ export const useTelegram = () => {
 
     const cartMainButtonHandler = () => {
       tg.requestContact((phonePermission, contactData) => {
-        const info = {
+        let detailText = generateOrderDetailsText({
+          cart,
+          receiving,
+          deliveryAddress,
+          deliveryDate,
+          deliveryTime,
+          orderComment,
+        });
+        let info = {
           contact: contactData,
+          detailText: detailText,
           detail: {
             cart,
             receiving,
