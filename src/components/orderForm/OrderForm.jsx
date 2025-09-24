@@ -1,6 +1,7 @@
 import styles from "./orderForm.module.css";
 import { useAppContext } from "@/hooks";
 import { cn, getDatetimeParams } from "@/utils";
+import { validateDatetimeValues } from "@/utils/getDatetimeParams";
 import { useEffect } from "react";
 
 export const OrderForm = () => {
@@ -28,11 +29,21 @@ export const OrderForm = () => {
     receiving === "pickup" ? setReceiving("delivery") : setReceiving("pickup");
   };
 
-  const setDeliveryAddressHandler = (e) => setDeliveryAddress(e.target.value);
+  const setDeliveryAddressHandler = (e) => {
+    setDeliveryAddress(e.target.value);
+  };
 
-  const setDeliveryDateHandler = (e) => setDeliveryDate(e.target.value);
+  const setDeliveryDateHandler = (e) => {
+    const value = e.target.value;
+    // const { dateValue, timeValue } = validateDatetimeValues({ value, deliveryTime });
+    setDeliveryDate(value);
+  };
 
-  const setDeliveryTimeHandler = (e) => setDeliveryTime(e.target.value);
+  const setDeliveryTimeHandler = (e) => {
+    const value = e.target.value;
+    // const { dateValue, timeValue } = validateDatetimeValues({ value, deliveryTime });
+    setDeliveryTime(value);
+  };
 
   const setOrderCommentHandler = (e) => setOrderComment(e.target.value);
 
@@ -78,19 +89,21 @@ export const OrderForm = () => {
           onChange={setDeliveryDateHandler}
           required={true}
         />
-        <span className={styles.inputDescription}>Выбери дату получения</span>
+        <span className={styles.inputDescription}>{"Выбери дату получения"}</span>
       </label>
       <label className={styles.inputLabel}>
         <input
           className={styles.input}
           type="time"
           value={deliveryTime}
-          min={currentDate !== deliveryDate ? "09:00" : minWaitingTime}
-          max="22:00"
+          min={currentDate !== deliveryDate ? "10:30" : minWaitingTime}
+          max="22:30"
           onChange={setDeliveryTimeHandler}
           required={true}
         />
-        <span className={styles.inputDescription}>Выбери время получения</span>
+        <span className={styles.inputDescription}>
+          {"Выбери дату получения (минимальное время ожидания - 1 час 30 минут)"}
+        </span>
       </label>
       <label className={styles.inputLabel}>
         <input

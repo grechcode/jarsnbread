@@ -1,113 +1,18 @@
-import { useAppContext } from "@/hooks";
+import styles from "./app.module.css";
+import { useAppContext, useTelegram } from "@/hooks";
 import { Cart, Menu } from "@/pages";
-import { calculateCart, isCartEmpty, generateOrderDetailsText } from "@/utils";
-import { useEffect } from "react";
 
 function App() {
-  const {
-    currentPage,
-    setCurrentPage,
-    cart,
-    receiving,
-    deliveryAddress,
-    deliveryDate,
-    deliveryTime,
-    orderComment,
-  } = useAppContext();
+  const { currentPage } = useAppContext();
 
-  useEffect(() => {
-    let tg = window.Telegram.WebApp;
-    tg.disableVerticalSwipes();
-    tg.expand();
-    tg.MainButton.color = "#b792ff";
-    const date = new Date();
-    const hour = date.getHours();
-    // if (9 >= hour >= 21) {
-    //   tg.showAlert("Уже поздно, доставка не работает!", () => {
-    //     tg.close();
-    //   });
-    // }
-  }, []);
+  useTelegram();
 
-  useEffect(() => {
-    let tg = window.Telegram.WebApp;
-
-    const menuMainButtonHandler = () => {
-      setCurrentPage("cart");
-    };
-
-    const cartMainButtonHandler = () => {
-      tg.requestContact((phone, contactData) => {
-        let detailText = generateOrderDetailsText({
-          cart,
-          receiving,
-          deliveryAddress,
-          deliveryDate,
-          deliveryTime,
-          orderComment,
-        });
-        let info = {
-          contact: contactData,
-          detail: detailText,
-        };
-        if (phone) {
-          tg.sendData(JSON.stringify(info));
-          tg.HapticFeedback.notificationOccurred("success");
-          tg.close();
-        } else {
-          tg.showAlert(
-            "Чтобы создать заказ, необходимо поделиться номером телефона! Это нужно чтобы оператор мог связаться с вами!"
-          );
-          tg.HapticFeedback.notificationOccurred("error");
-        }
-      });
-    };
-
-    const backButtonHandler = () => {
-      setCurrentPage("menu");
-    };
-
-    if (isCartEmpty(cart)) {
-      tg.disableClosingConfirmation();
-      tg.MainButton.hide();
-    } else {
-      tg.enableClosingConfirmation();
-      let finalCartPrice = calculateCart(cart);
-      if (currentPage === "menu") {
-        tg.MainButton.enable();
-        tg.BackButton.hide();
-        tg.MainButton.hasShineEffect = false;
-        tg.MainButton.setText(`К корзине • ${finalCartPrice} ₽`);
-        tg.MainButton.onClick(menuMainButtonHandler);
-      } else {
-        tg.BackButton.onClick(backButtonHandler);
-        tg.BackButton.show();
-        tg.MainButton.hasShineEffect = true;
-        tg.MainButton.setText(`Создать заказ`);
-        tg.MainButton.onClick(cartMainButtonHandler);
-      }
-      tg.MainButton.show();
-    }
-    return () => {
-      tg.BackButton.offClick(backButtonHandler);
-      tg.MainButton.offClick(menuMainButtonHandler);
-      tg.MainButton.offClick(cartMainButtonHandler);
-    };
-  }, [
-    cart,
-    currentPage,
-    receiving,
-    deliveryAddress,
-    deliveryDate,
-    deliveryTime,
-    orderComment,
-  ]);
   const PAGES = {
     menu: <Menu />,
     cart: <Cart />,
   };
 
-  return <div>{PAGES[currentPage]}</div>;
+  return <div className={styles.content}>{PAGES[currentPage]}</div>;
 }
 
 export default App;

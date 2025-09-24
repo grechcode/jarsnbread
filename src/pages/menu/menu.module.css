@@ -1,15 +1,3 @@
-@keyframes counter {
-  0% {
-    scale: 100%;
-  }
-  50% {
-    scale: 120%;
-  }
-  100% {
-    scale: 100%;
-  }
-}
-
 .menu {
   display: flex;
   flex-direction: column;
@@ -18,10 +6,15 @@
   padding: 12px;
 }
 
+.category {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
 .categoryLabel {
   color: var(--tg-theme-subtitle-text-color);
   font: var(--heading-h3);
-  padding-bottom: 12px;
 }
 
 .dishListContainer {
@@ -36,159 +29,5 @@
   display: flex;
   list-style: none;
   column-gap: 10px;
-}
-
-.dishCard {
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  row-gap: 8px;
-  min-width: 45%;
-  border-radius: var(--border-radius);
-  position: relative;
-}
-
-.countSticker {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  width: 20px;
-  height: 20px;
-  font-size: 12px;
-  text-align: center;
-  line-height: 20px;
-  border-radius: 20px;
-  background-color: var(--secondary-300);
-  animation: counter 0.3s;
-  color: var(--tg-theme-button-text-color);
-  z-index: 5;
-}
-
-.tagList {
-  position: absolute;
-  left: 5px;
-  top: 5px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 4px;
-}
-
-.hitTag,
-.newTag {
-  padding-inline: 4px;
-  height: 20px;
-  font-size: 10px;
-  line-height: 20px;
-  text-align: center;
-  background-size: 100% 100%;
-  background-position: 0px 0px;
-  border-radius: var(--border-radius);
-  animation: flash 10s infinite;
-  color: var(--tg-theme-button-text-color);
-  z-index: 5;
-}
-.hitTag {
-  background-image: linear-gradient(180deg, rgb(232, 61, 61) 0%, #e4a719ff 100%);
-}
-
-.newTag {
-  background-image: linear-gradient(90deg, rgb(155, 76, 201) 0%, #71c4ffff 100%);
-}
-
-@keyframes flash {
-  0% {
-    scale: 100%;
-  }
-  5% {
-    scale: 110%;
-  }
-
-  10% {
-    scale: 100%;
-  }
-}
-
-.checkbox {
-  display: none;
-
-  &:checked ~ .dishDesc {
-    opacity: 100;
-  }
-
-  &:checked ~ .dishImg {
-    transform: scale(1.1);
-  }
-}
-
-.checkboxLabel {
-  position: relative;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-}
-
-.dishImg {
-  border-radius: var(--border-radius);
-  max-width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  transition: transform var(--transition);
-}
-
-.dishDesc {
-  border-radius: var(--border-radius);
-  padding: 8px;
-  position: absolute;
-  inset: 0;
-  transition: opacity var(--transition);
-  opacity: 0;
-  z-index: 7;
-  font-size: 0.75em;
-  color: var(--tg-theme-button-text-color);
-  background-color: rgba(0, 0, 0, 0.7);
-  user-select: none;
-}
-
-.dishName {
-  font: var(--body-md-regular);
-}
-
-.buttonBar {
-  display: flex;
   width: 100%;
-  margin-top: auto;
-}
-
-.removeBtn,
-.addBtn {
-  padding: 0;
-  border: none;
-  height: 30px;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  transition: width, scale;
-  transition-duration: var(--transition);
-  font: var(--body-sm-semibold);
-
-  &:active {
-    scale: 0.95;
-  }
-}
-
-.removeBtn {
-  background-color: var(--primary-300);
-  width: 0%;
-}
-
-.addBtn {
-  background-color: var(--secondary-300);
-  width: 100%;
-
-  &:disabled {
-    opacity: 0.5;
-  }
-}
-
-.showBtn {
-  width: 100%;
-  margin-right: 4px;
 }

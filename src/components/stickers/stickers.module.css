@@ -1,0 +1,73 @@
+@keyframes flash {
+  0% {
+    scale: 100%;
+  }
+  5% {
+    scale: 110%;
+  }
+
+  10% {
+    scale: 100%;
+  }
+}
+
+@keyframes counter {
+  0% {
+    scale: 100%;
+  }
+  50% {
+    scale: 140%;
+  }
+  100% {
+    scale: 100%;
+  }
+}
+
+.tagList {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.hitSticker,
+.newSticker {
+  padding-inline: 4px;
+  height: 20px;
+  font-size: 10px;
+  line-height: 20px;
+  text-align: center;
+  background-size: 100% 100%;
+  background-position: 0px 0px;
+  border-radius: var(--border-radius);
+  animation: flash 5s infinite;
+  color: var(--tg-theme-button-text-color);
+  z-index: 5;
+}
+
+.hitSticker {
+  background-image: var(--hit-sticker-gradient);
+}
+
+.newSticker {
+  background-image: var(--new-sticker-gradient);
+}
+
+.countSticker {
+  padding-inline: 4px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  min-width: 20px;
+  height: 20px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 10px;
+  background-color: var(--primary-accent-color);
+  animation: counter 0.3s;
+  color: var(--tg-theme-button-text-color);
+  z-index: 5;
+}

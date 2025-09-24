@@ -1,22 +1,10 @@
 :root {
   --font-family: "Inter", sans-serif;
 
-  /* PRIMARY COLORS */
-  --primary-0: #fff4f4;
-  --primary-100: #ffcece;
-  --primary-200: #fca9a9;
-  --primary-300: #f25959;
-  --primary-400: #d51010;
-  --primary-500: #a60c0c;
-  --primary-600: #760909;
-
-  /* SECONDARY  COLORS */
-  --secondary-0: #f5f0ff;
-  --secondary-100: #eadfff;
-  --secondary-200: #d9c5ff;
-  --secondary-300: #b792ff;
-  --secondary-400: #742cff;
-  --secondary-500: #581bcc;
+  --primary-accent-color: #b792ff;
+  --secondary-accent-color: #f25959;
+  --hit-sticker-gradient: linear-gradient(180deg, rgb(232, 61, 61) 0%, #e4a719ff 100%);
+  --new-sticker-gradient: linear-gradient(90deg, rgb(155, 76, 201) 0%, #71c4ffff 100%);
 
   /* TYPOGRAPHY */
   --heading-h1: 700 32px/40px var(--font-family);
@@ -31,13 +19,6 @@
   --body-sm-regular: 400 14px/20px var(--font-family);
   --body-xs-semibold: 600 12px/16px var(--font-family);
   --body-xs-regular: 400 12px/16px var(--font-family);
-
-  /* SHADOWS */
-  --shadow-light-lg: 0px 0px 12px 4px #0000001a;
-  --shadow-light-base-default: 2px 2px 4px 0px #00000033;
-  --shadow-light-base-hover: 2px 8px 12px 0px #00000040;
-  --shadow-light-sm-default: 2px 2px 4px 0px #0000001a;
-  --shadow-light-sm-hover: 2px 8px 12px 0px #00000033;
 
   /* RADIUSES */
   --border-radius: 8px;
