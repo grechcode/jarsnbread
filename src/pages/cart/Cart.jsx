@@ -1,40 +1,25 @@
 import { useAppContext } from "@/hooks";
 import styles from "./cart.module.css";
 import { calculateCart } from "@/utils";
-import { OrderForm } from "@/components";
+import { CartItem, OrderForm } from "@/components";
 
 export const Cart = () => {
   const { cart } = useAppContext();
 
-  const replaceImgWithError = (e) => {
-    e.target.onerror = null;
-    e.target.src = "/logo.jpg";
-  };
-
   return (
     <div className={styles.cart}>
-      <ul className={styles.cartList}>
+      <h1 className="hidden">Корзина</h1>
+
+      <section className={styles.cartList}>
         <h3 className={styles.label}>ВАШ ЗАКАЗ</h3>
         {Object.keys(cart).map(
-          (dish) =>
-            cart[dish].count > 0 && (
-              <li className={styles.dish} key={dish}>
-                <img
-                  className={styles.dishImg}
-                  src={`/${dish}.jpg`}
-                  onError={replaceImgWithError}
-                />
-                <span className={styles.dishName}>{cart[dish].name}</span>
-                <span className={styles.dishCount}>{cart[dish].count}x</span>
-                <span className={styles.dishPrice}>{cart[dish].price} ₽</span>
-              </li>
-            )
+          (dish) => cart[dish].count > 0 && <CartItem cart={cart} dish={dish} />
         )}
-        <footer className={styles.footer}>
+        <div className={styles.total}>
           <span>ИТОГО</span>
           <span className={styles.finalPrice}>{calculateCart(cart)} ₽</span>
-        </footer>
-      </ul>
+        </div>
+      </section>
       <OrderForm />
     </div>
   );

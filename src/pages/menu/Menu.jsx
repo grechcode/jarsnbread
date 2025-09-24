@@ -5,6 +5,8 @@ import { DishCard } from "@/components";
 export const Menu = () => {
   return (
     <div className={styles.menu}>
+      <h1 className="hidden">Меню</h1>
+
       {Object.keys(MENU).map((category) => (
         <div key={category} className={styles.category}>
           <h3 className={styles.categoryLabel}>{MENU[category].name}</h3>

@@ -2,8 +2,9 @@ import styles from "./buttonBar.module.css";
 import { getDishProperty, cn } from "@/utils";
 
 export const ButtonBar = ({ cart, setCart, dish }) => {
+  let tg = window.Telegram.WebApp;
+
   const onAdd = (dish) => {
-    let tg = window.Telegram.WebApp;
     tg.HapticFeedback.selectionChanged();
     setCart((prev) => {
       if (!prev[dish]) {
@@ -16,7 +17,6 @@ export const ButtonBar = ({ cart, setCart, dish }) => {
   };
 
   const onRemove = (dish) => {
-    let tg = window.Telegram.WebApp;
     tg.HapticFeedback.selectionChanged();
     setCart((prev) => {
       if (prev[dish].count > 0) {
@@ -26,6 +26,15 @@ export const ButtonBar = ({ cart, setCart, dish }) => {
       return { ...prev };
     });
   };
+
+  const getAddButtonText = () => {
+    return cart[dish.id]?.count > 0
+      ? "+"
+      : dish.isAvailable
+      ? `${dish.price} ₽`
+      : "Всё сьели :(";
+  };
+
   return (
     <div className={styles.buttonBar}>
       <button
@@ -41,11 +50,7 @@ export const ButtonBar = ({ cart, setCart, dish }) => {
         onClick={() => onAdd(dish.id)}
         disabled={!dish.isAvailable}
       >
-        {cart[dish.id]?.count > 0
-          ? "+"
-          : dish.isAvailable
-          ? `${dish.price} ₽`
-          : "Всё сьели :("}
+        {getAddButtonText()}
       </button>
     </div>
   );

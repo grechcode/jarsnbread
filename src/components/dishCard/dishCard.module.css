@@ -8,44 +8,12 @@
   position: relative;
 }
 
-.checkbox {
-  display: none;
-
-  &:checked ~ .dishDesc {
-    opacity: 100;
-  }
-
-  &:checked ~ .dishImg {
-    transform: scale(1.1);
-  }
-}
-
-.checkboxLabel {
-  position: relative;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-}
-
 .dishImg {
   border-radius: var(--border-radius);
   max-width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   transition: transform var(--transition);
-}
-
-.dishDesc {
-  border-radius: var(--border-radius);
-  padding: 8px;
-  position: absolute;
-  inset: 0;
-  transition: opacity var(--transition);
-  opacity: 0;
-  z-index: 7;
-  font-size: 0.75em;
-  color: var(--tg-theme-button-text-color);
-  background-color: rgba(0, 0, 0, 0.7);
-  user-select: none;
 }
 
 .dishName {
