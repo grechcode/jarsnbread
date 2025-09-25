@@ -50,8 +50,7 @@
   width: 100%;
 }
 
-.input,
-.selectWrapper {
+.input {
   display: flex;
   justify-content: center;
   align-items: center;
