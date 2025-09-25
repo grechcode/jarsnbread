@@ -8,7 +8,8 @@ export const getDateOptionsList = () => {
 
   for (let index = currentDateMS; index < maxAvailableDateMS; index += DAY_INTERVAL_MS) {
     const date = new Date(index);
-    const dateOption = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    const clientTimeZone = Math.abs(date.getTimezoneOffset()) * 60 * 1000;
+    const dateOption = new Date(index + clientTimeZone).toISOString().split("T")[0];
     dateOptionsList.push(dateOption);
   }
 

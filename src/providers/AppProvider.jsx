@@ -8,6 +8,7 @@ export const AppProvider = ({ children }) => {
   //   baguette: { count: 2, name: "Багет", price: 320 },
   //   cream_turkey: { count: 1, name: "Индейка со сливками", price: 360 },
   // });
+
   const [cart, setCart] = useState({});
   const [receiving, setReceiving] = useState("pickup");
   const [deliveryAddress, setDeliveryAddress] = useState("г. Екатеринбург, ");
