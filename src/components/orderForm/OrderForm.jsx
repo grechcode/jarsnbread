@@ -91,7 +91,7 @@ export const OrderForm = () => {
             : "Введи адрес доставки"}
         </span>
       </label>
-      <label className={styles.inputLabel}>
+      {/* <label className={styles.inputLabel}>
         <input
           className={styles.input}
           type="date"
@@ -102,17 +102,8 @@ export const OrderForm = () => {
           required={true}
         />
         <span className={styles.inputDescription}>{"Выбери дату получения"}</span>
-      </label>
+      </label> */}
       <label className={styles.inputLabel}>
-        {/* <input
-          className={styles.input}
-          type="time"
-          value={deliveryTime}
-          // min={currentDate !== deliveryDate ? "10:30" : minWaitingTime}
-          // max="22:30"
-          onChange={setDeliveryTimeHandler}
-          required={true}
-        /> */}
         <div className={styles.input}>
           <select name="" id="" className={styles.select}>
             <option value="10">10</option>
@@ -141,7 +132,7 @@ export const OrderForm = () => {
         </div>
 
         <span className={styles.inputDescription}>
-          {"Выбери дату получения (минимальное время ожидания - 1 час 30 минут)"}
+          {"Выбери время получения (минимальное время ожидания - 1 час 30 минут)"}
         </span>
       </label>
       <label className={styles.inputLabel}>

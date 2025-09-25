@@ -52,6 +52,10 @@
 
 .input,
 .selectWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1px;
   width: 100%;
   height: 48px;
   padding-inline: 12px;
@@ -68,6 +72,5 @@
 }
 
 .select {
-  display: inline;
-  height: 100%;
+  /* width: 100%; */
 }
