@@ -18,13 +18,13 @@ button {
   user-select: none;
 }
 
-* {
+/* * {
   outline: none;
   border: none;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-}
+} */
 
 button:disabled,
 input:disabled {
