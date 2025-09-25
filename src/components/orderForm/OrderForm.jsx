@@ -47,12 +47,13 @@ export const OrderForm = () => {
 
   const setDeliveryTimeHandler = (e) => {
     const value = e.target.value;
-    const userSelectDate = new Date(`${deliveryDate} ${value}`).getTime();
-    const minAvailableDate = new Date(`${deliveryDate}, 09:00`).getTime();
-    const maxAvailableDate = new Date(`${deliveryDate}, 22:00`).getTime();
-    setDeliveryTime(value);
-    userSelectDate < minAvailableDate && setDeliveryTime("09:00");
-    userSelectDate > maxAvailableDate && setDeliveryTime("22:00");
+    console.log(value);
+    // const userSelectDate = new Date(`${deliveryDate} ${value}`).getTime();
+    // const minAvailableDate = new Date(`${deliveryDate}, 09:00`).getTime();
+    // const maxAvailableDate = new Date(`${deliveryDate}, 22:00`).getTime();
+    // setDeliveryTime(value);
+    // userSelectDate < minAvailableDate && setDeliveryTime("09:00");
+    // userSelectDate > maxAvailableDate && setDeliveryTime("22:00");
 
     // const { dateValue, timeValue } = validateDatetimeValues({ value, deliveryTime });
   };
@@ -105,29 +106,56 @@ export const OrderForm = () => {
       </label> */}
       <label className={styles.inputLabel}>
         <div className={styles.input}>
-          <select name="" id="" className={styles.select}>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-          </select>
-          :
-          <select name="" id="" className={styles.select}>
-            <option value="00">00</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-            <option value="40">40</option>
-            <option value="50">50</option>
+          <select name="hourPicker" id="hourPicker" onChange={setDeliveryTimeHandler}>
+            <option value="10">10:00</option>
+            <option value="10">10:15</option>
+            <option value="10">10:30</option>
+            <option value="10">10:45</option>
+            <option value="10">11:00</option>
+            <option value="10">11:15</option>
+            <option value="10">11:30</option>
+            <option value="10">11:45</option>
+            <option value="10">12:00</option>
+            <option value="10">12:15</option>
+            <option value="10">12:30</option>
+            <option value="10">12:45</option>
+            <option value="10">13:00</option>
+            <option value="10">13:15</option>
+            <option value="10">13:30</option>
+            <option value="10">13:45</option>
+            <option value="10">14:00</option>
+            <option value="10">14:15</option>
+            <option value="10">14:30</option>
+            <option value="10">14:45</option>
+            <option value="10">15:00</option>
+            <option value="10">15:15</option>
+            <option value="10">15:30</option>
+            <option value="10">15:45</option>
+            <option value="10">16:00</option>
+            <option value="10">16:15</option>
+            <option value="10">16:30</option>
+            <option value="10">16:45</option>
+            <option value="10">17:00</option>
+            <option value="10">17:15</option>
+            <option value="10">17:30</option>
+            <option value="10">17:45</option>
+            <option value="10">18:00</option>
+            <option value="10">18:15</option>
+            <option value="10">18:30</option>
+            <option value="10">18:45</option>
+            <option value="10">19:00</option>
+            <option value="10">19:15</option>
+            <option value="10">19:30</option>
+            <option value="10">19:45</option>
+            <option value="10">20:00</option>
+            <option value="10">20:15</option>
+            <option value="10">20:30</option>
+            <option value="10">20:45</option>
+            <option value="10">21:00</option>
+            <option value="10">21:15</option>
+            <option value="10">21:30</option>
+            <option value="10">21:45</option>
+            <option value="10">22:00</option>
           </select>
         </div>
 
