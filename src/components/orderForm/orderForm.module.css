@@ -65,3 +65,17 @@
 .inputDescription {
   padding-inline: 12px;
 }
+
+.selectLabel {
+  display: flex;
+  row-gap: 8px;
+  font: var(--body-xs-regular);
+  color: var(--tg-theme-subtitle-text-color);
+  border-radius: 0;
+  width: 100%;
+  padding-inline: 12px;
+}
+
+.select {
+  display: inline;
+}

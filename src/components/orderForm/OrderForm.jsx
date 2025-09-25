@@ -103,8 +103,8 @@ export const OrderForm = () => {
         />
         <span className={styles.inputDescription}>{"Выбери дату получения"}</span>
       </label>
-      <label className={styles.inputLabel}>
-        <input
+      <label className={styles.selectLabel}>
+        {/* <input
           className={styles.input}
           type="time"
           value={deliveryTime}
@@ -112,10 +112,35 @@ export const OrderForm = () => {
           // max="22:30"
           onChange={setDeliveryTimeHandler}
           required={true}
-        />
-        <span className={styles.inputDescription}>
+        /> */}
+        <select name="" id="" className={styles.select}>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+        </select>
+        :
+        <select name="" id="" className={styles.select}>
+          <option value="00">00</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+          <option value="50">50</option>
+          <option value="60">60</option>
+        </select>
+        {/* <span className={styles.inputDescription}>
           {"Выбери дату получения (минимальное время ожидания - 1 час 30 минут)"}
-        </span>
+        </span> */}
       </label>
       <label className={styles.inputLabel}>
         <input
