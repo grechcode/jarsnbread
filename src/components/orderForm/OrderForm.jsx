@@ -22,8 +22,11 @@ export const OrderForm = () => {
 
   useEffect(() => {
     const dateOptionsList = getDateOptionsList();
+    const timeOptionsList = getTimeOptionsList(dateOptionsList[0]);
     setDeliveryDate(dateOptionsList[0]);
+    setDeliveryTime(timeOptionsList[0]);
     setDateOptions(dateOptionsList);
+    setTimeOptions(dateOptionsList);
   }, []);
 
   useEffect(() => {
