@@ -5,16 +5,12 @@ export const MENU = {
       {
         id: "cream_turkey",
         name: "Индейка со сливками",
-        description:
-          "Состав: утиная печень, масло сливочное, яйца куриные, карамельный соус (выпаренное белое вино, выпаренный бренди, лук, коричневый сахар, пряности), соль",
         price: 360,
         isAvailable: true,
       },
       {
         id: "wine_duck",
         name: 'Парфе "Винная утка"',
-        description:
-          "Состав: утиная печень, масло сливочное, яйца куриные, карамельный соус (выпаренное белое вино, выпаренный бренди, лук, коричневый сахар, пряности), соль",
         price: 340,
         hit: true,
         isAvailable: true,
@@ -23,16 +19,12 @@ export const MENU = {
       {
         id: "carrot_rabbit",
         name: "Печень кролика с морковкой",
-        description:
-          "Состав: утиная печень, масло сливочное, яйца куриные, карамельный соус (выпаренное белое вино, выпаренный бренди, лук, коричневый сахар, пряности), соль",
         price: 300,
         isAvailable: true,
       },
       {
         id: "carrot_rabbit_cranberry",
         name: "Печень кролика с морковкой, клюква",
-        description:
-          "Состав: утиная печень, масло сливочное, яйца куриные, карамельный соус (выпаренное белое вино, выпаренный бренди, лук, коричневый сахар, пряности), соль",
         price: 320,
         isAvailable: true,
       },
@@ -44,7 +36,6 @@ export const MENU = {
       {
         id: "baguette",
         name: "Багет",
-        description: "Состав: мука пшеничная, вода, морская соль, дрожжи",
         price: 160,
         isAvailable: true,
         publicationUrl: "https://t.me/jarsnbread/56",
@@ -52,22 +43,18 @@ export const MENU = {
       {
         id: "ciabatta_grande",
         name: "Чиабатта grande",
-        description:
-          "Состав: мука пшеничная, вода, масло оливковое, морская соль, дрожжи",
         price: 260,
         isAvailable: true,
       },
       {
         id: "rye_raisins_and_cumin",
         name: "Рожь, изюм и тмин",
-        description: "Состав: мука ржаная, вода, изюм, тмин, морская соль, дрожжи",
         price: 100,
         isAvailable: false,
       },
       {
         id: "rye_bacon_and_onion",
         name: "Рожь, бекон и лук",
-        description: "Состав: мука ржаная, вода, бекон, лук, морская соль, дрожжи",
         price: 200,
         isAvailable: true,
         new: true,
@@ -80,8 +67,6 @@ export const MENU = {
       {
         id: "creme_brulee",
         name: "Крем-брюле",
-        description:
-          "Состав: утиная печень, масло сливочное, яйца куриные, карамельный соус (выпаренное белое вино, выпаренный бренди, лук, коричневый сахар, пряности), соль",
         price: 220,
         isAvailable: true,
         publicationUrl: "https://t.me/jarsnbread/45",
@@ -89,8 +74,6 @@ export const MENU = {
       {
         id: "new_york_cheesecake",
         name: 'Чизкейк вида "Нью-Йорк"',
-        description:
-          "Состав: утиная печень, масло сливочное, яйца куриные, карамельный соус (выпаренное белое вино, выпаренный бренди, лук, коричневый сахар, пряности), соль",
         price: 270,
         isAvailable: true,
         new: true,
@@ -99,8 +82,6 @@ export const MENU = {
       {
         id: "caramel",
         name: "Карамель (иногда соленая)",
-        description:
-          "Состав: утиная печень, масло сливочное, яйца куриные, карамельный соус (выпаренное белое вино, выпаренный бренди, лук, коричневый сахар, пряности), соль",
         price: 320,
         isAvailable: true,
       },

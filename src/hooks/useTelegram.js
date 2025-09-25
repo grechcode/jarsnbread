@@ -23,11 +23,11 @@ export const useTelegram = () => {
     tg.MainButton.color = "#b792ff";
     const date = new Date();
     const hour = date.getHours();
-    // if (9 >= hour >= 21) {
-    //   tg.showAlert("Уже поздно, доставка не работает!", () => {
-    //     tg.close();
-    //   });
-    // }
+    if (9 >= hour >= 21) {
+      tg.showAlert("Режим работы с 9:00 до 21:00", () => {
+        tg.close();
+      });
+    }
   }, []);
 
   // handlers and settings for telegram elements
