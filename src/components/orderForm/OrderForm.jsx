@@ -30,7 +30,13 @@ export const OrderForm = () => {
   };
 
   const setDeliveryAddressHandler = (e) => {
-    setDeliveryAddress(e.target.value);
+    const requiredValue = "г. Екатеринбург, ";
+    const value = e.target.value;
+    if (!value.includes(requiredValue)) {
+      setDeliveryAddress(requiredValue);
+    } else {
+      setDeliveryAddress(value);
+    }
   };
 
   const setDeliveryDateHandler = (e) => {
@@ -41,8 +47,14 @@ export const OrderForm = () => {
 
   const setDeliveryTimeHandler = (e) => {
     const value = e.target.value;
-    // const { dateValue, timeValue } = validateDatetimeValues({ value, deliveryTime });
+    const userSelectDate = new Date(`${deliveryDate} ${value}`).getTime();
+    const minAvailableDate = new Date(`${deliveryDate}, 09:00`).getTime();
+    const maxAvailableDate = new Date(`${deliveryDate}, 22:00`).getTime();
     setDeliveryTime(value);
+    userSelectDate < minAvailableDate && setDeliveryTime("09:00");
+    userSelectDate > maxAvailableDate && setDeliveryTime("22:00");
+
+    // const { dateValue, timeValue } = validateDatetimeValues({ value, deliveryTime });
   };
 
   const setOrderCommentHandler = (e) => setOrderComment(e.target.value);
@@ -96,8 +108,8 @@ export const OrderForm = () => {
           className={styles.input}
           type="time"
           value={deliveryTime}
-          min={currentDate !== deliveryDate ? "10:30" : minWaitingTime}
-          max="22:30"
+          // min={currentDate !== deliveryDate ? "10:30" : minWaitingTime}
+          // max="22:30"
           onChange={setDeliveryTimeHandler}
           required={true}
         />

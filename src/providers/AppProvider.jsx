@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AppContext } from "@/contexts";
 
 export const AppProvider = ({ children }) => {
-  const [currentPage, setCurrentPage] = useState("menu");
+  const [currentPage, setCurrentPage] = useState("cart");
   // const [cart, setCart] = useState({
   //   wine_duck: { count: 4, name: 'Парфе "Винная утка"', price: 1360 },
   //   baguette: { count: 2, name: "Багет", price: 320 },
@@ -10,7 +10,7 @@ export const AppProvider = ({ children }) => {
   // });
   const [cart, setCart] = useState({});
   const [receiving, setReceiving] = useState("pickup");
-  const [deliveryAddress, setDeliveryAddress] = useState("");
+  const [deliveryAddress, setDeliveryAddress] = useState("г. Екатеринбург, ");
   const [deliveryDate, setDeliveryDate] = useState("");
   const [deliveryTime, setDeliveryTime] = useState("");
   const [orderComment, setOrderComment] = useState("");
