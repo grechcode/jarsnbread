@@ -86,8 +86,6 @@ export const useTelegram = () => {
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
         tg.MainButton.setText(`Создать заказ`);
-        tg.MainButton.disable();
-
         tg.MainButton.onClick(cartMainButtonHandler);
       }
       tg.enableClosingConfirmation();
