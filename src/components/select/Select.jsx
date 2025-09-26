@@ -8,9 +8,11 @@ export const Select = ({ value, setValue, options }) => {
   const onSelect = (e) => {
     if (e.target.value === value) {
       setSelectOpen((prev) => !prev);
-      setTimeout(() => {
-        e.target.scrollIntoView(true);
-      }, 10);
+      if (!isSelectOpen) {
+        setTimeout(() => {
+          e.target.scrollIntoView(true);
+        }, 10);
+      }
     } else {
       let tg = window.Telegram.WebApp;
       tg.HapticFeedback.selectionChanged();
