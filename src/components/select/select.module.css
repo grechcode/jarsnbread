@@ -5,6 +5,7 @@
   transition-duration: var(--transition);
   transition-property: height;
   background-color: var(--tg-theme-section-bg-color);
+  scroll-snap-type: y mandatory;
 }
 
 .openSelect {
@@ -18,4 +19,10 @@
   font: var(--body-md-regular);
   width: 100%;
   height: 48px;
+  color: var(--tg-theme-subtitle-text-color);
+  scroll-snap-align: start;
+}
+
+.selected {
+  color: var(--primary-accent-color);
 }

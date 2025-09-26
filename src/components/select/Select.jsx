@@ -7,7 +7,7 @@ export const Select = ({ value, setValue, options }) => {
 
   const onSelect = (e) => {
     if (e.target.value === value) {
-      setSelectOpen(true);
+      setSelectOpen((prev) => !prev);
     } else {
       setValue(e.target.value);
       setSelectOpen(false);
@@ -23,10 +23,11 @@ export const Select = ({ value, setValue, options }) => {
           onClick={onSelect}
           className={cn(
             styles.selectButton,
+            isSelectOpen && optionValue === value && styles.selected,
             !isSelectOpen && optionValue !== value && "hidden"
           )}
         >
-          {optionValue}
+          {formatDate(optionValue)}
         </button>
       ))}
     </div>
