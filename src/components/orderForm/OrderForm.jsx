@@ -1,8 +1,8 @@
 import styles from "./orderForm.module.css";
 import { useAppContext } from "@/hooks";
-import { cn, formatDate, getDateOptionsList, getTimeOptionsList } from "@/utils";
+import { cn, getDateOptionsList, getTimeOptionsList } from "@/utils";
 import { Select } from "@/components";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const OrderForm = () => {
   const {
