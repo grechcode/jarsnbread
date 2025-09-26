@@ -1,5 +1,5 @@
-import { MENU } from "@/constants";
 import styles from "./menu.module.css";
+import { MENU } from "@/constants";
 import { DishCard } from "@/components";
 
 export const Menu = () => {

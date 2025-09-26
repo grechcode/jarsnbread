@@ -1,7 +1,8 @@
 import styles from "./orderForm.module.css";
 import { useAppContext } from "@/hooks";
 import { cn, formatDate, getDateOptionsList, getTimeOptionsList } from "@/utils";
-import { useEffect, useState } from "react";
+import { Select } from "@/components";
+import { useEffect, useRef, useState } from "react";
 
 export const OrderForm = () => {
   const {
@@ -30,8 +31,9 @@ export const OrderForm = () => {
   }, []);
 
   useEffect(() => {
-    const dateOptionsList = getTimeOptionsList(deliveryDate);
-    setTimeOptions(dateOptionsList);
+    const timeOptionsList = getTimeOptionsList(deliveryDate);
+    setTimeOptions(timeOptionsList);
+    setDeliveryTime(timeOptionsList[0]);
   }, [deliveryDate]);
 
   const setReceivingHandler = () => {
@@ -47,10 +49,6 @@ export const OrderForm = () => {
       setDeliveryAddress(value);
     }
   };
-
-  const setDeliveryDateHandler = (e) => setDeliveryDate(e.target.value);
-
-  const setDeliveryTimeHandler = (e) => setDeliveryTime(e.target.value);
 
   const setOrderCommentHandler = (e) => setOrderComment(e.target.value);
 
@@ -71,7 +69,6 @@ export const OrderForm = () => {
         <input
           className={styles.input}
           type="text"
-          placeholder="г. Екатеринбург..."
           value={
             receiving === "pickup"
               ? "г. Екатеринбург, ул. Шейнкмана, д. 19"
@@ -87,27 +84,11 @@ export const OrderForm = () => {
         </span>
       </label>
       <label className={styles.inputLabel}>
-        <select
-          id="datePicker"
-          onChange={setDeliveryDateHandler}
-          className={styles.input}
-        >
-          {dateOptions?.map((optionValue) => (
-            <option value={optionValue}>{formatDate(optionValue)}</option>
-          ))}
-        </select>
+        <Select value={deliveryDate} setValue={setDeliveryDate} options={dateOptions} />
         <span className={styles.inputDescription}>{"Выбери дату получения"}</span>
       </label>
       <label className={styles.inputLabel}>
-        <select
-          id="timePicker"
-          onChange={setDeliveryTimeHandler}
-          className={styles.input}
-        >
-          {timeOptions?.map((optionValue) => (
-            <option value={optionValue}>{optionValue}</option>
-          ))}
-        </select>
+        <Select value={deliveryTime} setValue={setDeliveryTime} options={timeOptions} />
         <span className={styles.inputDescription}>
           {"Выбери время получения (минимальное время ожидания - 1 час 30 минут)"}
         </span>
