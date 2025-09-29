@@ -2,7 +2,6 @@
 
 ## Telegram WebApp for natural products store "Баночки и хлеб" in Yekaterinburg
 
-![Static Badge](https://img.shields.io/badge/grechcode-WeatherApp-green)
 ![Static Badge](https://img.shields.io/badge/jars-bread-purple?labelColor=black)
 ![Static Badge](https://img.shields.io/badge/HTML-orange)
 ![Static Badge](https://img.shields.io/badge/CSS-blue)
