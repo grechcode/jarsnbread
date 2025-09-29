@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+body {
+  color: var(--tg-theme-text-color);
+  background-color: var(--tg-theme-secondary-bg-color);
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  padding-bottom: 24px;
+  scrollbar-width: none;
+}
+
+#root {
+  display: contents;
+}
+
+button {
+  color: var(--tg-theme-button-text-color);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+* {
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+button:disabled,
+input:disabled {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+*:focus {
+  outline: none;
+  border: none;
+}

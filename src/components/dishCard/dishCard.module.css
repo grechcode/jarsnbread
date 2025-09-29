@@ -1,0 +1,21 @@
+.dishCard {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  min-width: 45%;
+  border-radius: var(--border-radius);
+  position: relative;
+}
+
+.dishImg {
+  border-radius: var(--border-radius);
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+.dishName {
+  font: var(--body-md-regular);
+}

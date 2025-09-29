@@ -1,0 +1,28 @@
+:root {
+  --font-family: "Inter", sans-serif;
+
+  --primary-accent-color: #b792ff;
+  --secondary-accent-color: #f25959;
+  --hit-sticker-gradient: linear-gradient(180deg, rgb(232, 61, 61) 0%, #e4a719ff 100%);
+  --new-sticker-gradient: linear-gradient(90deg, rgb(155, 76, 201) 0%, #71c4ffff 100%);
+
+  /* TYPOGRAPHY */
+  --heading-h1: 700 32px/40px var(--font-family);
+  --heading-h2: 700 24px/32px var(--font-family);
+  --heading-h3: 700 18px/24px var(--font-family);
+  --body-lg-semibold: 600 18px/24px var(--font-family);
+  --body-lg-regular: 400 18px/24px var(--font-family);
+  --body-md-bold: 700 16px/24px var(--font-family);
+  --body-md-semibold: 600 16px/24px var(--font-family);
+  --body-md-regular: 400 16px/24px var(--font-family);
+  --body-sm-semibold: 600 14px/20px var(--font-family);
+  --body-sm-regular: 400 14px/20px var(--font-family);
+  --body-xs-semibold: 600 12px/16px var(--font-family);
+  --body-xs-regular: 400 12px/16px var(--font-family);
+
+  /* RADIUSES */
+  --border-radius: 8px;
+
+  /* TRANTITIONS */
+  --transition: 0.2s;
+}
