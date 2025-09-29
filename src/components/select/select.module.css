@@ -1,0 +1,33 @@
+.select {
+  height: 48px;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  transition-duration: var(--transition);
+  transition-property: height;
+  background-color: var(--tg-theme-section-bg-color);
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: none;
+}
+
+.openSelect {
+  height: 144px;
+  overflow-y: scroll;
+}
+
+.selectButton {
+  padding-inline: 12px;
+  padding-block: 8px;
+  font: var(--body-md-regular);
+  width: 100%;
+  height: 48px;
+  color: var(--tg-theme-subtitle-text-color);
+  scroll-snap-align: start;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.selected {
+  color: var(--primary-accent-color);
+}

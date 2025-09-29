@@ -1,0 +1,30 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.label {
+  color: var(--tg-theme-subtitle-text-color);
+  font: var(--heading-h3);
+  padding-block: 12px;
+}
+
+.cartList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  padding: 12px;
+  background-color: var(--tg-theme-section-bg-color);
+}
+
+.total {
+  padding-block: 20px;
+  font: var(--body-lg-semibold);
+  display: flex;
+}
+
+.finalPrice {
+  margin-left: auto;
+  color: var(--primary-accent-color);
+}

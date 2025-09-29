@@ -1,0 +1,36 @@
+.buttonBar {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+}
+
+.removeBtn,
+.addBtn {
+  padding: 0;
+  border: none;
+  height: 30px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: width, scale;
+  transition-duration: var(--transition);
+  font: var(--body-sm-semibold);
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.removeBtn {
+  background-color: var(--secondary-accent-color);
+  width: 0%;
+}
+
+.addBtn {
+  background-color: var(--primary-accent-color);
+  width: 100%;
+}
+
+.showBtn {
+  width: 100%;
+  margin-right: 4px;
+}

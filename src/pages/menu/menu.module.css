@@ -1,0 +1,33 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  background-color: var(--tg-theme-section-bg-color);
+  padding: 12px;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.categoryLabel {
+  color: var(--tg-theme-subtitle-text-color);
+  font: var(--heading-h3);
+}
+
+.dishListContainer {
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.dishList {
+  padding: 0;
+  display: flex;
+  list-style: none;
+  column-gap: 10px;
+  width: 100%;
+}
