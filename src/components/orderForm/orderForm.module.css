@@ -40,7 +40,7 @@
   z-index: 2;
 }
 
-.inputLabel {
+.inputWrapper {
   display: flex;
   flex-direction: column;
   row-gap: 8px;

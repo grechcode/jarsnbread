@@ -28,6 +28,7 @@ export const Select = ({ value, setValue, options }) => {
     <div className={cn(styles.select, isSelectOpen && styles.openSelect)} ref={selectRef}>
       {options?.map((optionValue) => (
         <button
+          key={optionValue}
           type="button"
           value={optionValue}
           onClick={onSelect}

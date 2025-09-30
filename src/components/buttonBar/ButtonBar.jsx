@@ -1,3 +1,4 @@
+import { UNAVAILABLE_DISH_TEXT } from "@/constants";
 import styles from "./buttonBar.module.css";
 import { getDishProperty, cn } from "@/utils";
 
@@ -32,7 +33,7 @@ export const ButtonBar = ({ cart, setCart, dish }) => {
       ? "+"
       : dish.isAvailable
       ? `${dish.price} ₽`
-      : "Всё сьели :(";
+      : UNAVAILABLE_DISH_TEXT;
   };
 
   return (

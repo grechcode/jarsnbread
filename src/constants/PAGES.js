@@ -1,4 +1,4 @@
 export const PAGES = {
-  MENU: "menu",
-  CART: "cart",
+  menu: "menu",
+  cart: "cart",
 };
