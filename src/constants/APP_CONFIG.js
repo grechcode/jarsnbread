@@ -64,7 +64,7 @@ export const MENU = {
         price: 100,
         hit: false,
         new: false,
-        isAvailable: false,
+        isAvailable: true,
       },
       {
         id: "rye_bacon_and_onion",
