@@ -103,7 +103,7 @@ export const MENU = {
         price: 320,
         hit: false,
         new: false,
-        isAvailable: true,
+        isAvailable: false,
       },
     ],
   },
