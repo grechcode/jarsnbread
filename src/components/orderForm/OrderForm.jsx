@@ -1,56 +1,30 @@
 import styles from "./orderForm.module.css";
-import { useAppContext } from "@/hooks";
-import { cn, getDateOptionsList, getTimeOptionsList } from "@/utils";
+import { useOrderForm } from "@/hooks";
+import { cn } from "@/utils";
 import { Select } from "@/components";
-import { useEffect, useState } from "react";
+import {
+  FORM_COMMENT_LABEL,
+  FORM_DATE_LABEL,
+  FORM_DELIVERY_LABEL,
+  FORM_PICKUP_LABEL,
+  FORM_TIME_LABEL,
+} from "@/constants";
 
 export const OrderForm = () => {
   const {
+    dateOptions,
+    timeOptions,
     receiving,
-    setReceiving,
+    setReceivingHandler,
     deliveryAddress,
-    setDeliveryAddress,
+    setDeliveryAddressHandler,
     deliveryDate,
     setDeliveryDate,
     deliveryTime,
     setDeliveryTime,
     orderComment,
-    setOrderComment,
-  } = useAppContext();
-
-  const [dateOptions, setDateOptions] = useState([]);
-  const [timeOptions, setTimeOptions] = useState([]);
-
-  useEffect(() => {
-    const dateOptionsList = getDateOptionsList();
-    const timeOptionsList = getTimeOptionsList(dateOptionsList[0]);
-    setDeliveryDate(dateOptionsList[0]);
-    setDeliveryTime(timeOptionsList[0]);
-    setDateOptions(dateOptionsList);
-    setTimeOptions(dateOptionsList);
-  }, []);
-
-  useEffect(() => {
-    const timeOptionsList = getTimeOptionsList(deliveryDate);
-    setTimeOptions(timeOptionsList);
-    setDeliveryTime(timeOptionsList[0]);
-  }, [deliveryDate]);
-
-  const setReceivingHandler = () => {
-    receiving === "pickup" ? setReceiving("delivery") : setReceiving("pickup");
-  };
-
-  const setDeliveryAddressHandler = (e) => {
-    const requiredValue = "г. Екатеринбург, ";
-    const value = e.target.value;
-    if (!value.includes(requiredValue)) {
-      setDeliveryAddress(requiredValue);
-    } else {
-      setDeliveryAddress(value);
-    }
-  };
-
-  const setOrderCommentHandler = (e) => setOrderComment(e.target.value);
+    setOrderCommentHandler,
+  } = useOrderForm();
 
   return (
     <form className={styles.form}>
@@ -65,7 +39,7 @@ export const OrderForm = () => {
         <span className={styles.receiveType}>Самовывоз</span>
         <span className={styles.receiveType}>Доставка</span>
       </button>
-      <div className={styles.inputLabel}>
+      <div className={styles.inputWrapper}>
         <input
           className={styles.input}
           type="text"
@@ -78,22 +52,18 @@ export const OrderForm = () => {
           onChange={setDeliveryAddressHandler}
         />
         <span className={styles.inputDescription}>
-          {receiving === "pickup"
-            ? "Заказ будет доступен по адресу"
-            : "Введи адрес доставки"}
+          {receiving === "pickup" ? FORM_PICKUP_LABEL : FORM_DELIVERY_LABEL}
         </span>
       </div>
-      <div className={styles.inputLabel}>
+      <div className={styles.inputWrapper}>
         <Select value={deliveryDate} setValue={setDeliveryDate} options={dateOptions} />
-        <span className={styles.inputDescription}>{"Выбери дату получения"}</span>
+        <span className={styles.inputDescription}>{FORM_DATE_LABEL}</span>
       </div>
-      <div className={styles.inputLabel}>
+      <div className={styles.inputWrapper}>
         <Select value={deliveryTime} setValue={setDeliveryTime} options={timeOptions} />
-        <span className={styles.inputDescription}>
-          {"Выбери время получения (минимальное время ожидания - 1 час 30 минут)"}
-        </span>
+        <span className={styles.inputDescription}>{FORM_TIME_LABEL}</span>
       </div>
-      <div className={styles.inputLabel}>
+      <div className={styles.inputWrapper}>
         <input
           className={styles.input}
           type="text"
@@ -101,9 +71,7 @@ export const OrderForm = () => {
           value={orderComment}
           onChange={setOrderCommentHandler}
         />
-        <span className={styles.inputDescription}>
-          Особые детали и пожелания к заказу
-        </span>
+        <span className={styles.inputDescription}>{FORM_COMMENT_LABEL}</span>
       </div>
     </form>
   );

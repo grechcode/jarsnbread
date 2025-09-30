@@ -1,17 +1,12 @@
 import { useState } from "react";
 import { AppContext } from "@/contexts";
+import { ORDER_ADDRESS_REQUIRED_VALUE, PAGES } from "@/constants";
 
 export const AppProvider = ({ children }) => {
-  const [currentPage, setCurrentPage] = useState("menu");
-  // const [cart, setCart] = useState({
-  //   wine_duck: { count: 4, name: 'Парфе "Винная утка"', price: 1360 },
-  //   baguette: { count: 2, name: "Багет", price: 320 },
-  //   cream_turkey: { count: 1, name: "Индейка со сливками", price: 360 },
-  // });
-
+  const [currentPage, setCurrentPage] = useState(PAGES.menu);
   const [cart, setCart] = useState({});
   const [receiving, setReceiving] = useState("pickup");
-  const [deliveryAddress, setDeliveryAddress] = useState("г. Екатеринбург, ");
+  const [deliveryAddress, setDeliveryAddress] = useState(ORDER_ADDRESS_REQUIRED_VALUE);
   const [deliveryDate, setDeliveryDate] = useState("");
   const [deliveryTime, setDeliveryTime] = useState("");
   const [orderComment, setOrderComment] = useState("");

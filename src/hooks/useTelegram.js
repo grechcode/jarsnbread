@@ -1,6 +1,13 @@
+import { useEffect } from "react";
 import { useAppContext } from "./useAppContext";
 import { calculateCart, isCartEmpty, generateOrderDetailsText } from "@/utils";
-import { useEffect } from "react";
+import {
+  CART_MAIN_BUTTON_TEXT,
+  MENU_MAIN_BUTTON_TEXT,
+  PAGES,
+  PHONE_PERMISSION_ALERT,
+  WORK_SHEDULE,
+} from "@/constants";
 
 export const useTelegram = () => {
   const {
@@ -23,18 +30,21 @@ export const useTelegram = () => {
     tg.MainButton.color = "#b792ff";
     const date = new Date();
     const hour = date.getHours();
-    if (hour < 9 || 21 < hour) {
-      tg.showAlert("Режим работы с 9:00 до 21:00", () => {
-        tg.close();
-      });
+    if (hour < WORK_SHEDULE.open || WORK_SHEDULE.close < hour) {
+      tg.showAlert(
+        `Режим работы с ${WORK_SHEDULE.open}:00 до ${WORK_SHEDULE.close}:00`,
+        () => {
+          tg.close();
+        }
+      );
     }
   }, []);
 
   // handlers and settings for telegram elements
   useEffect(() => {
-    const backButtonHandler = () => setCurrentPage("menu");
+    const backButtonHandler = () => setCurrentPage(PAGES.menu);
 
-    const menuMainButtonHandler = () => setCurrentPage("cart");
+    const menuMainButtonHandler = () => setCurrentPage(PAGES.cart);
 
     const cartMainButtonHandler = () => {
       tg.requestContact((phonePermission, contactData) => {
@@ -63,9 +73,7 @@ export const useTelegram = () => {
           tg.HapticFeedback.notificationOccurred("success");
           tg.close();
         } else {
-          tg.showAlert(
-            "Чтобы создать заказ, необходимо поделиться номером телефона!\nЭто нужно, чтобы менеджер мог связаться с вами!"
-          );
+          tg.showAlert(PHONE_PERMISSION_ALERT);
           tg.HapticFeedback.notificationOccurred("error");
         }
       });
@@ -75,17 +83,18 @@ export const useTelegram = () => {
       tg.disableClosingConfirmation();
       tg.MainButton.hide();
     } else {
-      if (currentPage === "menu") {
+      if (currentPage === PAGES.menu) {
         const finalCartPrice = calculateCart(cart);
         tg.BackButton.hide();
         tg.MainButton.hasShineEffect = false;
-        tg.MainButton.setText(`К корзине • ${finalCartPrice} ₽`);
+        tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
         tg.MainButton.onClick(menuMainButtonHandler);
-      } else {
+      }
+      if (currentPage === PAGES.cart) {
         tg.BackButton.onClick(backButtonHandler);
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
-        tg.MainButton.setText(`Создать заказ`);
+        tg.MainButton.setText(CART_MAIN_BUTTON_TEXT);
         tg.MainButton.onClick(cartMainButtonHandler);
       }
       tg.enableClosingConfirmation();
