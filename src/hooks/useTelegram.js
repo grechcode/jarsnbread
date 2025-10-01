@@ -6,7 +6,6 @@ import {
   MENU_MAIN_BUTTON_TEXT,
   PAGES,
   PHONE_PERMISSION_ALERT,
-  WORK_SHEDULE,
 } from "@/constants";
 
 export const useTelegram = () => {
@@ -28,13 +27,6 @@ export const useTelegram = () => {
     tg.disableVerticalSwipes();
     tg.expand();
     tg.MainButton.color = "#b792ff";
-    const date = new Date();
-    const hour = date.getHours();
-    if (hour < WORK_SHEDULE.open || WORK_SHEDULE.close < hour) {
-      tg.showAlert(`Режим работы с ${WORK_SHEDULE.open} до ${WORK_SHEDULE.close}`, () => {
-        tg.close();
-      });
-    }
   }, []);
 
   // handlers and settings for telegram elements

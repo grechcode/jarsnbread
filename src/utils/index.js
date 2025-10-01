@@ -5,4 +5,5 @@ export { getDishProperty } from "./getDishProperty";
 export { generateOrderDetailsText } from "./generateOrderDetailsText";
 export { replaceImgWithError } from "./replaceImgWithError";
 export { formatDate } from "./formatDate";
+export { isStoreOpen } from "./isStoreOpen";
 export * from "./getDatetimeOptions";
