@@ -101,10 +101,10 @@ export const useTelegram = () => {
       tg.MainButton.show();
     }
     return () => {
-      tg.MainButton.setText(MENU_MAIN_BUTTON_TEXT);
       tg.BackButton.offClick(backButtonHandler);
       tg.MainButton.offClick(menuMainButtonHandler);
       tg.MainButton.offClick(cartMainButtonHandler);
+      tg.MainButton.hide();
     };
   }, [
     cart,
