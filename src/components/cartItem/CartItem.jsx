@@ -6,7 +6,7 @@ export const CartItem = ({ cart, dish }) => {
     <article className={styles.dish} key={dish}>
       <img
         className={styles.dishImg}
-        src={`/${dish}.jpg`}
+        src={`/images/${dish}.jpg`}
         onError={replaceImgWithError}
       />
       <h5 className={styles.dishName}>{cart[dish].name}</h5>
