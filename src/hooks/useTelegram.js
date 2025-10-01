@@ -39,26 +39,6 @@ export const useTelegram = () => {
       );
     }
   }, []);
-
-  // change main button text
-  useEffect(() => {
-    const finalCartPrice = calculateCart(cart);
-    tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
-    // if (currentPage === PAGES.menu) {
-    //     const finalCartPrice = calculateCart(cart);
-    //     tg.BackButton.hide();
-    //     tg.MainButton.hasShineEffect = false;
-    //     tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
-    //     tg.MainButton.onClick(menuMainButtonHandler);
-    //   }
-      // if (currentPage === PAGES.cart) {
-      //   tg.BackButton.onClick(backButtonHandler);
-      //   tg.BackButton.show();
-      //   tg.MainButton.hasShineEffect = true;
-      //   tg.MainButton.setText(CART_MAIN_BUTTON_TEXT);
-      //   tg.MainButton.onClick(cartMainButtonHandler);
-      // }
-  }, [cart]);
   
   // handlers and settings for telegram elements
   useEffect(() => {
@@ -103,20 +83,24 @@ export const useTelegram = () => {
       tg.disableClosingConfirmation();
       tg.MainButton.hide();
     } else {
+      tg.MainButton.showProgress();
       if (currentPage === PAGES.menu) {
         const finalCartPrice = calculateCart(cart);
+        console.log(cart);
+        console.log(finalCartPrice);
         tg.BackButton.hide();
         tg.MainButton.hasShineEffect = false;
-        // tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
+        tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
         tg.MainButton.onClick(menuMainButtonHandler);
       }
       if (currentPage === PAGES.cart) {
         tg.BackButton.onClick(backButtonHandler);
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
-        // tg.MainButton.setText(CART_MAIN_BUTTON_TEXT);
+        tg.MainButton.setText(CART_MAIN_BUTTON_TEXT);
         tg.MainButton.onClick(cartMainButtonHandler);
       }
+      tg.MainButton.hideProgress();
       tg.enableClosingConfirmation();
       tg.MainButton.show();
     }
