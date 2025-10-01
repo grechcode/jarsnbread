@@ -8,6 +8,11 @@
   position: relative;
 }
 
+.imgButtonWrapper {
+  max-width: 100%;
+  aspect-ratio: 1 /1;
+}
+
 .dishImg {
   border-radius: var(--border-radius);
   max-width: 100%;

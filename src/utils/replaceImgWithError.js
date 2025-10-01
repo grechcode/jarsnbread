@@ -1,4 +1,4 @@
 export const replaceImgWithError = (e) => {
   e.target.onerror = null;
-  e.target.src = "/logo.jpg";
+  e.target.src = "/images/logo.jpg";
 };
