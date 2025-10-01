@@ -16,10 +16,10 @@ export const DishCard = ({ dish }) => {
   return (
     <article className={styles.dishCard}>
       <Stickers cart={cart} dish={dish} />
-      <button type="button" onClick={onClick}>
+      <button type="button" onClick={onClick} className={styles.imgButtonWrapper}>
         <img
           className={styles.dishImg}
-          src={`/${dish.id}.jpg`}
+          src={`/images/${dish.id}.jpg`}
           onError={replaceImgWithError}
           alt={dish.id}
         />
