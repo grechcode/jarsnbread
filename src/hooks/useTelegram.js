@@ -101,6 +101,7 @@ export const useTelegram = () => {
       tg.MainButton.show();
     }
     return () => {
+      tg.MainButton.setText("");
       tg.BackButton.offClick(backButtonHandler);
       tg.MainButton.offClick(menuMainButtonHandler);
       tg.MainButton.offClick(cartMainButtonHandler);
