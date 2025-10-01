@@ -1,3 +1,5 @@
+import { WORK_SHEDULE } from "@/constants";
+
 export const getDateOptionsList = () => {
   const DAY_INTERVAL_MS = 86400000; // сутки
 
@@ -18,6 +20,7 @@ export const getDateOptionsList = () => {
 
 export const getTimeOptionsList = (selectedDeliveryDate) => {
   const MINUTE_INTERVAL_MS = 900000; // 15 минут
+  const MIN_WAITING_TIME_MS = 5400000; // 1 час 30 минут
 
   const timeOptionsList = [];
 
@@ -25,15 +28,20 @@ export const getTimeOptionsList = (selectedDeliveryDate) => {
   const currentDate = new Date();
   const currentDateMS = currentDate.getTime();
   const roundedCurrentDateMS = roundTime(currentDateMS, MINUTE_INTERVAL_MS).getTime();
-  let maxAvailableTimeMS = currentDate.setHours(22, 30);
+  const closeTime = WORK_SHEDULE.close.split(":");
+  const openTime = WORK_SHEDULE.open.split(":");
+  let maxAvailableTimeMS;
   let minAvailableTimeMS;
 
   if (currentDate.getDate() === selectedDate.getDate()) {
-    minAvailableTimeMS = roundedCurrentDateMS + 5400000;
-    maxAvailableTimeMS = currentDate.setHours(22, 30);
+    minAvailableTimeMS = roundedCurrentDateMS + MIN_WAITING_TIME_MS;
+    maxAvailableTimeMS =
+      currentDate.setHours(+closeTime[0], +closeTime[1]) + MIN_WAITING_TIME_MS;
   } else {
-    minAvailableTimeMS = selectedDate.setHours(10, 30);
-    maxAvailableTimeMS = selectedDate.setHours(22, 30);
+    minAvailableTimeMS =
+      selectedDate.setHours(+openTime[0], +openTime[1]) + MIN_WAITING_TIME_MS;
+    maxAvailableTimeMS =
+      selectedDate.setHours(+closeTime[0], +closeTime[1]) + MIN_WAITING_TIME_MS;
   }
 
   for (
@@ -41,8 +49,8 @@ export const getTimeOptionsList = (selectedDeliveryDate) => {
     index < maxAvailableTimeMS;
     index += MINUTE_INTERVAL_MS
   ) {
-    const timeOptionTimeString = new Date(index).toTimeString().split(":")
-    const timeOption = `${timeOptionTimeString[0]}:${timeOptionTimeString[1]}`
+    const timeOptionTimeString = new Date(index).toTimeString().split(":");
+    const timeOption = `${timeOptionTimeString[0]}:${timeOptionTimeString[1]}`;
     timeOptionsList.push(timeOption);
   }
 

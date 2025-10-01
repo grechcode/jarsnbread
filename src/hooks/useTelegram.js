@@ -31,15 +31,12 @@ export const useTelegram = () => {
     const date = new Date();
     const hour = date.getHours();
     if (hour < WORK_SHEDULE.open || WORK_SHEDULE.close < hour) {
-      tg.showAlert(
-        `Режим работы с ${WORK_SHEDULE.open}:00 до ${WORK_SHEDULE.close}:00`,
-        () => {
-          tg.close();
-        }
-      );
+      tg.showAlert(`Режим работы с ${WORK_SHEDULE.open} до ${WORK_SHEDULE.close}`, () => {
+        tg.close();
+      });
     }
   }, []);
-  
+
   // handlers and settings for telegram elements
   useEffect(() => {
     const backButtonHandler = () => setCurrentPage(PAGES.menu);
