@@ -41,7 +41,8 @@ export const getTimeOptionsList = (selectedDeliveryDate) => {
     index < maxAvailableTimeMS;
     index += MINUTE_INTERVAL_MS
   ) {
-    const timeOption = new Date(index).toLocaleTimeString().slice(0, 5);
+    const timeOptionDate = new Date(index)
+    const timeOption = `${timeOptionDate.getHours()}:${timeOptionDate.getMinutes()}`;
     timeOptionsList.push(timeOption);
   }
 
