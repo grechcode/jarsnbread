@@ -40,6 +40,26 @@ export const useTelegram = () => {
     }
   }, []);
 
+  // change main button text
+  useEffect(() => {
+    const finalCartPrice = calculateCart(cart);
+    tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
+    // if (currentPage === PAGES.menu) {
+    //     const finalCartPrice = calculateCart(cart);
+    //     tg.BackButton.hide();
+    //     tg.MainButton.hasShineEffect = false;
+    //     tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
+    //     tg.MainButton.onClick(menuMainButtonHandler);
+    //   }
+      // if (currentPage === PAGES.cart) {
+      //   tg.BackButton.onClick(backButtonHandler);
+      //   tg.BackButton.show();
+      //   tg.MainButton.hasShineEffect = true;
+      //   tg.MainButton.setText(CART_MAIN_BUTTON_TEXT);
+      //   tg.MainButton.onClick(cartMainButtonHandler);
+      // }
+  }, [cart]);
+  
   // handlers and settings for telegram elements
   useEffect(() => {
     const backButtonHandler = () => setCurrentPage(PAGES.menu);
@@ -87,14 +107,14 @@ export const useTelegram = () => {
         const finalCartPrice = calculateCart(cart);
         tg.BackButton.hide();
         tg.MainButton.hasShineEffect = false;
-        tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
+        // tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
         tg.MainButton.onClick(menuMainButtonHandler);
       }
       if (currentPage === PAGES.cart) {
         tg.BackButton.onClick(backButtonHandler);
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
-        tg.MainButton.setText(CART_MAIN_BUTTON_TEXT);
+        // tg.MainButton.setText(CART_MAIN_BUTTON_TEXT);
         tg.MainButton.onClick(cartMainButtonHandler);
       }
       tg.enableClosingConfirmation();
@@ -104,7 +124,6 @@ export const useTelegram = () => {
       tg.BackButton.offClick(backButtonHandler);
       tg.MainButton.offClick(menuMainButtonHandler);
       tg.MainButton.offClick(cartMainButtonHandler);
-      tg.MainButton.hide();
     };
   }, [
     cart,
