@@ -80,13 +80,14 @@ export const useTelegram = () => {
       tg.disableClosingConfirmation();
       tg.MainButton.hide();
     } else {
-      tg.MainButton.showProgress();
       if (currentPage === PAGES.menu) {
+        tg.MainButton.showProgress();
         const finalCartPrice = calculateCart(cart);
         tg.BackButton.hide();
         tg.MainButton.hasShineEffect = false;
         tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
         tg.MainButton.onClick(menuMainButtonHandler);
+        tg.MainButton.hideProgress();
       }
       if (currentPage === PAGES.cart) {
         tg.BackButton.onClick(backButtonHandler);
@@ -95,7 +96,6 @@ export const useTelegram = () => {
         tg.MainButton.setText(CART_MAIN_BUTTON_TEXT);
         tg.MainButton.onClick(cartMainButtonHandler);
       }
-      tg.MainButton.hideProgress();
       tg.enableClosingConfirmation();
       tg.MainButton.show();
     }
