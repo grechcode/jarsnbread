@@ -1,14 +1,27 @@
 import { WORK_SHEDULE } from "@/constants";
+import { isStoreOpen } from "./isStoreOpen";
+
+const MINUTE_INTERVAL_MS = 900000; // 15 минут
+const DAY_INTERVAL_MS = 86400000; // сутки
+const MIN_WAITING_TIME_MS = 5400000; // 1 час 30 минут
 
 export const getDateOptionsList = () => {
-  const DAY_INTERVAL_MS = 86400000; // сутки
+  const { sheduleDesc } = isStoreOpen();
 
   const dateOptionsList = [];
 
-  const currentDateMS = new Date().getTime();
-  const maxAvailableDateMS = new Date(currentDateMS + DAY_INTERVAL_MS * 7).getTime();
+  let minAvailableDateMS = new Date().getTime();
+  const maxAvailableDateMS = new Date(minAvailableDateMS + DAY_INTERVAL_MS * 7).getTime();
 
-  for (let index = currentDateMS; index < maxAvailableDateMS; index += DAY_INTERVAL_MS) {
+  if (sheduleDesc === "late") {
+    minAvailableDateMS += DAY_INTERVAL_MS;
+  }
+
+  for (
+    let index = minAvailableDateMS;
+    index < maxAvailableDateMS;
+    index += DAY_INTERVAL_MS
+  ) {
     const date = new Date(index);
     const clientTimeZone = Math.abs(date.getTimezoneOffset()) * 60 * 1000;
     const dateOption = new Date(index + clientTimeZone).toISOString().split("T")[0];
@@ -19,8 +32,7 @@ export const getDateOptionsList = () => {
 };
 
 export const getTimeOptionsList = (selectedDeliveryDate) => {
-  const MINUTE_INTERVAL_MS = 900000; // 15 минут
-  const MIN_WAITING_TIME_MS = 5400000; // 1 час 30 минут
+  const { isOpen } = isStoreOpen();
 
   const timeOptionsList = [];
 
@@ -34,7 +46,12 @@ export const getTimeOptionsList = (selectedDeliveryDate) => {
   let minAvailableTimeMS;
 
   if (currentDate.getDate() === selectedDate.getDate()) {
-    minAvailableTimeMS = roundedCurrentDateMS + MIN_WAITING_TIME_MS;
+    if (isOpen) {
+      minAvailableTimeMS = roundedCurrentDateMS + MIN_WAITING_TIME_MS;
+    } else {
+      minAvailableTimeMS =
+        currentDate.setHours(+openTime[0], +openTime[1]) + MIN_WAITING_TIME_MS;
+    }
     maxAvailableTimeMS =
       currentDate.setHours(+closeTime[0], +closeTime[1]) + MIN_WAITING_TIME_MS;
   } else {
