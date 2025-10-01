@@ -86,8 +86,6 @@ export const useTelegram = () => {
       tg.MainButton.showProgress();
       if (currentPage === PAGES.menu) {
         const finalCartPrice = calculateCart(cart);
-        console.log(cart);
-        console.log(finalCartPrice);
         tg.BackButton.hide();
         tg.MainButton.hasShineEffect = false;
         tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
