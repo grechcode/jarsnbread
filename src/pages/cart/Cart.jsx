@@ -13,7 +13,8 @@ export const Cart = () => {
       <section className={styles.cartList}>
         <h3 className={styles.label}>ВАШ ЗАКАЗ</h3>
         {Object.keys(cart).map(
-          (dish) => cart[dish].count > 0 && <CartItem cart={cart} dish={dish} />
+          (dish) =>
+            cart[dish].count > 0 && <CartItem key={dish} cart={cart} dish={dish} />
         )}
         <div className={styles.total}>
           <span>ИТОГО</span>

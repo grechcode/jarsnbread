@@ -10,8 +10,7 @@ export const FORM_DELIVERY_LABEL = "Введи адрес доставки";
 
 export const FORM_DATE_LABEL = "Выбери дату получения";
 
-export const FORM_TIME_LABEL =
-  "Выбери время получения (минимальное время ожидания - 3 часа)";
+export const FORM_TIME_LABEL = "Выбери время получения";
 
 export const FORM_COMMENT_LABEL = "Особые детали и пожелания к заказу";
 
