@@ -26,7 +26,7 @@ export const useTelegram = () => {
   useEffect(() => {
     tg.disableVerticalSwipes();
     tg.expand();
-    tg.MainButton.color = "#b792ff";
+    tg.MainButton.color = "#a33218";
   }, []);
 
   // handlers and settings for telegram elements
