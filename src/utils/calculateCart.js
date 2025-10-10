@@ -1,5 +1,3 @@
-import { getDishProperty } from "./getDishProperty";
-
 export const calculateCart = (cart) => {
   let result = 0;
   Object.keys(cart).map((dish) => {
