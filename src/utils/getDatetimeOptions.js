@@ -61,14 +61,13 @@ export const getTimeOptionsList = (selectedDeliveryDate, cart) => {
         currentDate.setHours(+openTime[0], +openTime[1]) + MIN_WAITING_TIME_MS;
     }
     maxAvailableTimeMS =
-      currentDate.setHours(+closeTime[0], +closeTime[1]) +
-      MIN_WAITING_TIME_WITHOUT_BREAD_MS;
+      currentDate.setHours(+closeTime[0], +closeTime[1]) + MIN_WAITING_TIME_WITH_BREAD_MS;
   } else {
     minAvailableTimeMS =
       selectedDate.setHours(+openTime[0], +openTime[1]) + MIN_WAITING_TIME_MS;
     maxAvailableTimeMS =
       selectedDate.setHours(+closeTime[0], +closeTime[1]) +
-      MIN_WAITING_TIME_WITHOUT_BREAD_MS;
+      MIN_WAITING_TIME_WITH_BREAD_MS;
   }
 
   for (
@@ -78,6 +77,8 @@ export const getTimeOptionsList = (selectedDeliveryDate, cart) => {
   ) {
     const timeOptionTimeString = new Date(index).toTimeString().split(":");
     const timeOption = `${timeOptionTimeString[0]}:${timeOptionTimeString[1]}`;
+    console.log(timeOption);
+
     timeOptionsList.push(timeOption);
   }
 
