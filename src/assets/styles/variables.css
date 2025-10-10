@@ -1,7 +1,7 @@
 :root {
   --font-family: "Inter", sans-serif;
 
-  --primary-accent-color: #b792ff;
+  --primary-accent-color: #ff7f50;
   --secondary-accent-color: #f25959;
   --hit-sticker-gradient: linear-gradient(180deg, rgb(232, 61, 61) 0%, #e4a719ff 100%);
   --new-sticker-gradient: linear-gradient(90deg, rgb(155, 76, 201) 0%, #71c4ffff 100%);
