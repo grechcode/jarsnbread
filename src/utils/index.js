@@ -2,6 +2,8 @@ export { cn } from "./cn";
 export { isCartEmpty } from "./isCartEmpty";
 export { calculateCart } from "./calculateCart";
 export { getDishProperty } from "./getDishProperty";
+export { getDishCategory } from "./getDishCategory";
+export { isBreadInCart } from "./isBreadInCart";
 export { generateOrderDetailsText } from "./generateOrderDetailsText";
 export { replaceImgWithError } from "./replaceImgWithError";
 export { formatDate } from "./formatDate";

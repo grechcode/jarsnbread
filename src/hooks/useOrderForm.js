@@ -5,6 +5,7 @@ import { ORDER_ADDRESS_REQUIRED_VALUE } from "@/constants";
 
 export const useOrderForm = () => {
   const {
+    cart,
     receiving,
     setReceiving,
     deliveryAddress,
@@ -22,7 +23,7 @@ export const useOrderForm = () => {
 
   useEffect(() => {
     const dateOptionsList = getDateOptionsList();
-    const timeOptionsList = getTimeOptionsList(dateOptionsList[0]);
+    const timeOptionsList = getTimeOptionsList(dateOptionsList[0], cart);
     setDeliveryDate(dateOptionsList[0]);
     setDeliveryTime(timeOptionsList[0]);
     setDateOptions(dateOptionsList);
@@ -30,7 +31,7 @@ export const useOrderForm = () => {
   }, []);
 
   useEffect(() => {
-    const timeOptionsList = getTimeOptionsList(deliveryDate);
+    const timeOptionsList = getTimeOptionsList(deliveryDate, cart);
     setTimeOptions(timeOptionsList);
     setDeliveryTime(timeOptionsList[0]);
   }, [deliveryDate]);
