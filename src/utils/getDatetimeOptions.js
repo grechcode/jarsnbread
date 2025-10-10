@@ -3,7 +3,7 @@ import { isStoreOpen } from "./isStoreOpen";
 
 const MINUTE_INTERVAL_MS = 900000; // 15 минут
 const DAY_INTERVAL_MS = 86400000; // сутки
-const MIN_WAITING_TIME_MS = 5400000; // 1 час 30 минут
+const MIN_WAITING_TIME_MS = 10800000; // 3 часа
 
 export const getDateOptionsList = () => {
   const { sheduleDesc } = isStoreOpen();
