@@ -61,12 +61,12 @@ export const getTimeOptionsList = (selectedDeliveryDate, cart) => {
         currentDate.setHours(+openTime[0], +openTime[1]) + MIN_WAITING_TIME_MS;
     }
     maxAvailableTimeMS =
-      currentDate.setHours(+closeTime[0], +closeTime[1]) + MIN_WAITING_TIME_MS;
+      currentDate.setHours(+closeTime[0], +closeTime[1]) + MIN_WAITING_TIME_WITHOUT_BREAD;
   } else {
     minAvailableTimeMS =
       selectedDate.setHours(+openTime[0], +openTime[1]) + MIN_WAITING_TIME_MS;
     maxAvailableTimeMS =
-      selectedDate.setHours(+closeTime[0], +closeTime[1]) + MIN_WAITING_TIME_MS;
+      selectedDate.setHours(+closeTime[0], +closeTime[1]) + MIN_WAITING_TIME_WITHOUT_BREAD;
   }
 
   for (
