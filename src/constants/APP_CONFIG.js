@@ -111,7 +111,7 @@ export const MENU = {
 
 export const WORK_SHEDULE = {
   open: "9:00",
-  close: "21:00",
+  close: "20:50",
 };
 
 export const ORDER_ADDRESS_REQUIRED_VALUE = "г. Екатеринбург, ";
