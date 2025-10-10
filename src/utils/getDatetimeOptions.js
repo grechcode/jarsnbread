@@ -1,9 +1,15 @@
-import { WORK_SHEDULE } from "@/constants";
+import {
+  MIN_WAITING_TIME_WITH_BREAD,
+  MIN_WAITING_TIME_WITHOUT_BREAD,
+  WORK_SHEDULE,
+} from "@/constants";
 import { isStoreOpen } from "./isStoreOpen";
+import { isBreadInCart } from "./isBreadInCart";
 
+const MIN_WAITING_TIME_WITH_BREAD_MS = MIN_WAITING_TIME_WITH_BREAD * 60 * 1000; // 3 часа
+const MIN_WAITING_TIME_WITHOUT_BREAD_MS = MIN_WAITING_TIME_WITHOUT_BREAD * 60 * 1000; // 1 час 30 минут
 const MINUTE_INTERVAL_MS = 900000; // 15 минут
 const DAY_INTERVAL_MS = 86400000; // сутки
-const MIN_WAITING_TIME_MS = 10800000; // 3 часа
 
 export const getDateOptionsList = () => {
   const { sheduleDesc } = isStoreOpen();
@@ -31,11 +37,13 @@ export const getDateOptionsList = () => {
   return dateOptionsList;
 };
 
-export const getTimeOptionsList = (selectedDeliveryDate) => {
+export const getTimeOptionsList = (selectedDeliveryDate, cart) => {
   const { isOpen } = isStoreOpen();
 
   const timeOptionsList = [];
-
+  const MIN_WAITING_TIME_MS = isBreadInCart(cart)
+    ? MIN_WAITING_TIME_WITH_BREAD_MS
+    : MIN_WAITING_TIME_WITHOUT_BREAD_MS;
   const selectedDate = new Date(selectedDeliveryDate);
   const currentDate = new Date();
   const currentDateMS = currentDate.getTime();

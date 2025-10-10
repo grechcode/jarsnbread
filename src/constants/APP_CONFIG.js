@@ -1,3 +1,4 @@
+// Меню ресторана
 export const MENU = {
   jars: {
     name: "Паштеты",
@@ -109,9 +110,17 @@ export const MENU = {
   },
 };
 
+// График работы ресторана (когда ресторан может принять заказ)
 export const WORK_SHEDULE = {
   open: "9:00",
   close: "20:50",
 };
 
+// Минимальное время ожидания с хлебом в заказе (минут)
+export const MIN_WAITING_TIME_WITH_BREAD = 180;
+
+// Минимальное время ожидания без хлеба в заказе (минут)
+export const MIN_WAITING_TIME_WITHOUT_BREAD = 90;
+
+// Обязательное значение для указания адреса доставки
 export const ORDER_ADDRESS_REQUIRED_VALUE = "г. Екатеринбург, ";
