@@ -44,6 +44,7 @@ export const getTimeOptionsList = (selectedDeliveryDate, cart) => {
   const MIN_WAITING_TIME_MS = isBreadInCart(cart)
     ? MIN_WAITING_TIME_WITH_BREAD_MS
     : MIN_WAITING_TIME_WITHOUT_BREAD_MS;
+
   const selectedDate = new Date(selectedDeliveryDate);
   const currentDate = new Date();
   const currentDateMS = currentDate.getTime();
