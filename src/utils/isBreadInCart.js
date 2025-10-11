@@ -6,8 +6,8 @@ export const isBreadInCart = (cart) => {
 
   Object.keys(cart).map((dish) => {
     const dishCategory = getDishCategory(dish);
-    if (dishCategory === "breads" && dish.count > 0) {
-      res = true;
+    if (dishCategory === "breads") {
+      dish.count > 0 && res = true;
     }
   });
   return res;
