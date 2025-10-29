@@ -1,0 +1,33 @@
+.loading {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20vw;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  transition-duration: var(--transition);
+  transition-property: opacity;
+  color: var(--tg-theme-text-color);
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.progressBar {
+  position: absolute;
+  background-color: var(--primary-accent-color);
+  opacity: 0.2;
+  inset: 0;
+  z-index: -1;
+  transform: translateY(var(--progress));
+  transition-duration: var(--transition);
+  transition-property: transform;
+}
+
+.accent {
+  color: var(--primary-accent-color);
+}
+
+.hide {
+  opacity: 0;
+}
