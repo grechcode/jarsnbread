@@ -114,7 +114,7 @@
   background-color: var(--primary-accent-color);
   opacity: 0;
   animation-name: capFall;
-  animation-delay: 1.8s;
+  animation-delay: 2.2s;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-duration: 0.3s;
@@ -141,7 +141,7 @@
   color: transparent;
   animation-name: fillText;
   animation-duration: 1s;
-  animation-delay: 1.2s;
+  animation-delay: 1.4s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
   transform: translateY(10px);
@@ -156,7 +156,7 @@
   animation-name: swipeFromRight;
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
-  animation-delay: 0.8s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
   opacity: 0;
   transform: scaleX(2.75) translateX(6px);
@@ -171,7 +171,7 @@
   display: flex;
   justify-content: center;
   animation-name: swipeFromLeft;
-  animation-delay: 0.5s;
+  animation-delay: 0.7s;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 
