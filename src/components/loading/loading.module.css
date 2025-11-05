@@ -98,6 +98,7 @@
 }
 
 .logo {
+  scale: 0.6;
   display: flex;
   flex-direction: column;
   align-items: center;
