@@ -112,7 +112,7 @@
     var(--tg-theme-text-color) 0%,
     var(--tg-theme-text-color) 10%
   );
-  /* background: linear-gradient(red 0%, red 10%); */
+  background: linear-gradient(red 0%, red 10%);
   background-position: 0 160px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -151,5 +151,5 @@
 }
 
 .breadText {
-  transform: translateY(-19%);
+  transform: translateY(-25px);
 }
