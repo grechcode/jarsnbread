@@ -6,15 +6,15 @@ import { Loading } from "@/components";
 
 const App = () => {
   const { currentPage } = useAppContext();
-  const { contentLoaded, progressPercent } = useLoading();
+  const contentLoaded = useLoading();
 
   useTelegram();
 
   return (
     <div className={styles.content}>
-      <Loading contentLoaded={contentLoaded} progressPercent={progressPercent} />
-      {/* {currentPage === PAGES.menu && <Menu />}
-      {currentPage === PAGES.cart && <Cart />} */}
+      <Loading contentLoaded={contentLoaded} />
+      {currentPage === PAGES.menu && <Menu />}
+      {currentPage === PAGES.cart && <Cart />}
     </div>
   );
 };
