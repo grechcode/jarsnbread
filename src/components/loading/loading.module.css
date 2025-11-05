@@ -54,11 +54,11 @@
 @keyframes capFall {
   0% {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateY(-50%);
   }
   100% {
     opacity: 1;
-    transform: translateY(100%);
+    transform: translateY(50%);
   }
 }
 
@@ -102,17 +102,17 @@
 
 .jarText,
 .breadText {
-  font-size: 107%;
-  line-height: 107%;
+  font-size: 154px;
+  line-height: 154px;
 }
 
 .jarText {
-  transform: translateY(10%);
+  transform: translateY(10px);
   background: linear-gradient(
     var(--tg-theme-text-color) 0%,
     var(--tg-theme-text-color) 10%
   );
-  background: linear-gradient(red 0%, red 10%);
+  /* background: linear-gradient(red 0%, red 10%); */
   background-position: 0 160px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -136,6 +136,7 @@
   animation-delay: 0.3s;
   animation-fill-mode: forwards;
   opacity: 0;
+  transform: scaleX(293%) translateX(3.2%);
 }
 
 .bread {
@@ -151,5 +152,5 @@
 }
 
 .breadText {
-  transform: translateY(-25px);
+  transform: translateY(-19px);
 }
