@@ -5,31 +5,34 @@ export const useLoading = () => {
   const [imagesCount, setImagesCount] = useState(null);
   const [loadedCount, setLoadedCount] = useState(0);
 
-  // useEffect(() => {
-  //   const allImages = document.querySelectorAll("img");
-  //   setImagesCount(allImages.length);
+  useEffect(() => {
+    // const allImages = document.querySelectorAll("img");
+    // setImagesCount(allImages.length);
 
-  //   const loadCounter = () => setLoadedCount((prev) => prev + 1);
+    // const loadCounter = () => setLoadedCount((prev) => prev + 1);
 
-  //   allImages.forEach((img) => {
-  //     img.addEventListener("load", loadCounter);
-  //   });
+    // allImages.forEach((img) => {
+    //   img.addEventListener("load", loadCounter);
+    // });
 
-  //   return () => {
-  //     allImages.forEach((img) => {
-  //       img.removeEventListener("load", loadCounter);
-  //     });
-  //   };
-  // }, []);
+    // return () => {
+    //   allImages.forEach((img) => {
+    //     img.removeEventListener("load", loadCounter);
+    //   });
+    // };
 
-  // useEffect(() => {
-  //   if (imagesCount === loadedCount) {
-  //     setContentLoaded(true);
-  //   }
-  // }, [imagesCount, loadedCount]);
+    const timeout = setTimeout(() => {
+      setImagesCount(11);
+      setLoadedCount(11);
+    }, 3000);
+    return () => clearTimeout(timeout);
+  }, []);
 
-  // const progressPercent = `${100 - (loadedCount / imagesCount) * 100}%`;
-  const progressPercent = `100%`;
+  useEffect(() => {
+    if (imagesCount === loadedCount) {
+      setContentLoaded(true);
+    }
+  }, [imagesCount, loadedCount]);
 
-  return { contentLoaded, progressPercent };
+  return contentLoaded;
 };
