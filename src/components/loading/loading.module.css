@@ -1,3 +1,67 @@
+@font-face {
+  font-family: "Steelfish";
+  src: local("Steelfish"), url("./steelfish-bd.ttf") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@keyframes swipeFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(2%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes swipeFromRight {
+  0% {
+    opacity: 0;
+
+    transform: scaleX(293%) translateX(100%);
+  }
+  90% {
+    opacity: 1;
+    transform: scaleX(293%) translateX(1.2%);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(293%) translateX(3.2%);
+  }
+}
+
+@keyframes fillText {
+  0% {
+    background-position: 0 160px;
+  }
+  40% {
+    background-position: 0 120px;
+  }
+  60% {
+    background-position: 0 110px;
+  }
+  100% {
+    background-position: 0 0px;
+  }
+}
+
+@keyframes capFall {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+}
+
 .loading {
   position: absolute;
   display: flex;
@@ -13,21 +77,79 @@
   background-color: var(--tg-theme-secondary-bg-color);
 }
 
-.progressBar {
-  position: absolute;
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Steelfish", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  width: 350px;
+}
+
+.cap {
+  height: 30px;
+  border-radius: var(--border-radius);
+  width: 70%;
   background-color: var(--primary-accent-color);
-  opacity: 0.2;
-  inset: 0;
-  z-index: -1;
-  transform: translateY(var(--progress));
-  transition-duration: var(--transition);
-  transition-property: transform;
-}
-
-.accent {
-  color: var(--primary-accent-color);
-}
-
-.hide {
   opacity: 0;
+  animation-name: capFall;
+  animation-delay: 1.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+}
+
+.jarText,
+.breadText {
+  font-size: 107%;
+  line-height: 107%;
+}
+
+.jarText {
+  transform: translateY(10%);
+  background: linear-gradient(
+    var(--tg-theme-text-color) 0%,
+    var(--tg-theme-text-color) 10%
+  );
+  /* background: linear-gradient(red 0%, red 10%); */
+  background-position: 0 160px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation-name: fillText;
+  animation-duration: 1s;
+  animation-delay: 0.6s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.jarBottom {
+  font-weight: 700;
+  writing-mode: vertical-lr;
+  color: var(--primary-accent-color);
+  animation-name: swipeFromRight;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.bread {
+  width: 100%;
+  height: 128px;
+  border-radius: 16px;
+  background-color: rgba(134, 108, 73, 0.979);
+  display: flex;
+  justify-content: center;
+  animation-name: swipeFromLeft;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+
+.breadText {
+  transform: translateY(-19%);
 }
