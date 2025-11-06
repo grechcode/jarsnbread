@@ -53,6 +53,17 @@
   }
 }
 
+@keyframes capRotate {
+  0% {
+    opacity: 0;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-1000%);
+  }
+}
+
 @keyframes hide {
   0% {
     opacity: 1;
@@ -122,6 +133,38 @@
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-duration: 0.3s;
+  position: relative;
+}
+
+.cap::before {
+  content: "";
+  height: 100%;
+  width: 2px;
+  left: 40%;
+  background-color: var(--tg-theme-text-color);
+  position: absolute;
+  opacity: 0;
+  animation-name: capRotate;
+  animation-delay: 3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+  transition: opacity var(--transition);
+}
+.cap::after {
+  content: "";
+  height: 100%;
+  width: 4px;
+  left: 80%;
+  background-color: var(--tg-theme-text-color);
+  position: absolute;
+  opacity: 0;
+  transition: opacity var(--transition);
+  animation-name: capRotate;
+  animation-delay: 3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
 }
 
 .jarBottom,
@@ -167,6 +210,7 @@
   width: 100%;
   height: 0.83em;
   border-radius: 10px;
+  color: var(--tg-theme-text-color);
   background-color: rgba(134, 108, 73, 0.979);
   display: flex;
   justify-content: center;
