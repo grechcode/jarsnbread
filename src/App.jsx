@@ -12,10 +12,10 @@ const App = () => {
 
   return (
     <div className={styles.content}>
-      {isFontsLoaded && <Loading isImgsLoaded={isImgsLoaded} />}
+      <Loading isImgsLoaded={isImgsLoaded} isFontsLoaded={isFontsLoaded} />
 
-      {isFontsLoaded && currentPage === PAGES.menu && <Menu />}
-      {isFontsLoaded && currentPage === PAGES.cart && <Cart />}
+      {currentPage === PAGES.menu && <Menu />}
+      {currentPage === PAGES.cart && <Cart />}
     </div>
   );
 };
