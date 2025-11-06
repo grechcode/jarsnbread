@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "Steelfish";
+  src: local("Steelfish"), url("../fonts/steelfish-bd.ttf") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
