@@ -2,3 +2,28 @@
   max-width: 500px;
   margin-inline: auto;
 }
+
+.pagesWrapper {
+  opacity: 0;
+  transition-duration: var(--transition);
+  transition-property: opacity;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.show {
+  animation-name: show;
+  animation-duration: 0.6s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}

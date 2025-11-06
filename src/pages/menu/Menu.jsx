@@ -1,16 +1,11 @@
 import styles from "./menu.module.css";
 import { MENU } from "@/constants";
-import { DishCard, Loading } from "@/components";
-import { cn } from "@/utils";
-import { useLoading } from "@/hooks";
+import { DishCard } from "@/components";
 
 export const Menu = () => {
-  const { contentLoaded, progressPercent } = useLoading();
   return (
     <>
-      <Loading contentLoaded={contentLoaded} progressPercent={progressPercent} />
-
-      <div className={cn(styles.menu, contentLoaded && styles.show)}>
+      <div className={styles.menu}>
         <h1 className="hidden">Меню</h1>
 
         {Object.keys(MENU).map((category) => (
