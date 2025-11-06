@@ -1,9 +1,8 @@
-import { cn } from "@/utils";
 import styles from "./loading.module.css";
 
-export const Loading = ({ isImgsLoaded, isFontsLoaded }) => {
+export const Loading = ({ isFontsLoaded }) => {
   return (
-    <div className={cn(styles.loading, isImgsLoaded && styles.hide)}>
+    <div className={styles.loading}>
       {isFontsLoaded && (
         <div className={styles.logo}>
           <div className={styles.cap} />
