@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     if (isFontsLoaded) {
       let tg = window.Telegram.WebApp;
-      tg.HapticFeedback.impactOccurred("rigid");
+      tg.HapticFeedback.impactOccurred("heavy");
       const timeout = setTimeout(() => {
         tg.HapticFeedback.selectionChanged();
       }, 3000);
@@ -27,8 +27,8 @@ const App = () => {
     <div className={styles.content}>
       <Loading isImgsLoaded={isImgsLoaded} isFontsLoaded={isFontsLoaded} />
 
-      {currentPage === PAGES.menu && <Menu />}
-      {currentPage === PAGES.cart && <Cart />}
+      {isFontsLoaded && currentPage === PAGES.menu && <Menu />}
+      {isFontsLoaded && currentPage === PAGES.cart && <Cart />}
     </div>
   );
 };
