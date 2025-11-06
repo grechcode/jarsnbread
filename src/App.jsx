@@ -12,37 +12,38 @@ const App = () => {
   useTelegram();
 
   useEffect(() => {
-    const hapticAnimation = () => {
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    const hapticAnimation = async () => {
       let tg = window.Telegram.WebApp;
-      setTimeout(() => {
-        tg.HapticFeedback.selectionChanged();
-      }, 1000);
-      setTimeout(() => {
-        tg.HapticFeedback.selectionChanged();
-      }, 1300);
-      setTimeout(() => {
-        tg.HapticFeedback.impactOccurred("light");
-        tg.HapticFeedback.impactOccurred("light");
-        tg.HapticFeedback.impactOccurred("light");
-        tg.HapticFeedback.impactOccurred("light");
-        tg.HapticFeedback.impactOccurred("light");
-        tg.HapticFeedback.impactOccurred("light");
-        tg.HapticFeedback.impactOccurred("medium");
-        tg.HapticFeedback.impactOccurred("medium");
-        tg.HapticFeedback.impactOccurred("medium");
-        tg.HapticFeedback.impactOccurred("medium");
-        tg.HapticFeedback.impactOccurred("medium");
-        tg.HapticFeedback.impactOccurred("medium");
-        tg.HapticFeedback.impactOccurred("heavy");
-        tg.HapticFeedback.impactOccurred("heavy");
-        tg.HapticFeedback.impactOccurred("heavy");
-        tg.HapticFeedback.impactOccurred("heavy");
-        tg.HapticFeedback.impactOccurred("heavy");
-        tg.HapticFeedback.impactOccurred("heavy");
-      }, 1400);
-      setTimeout(() => {
-        tg.HapticFeedback.selectionChanged();
-      }, 3000);
+      await sleep(1000);
+      tg.HapticFeedback.impactOccurred("soft");
+      await sleep(300);
+      tg.HapticFeedback.impactOccurred("soft");
+      await sleep(100);
+      tg.HapticFeedback.impactOccurred("light");
+      await sleep(100);
+      tg.HapticFeedback.impactOccurred("light");
+      await sleep(100);
+      tg.HapticFeedback.impactOccurred("light");
+      await sleep(100);
+      tg.HapticFeedback.impactOccurred("light");
+      await sleep(100);
+      tg.HapticFeedback.impactOccurred("medium");
+      await sleep(100);
+      tg.HapticFeedback.impactOccurred("medium");
+      await sleep(100);
+      tg.HapticFeedback.impactOccurred("medium");
+      await sleep(100);
+      tg.HapticFeedback.impactOccurred("medium");
+      await sleep(100);
+      tg.HapticFeedback.impactOccurred("heavy");
+      await sleep(100);
+      tg.HapticFeedback.impactOccurred("heavy");
+      await sleep(100);
+      tg.HapticFeedback.impactOccurred("heavy");
+      await sleep(400);
+      tg.HapticFeedback.impactOccurred("rigid");
     };
 
     if (isFontsLoaded) {
