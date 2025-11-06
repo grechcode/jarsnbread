@@ -2,3 +2,13 @@
   max-width: 500px;
   margin-inline: auto;
 }
+
+.pagesWrapper {
+  opacity: 0;
+  transition-duration: var(--transition);
+  transition-property: opacity;
+}
+
+.show {
+  opacity: 1;
+}

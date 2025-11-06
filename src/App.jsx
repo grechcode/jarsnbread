@@ -4,6 +4,7 @@ import { Cart, Menu } from "@/pages";
 import { PAGES } from "@/constants";
 import { Loading } from "@/components";
 import { useEffect } from "react";
+import { cn } from "@/utils";
 
 const App = () => {
   const { currentPage } = useAppContext();
@@ -13,18 +14,15 @@ const App = () => {
 
   useEffect(() => {
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
     const hapticAnimation = async () => {
-      let count = 0;
       let tg = window.Telegram.WebApp;
       await sleep(1000);
       tg.HapticFeedback.impactOccurred("soft");
       await sleep(300);
       tg.HapticFeedback.impactOccurred("soft");
       await sleep(1500);
-      tg.HapticFeedback.impactOccurred("rigid");
+      tg.HapticFeedback.impactOccurred("soft");
     };
-
     if (isFontsLoaded) {
       hapticAnimation();
     }
@@ -32,10 +30,11 @@ const App = () => {
 
   return (
     <div className={styles.content}>
-      <Loading isImgsLoaded={isImgsLoaded} isFontsLoaded={isFontsLoaded} />
-
-      {isFontsLoaded && currentPage === PAGES.menu && <Menu />}
-      {isFontsLoaded && currentPage === PAGES.cart && <Cart />}
+      <Loading isFontsLoaded={isFontsLoaded} />
+      <div className={cn(styles.pagesWrapper, isImgsLoaded ? styles.show : "hidden")}>
+        {currentPage === PAGES.menu && <Menu />}
+        {currentPage === PAGES.cart && <Cart />}
+      </div>
     </div>
   );
 };
