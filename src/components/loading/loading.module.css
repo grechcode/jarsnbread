@@ -45,22 +45,20 @@
 @keyframes capFall {
   0% {
     opacity: 0;
-    transform: translateY(-100%);
+    border-radius: 2px;
+    transform: translateY(-200%) translateX(10%) rotateZ(10deg);
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
 
-@keyframes capRotate {
-  0% {
-    opacity: 0;
-    transform: translateX(0%);
+  50% {
+    opacity: 1;
+    border-radius: 2px;
+    transform: translateY(0%) translateX(0%) rotateZ(0deg);
   }
+
   100% {
     opacity: 1;
-    transform: translateX(-1000%);
+    border-radius: 10px;
+    transform: translateY(0%) translateX(0%) rotateZ(0deg);
   }
 }
 
@@ -124,47 +122,17 @@
 .cap {
   height: 20px;
   padding: 0;
-  border-radius: 10px;
+  border-radius: 1px;
+  transition: border-radius var(--transition);
   width: 70%;
   background-color: var(--primary-accent-color);
   opacity: 0;
   animation-name: capFall;
   animation-delay: 2.5s;
-  animation-timing-function: ease-in;
+  animation-timing-function: ease-out;
   animation-fill-mode: forwards;
-  animation-duration: 0.3s;
+  animation-duration: 0.6s;
   position: relative;
-}
-
-.cap::before {
-  content: "";
-  height: 100%;
-  width: 2px;
-  left: 40%;
-  background-color: var(--tg-theme-text-color);
-  position: absolute;
-  opacity: 0;
-  animation-name: capRotate;
-  animation-delay: 3s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-  animation-duration: 0.3s;
-  transition: opacity var(--transition);
-}
-.cap::after {
-  content: "";
-  height: 100%;
-  width: 4px;
-  left: 80%;
-  background-color: var(--tg-theme-text-color);
-  position: absolute;
-  opacity: 0;
-  transition: opacity var(--transition);
-  animation-name: capRotate;
-  animation-delay: 3s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-  animation-duration: 0.3s;
 }
 
 .jarBottom,
@@ -198,7 +166,7 @@
   writing-mode: vertical-lr;
   color: var(--primary-accent-color);
   animation-name: swipeFromRight;
-  animation-duration: 0.5s;
+  animation-duration: 0.3s;
   animation-timing-function: ease-out;
   animation-delay: 1s;
   animation-fill-mode: forwards;
@@ -216,7 +184,7 @@
   justify-content: center;
   animation-name: swipeFromLeft;
   animation-delay: 0.7s;
-  animation-duration: 0.5s;
+  animation-duration: 0.3s;
   animation-fill-mode: forwards;
   opacity: 0;
   animation-timing-function: ease-out;
