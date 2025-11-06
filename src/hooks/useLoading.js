@@ -8,10 +8,10 @@ export const useLoading = () => {
   const [loadedCount, setLoadedCount] = useState(0);
 
   useEffect(() => {
-    document.fonts.ready.then(() => {
+    if (document.fonts.status === "loaded") {
       setIsFontsLoaded(true);
-    });
-  }, []);
+    }
+  }, [document.fonts.status]);
 
   useEffect(() => {
     if (!isFontsLoaded) return;
