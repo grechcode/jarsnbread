@@ -8,21 +8,11 @@ import { cn } from "@/utils";
 
 const App = () => {
   const { currentPage } = useAppContext();
-  const isImgsLoaded = useLoading();
+  const { isImgsLoaded, hapticAnimation } = useLoading();
 
   useTelegram();
 
   useEffect(() => {
-    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-    const hapticAnimation = async () => {
-      let tg = window.Telegram.WebApp;
-      await sleep(1000);
-      tg.HapticFeedback.impactOccurred("soft");
-      await sleep(300);
-      tg.HapticFeedback.impactOccurred("soft");
-      await sleep(1500);
-      tg.HapticFeedback.impactOccurred("soft");
-    };
     hapticAnimation();
   }, []);
 
