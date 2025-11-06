@@ -8,7 +8,7 @@ import { cn } from "@/utils";
 
 const App = () => {
   const { currentPage } = useAppContext();
-  const { isFontsLoaded, isImgsLoaded } = useLoading();
+  const isImgsLoaded = useLoading();
 
   useTelegram();
 
@@ -23,14 +23,12 @@ const App = () => {
       await sleep(1500);
       tg.HapticFeedback.impactOccurred("soft");
     };
-    if (isFontsLoaded) {
-      hapticAnimation();
-    }
-  }, [isFontsLoaded]);
+    hapticAnimation();
+  }, []);
 
   return (
     <div className={styles.content}>
-      <Loading isFontsLoaded={isFontsLoaded} />
+      <Loading />
       <div className={cn(styles.pagesWrapper, isImgsLoaded ? styles.show : "hidden")}>
         {currentPage === PAGES.menu && <Menu />}
         {currentPage === PAGES.cart && <Cart />}
