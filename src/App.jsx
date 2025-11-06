@@ -13,8 +13,8 @@ const App = () => {
   return (
     <div className={styles.content}>
       <Loading contentLoaded={contentLoaded} />
-      {currentPage === PAGES.menu && <Menu />}
-      {currentPage === PAGES.cart && <Cart />}
+      {/* {currentPage === PAGES.menu && <Menu />}
+      {currentPage === PAGES.cart && <Cart />} */}
     </div>
   );
 };

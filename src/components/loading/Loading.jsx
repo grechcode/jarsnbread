@@ -7,9 +7,7 @@ export const Loading = ({ contentLoaded }) => (
       <div className={styles.cap} />
       <span className={styles.jarText}>БАНОЧКИ</span>
       <span className={styles.jarBottom}>И</span>
-      <div className={styles.bread}>
-        <span className={styles.breadText}>ХЛЕБ</span>
-      </div>
+      <span className={styles.bread}>ХЛЕБ</span>
     </div>
   </div>
 );

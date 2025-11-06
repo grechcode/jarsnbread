@@ -23,7 +23,7 @@ export const useLoading = () => {
 
     const timeout = setTimeout(() => {
       setImagesCount(11);
-      setLoadedCount(11);
+      setLoadedCount(10);
     }, 3000);
     return () => clearTimeout(timeout);
   }, []);
