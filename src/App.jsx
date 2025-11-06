@@ -14,8 +14,8 @@ const App = () => {
     <div className={styles.content}>
       {isFontsLoaded && <Loading isImgsLoaded={isImgsLoaded} />}
 
-      {currentPage === PAGES.menu && <Menu />}
-      {currentPage === PAGES.cart && <Cart />}
+      {isFontsLoaded && currentPage === PAGES.menu && <Menu />}
+      {isFontsLoaded && currentPage === PAGES.cart && <Cart />}
     </div>
   );
 };
