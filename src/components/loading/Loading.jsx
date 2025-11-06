@@ -1,8 +1,8 @@
 import { cn } from "@/utils";
 import styles from "./loading.module.css";
 
-export const Loading = ({ contentLoaded }) => (
-  <div className={cn(styles.loading, contentLoaded && styles.hide)}>
+export const Loading = ({ isImgsLoaded }) => (
+  <div className={cn(styles.loading, isImgsLoaded && styles.hide)}>
     <div className={styles.logo}>
       <div className={styles.cap} />
       <span className={styles.jarText}>БАНОЧКИ</span>
