@@ -12,7 +12,9 @@ const App = () => {
 
   return (
     <div className={styles.content}>
-      <Loading isImgsLoaded={isImgsLoaded} isFontsLoaded={isFontsLoaded} />
+      {!isImgsLoaded && (
+        <Loading isImgsLoaded={isImgsLoaded} isFontsLoaded={isFontsLoaded} />
+      )}
 
       {currentPage === PAGES.menu && <Menu />}
       {currentPage === PAGES.cart && <Cart />}
