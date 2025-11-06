@@ -2,24 +2,16 @@ import { useEffect, useState } from "react";
 
 export const useLoading = () => {
   const [isImgsLoaded, setIsImgsLoaded] = useState(false);
-  const [isFontsLoaded, setIsFontsLoaded] = useState(false);
   const [isAnimationLoad, setIsAnimationLoad] = useState(false);
   const [imagesCount, setImagesCount] = useState(null);
   const [loadedCount, setLoadedCount] = useState(0);
 
   useEffect(() => {
-    if (document.fonts.status === "loaded") {
-      setIsFontsLoaded(true);
-    }
-  }, [document.fonts.status]);
-
-  useEffect(() => {
-    if (!isFontsLoaded) return;
     const timeout = setTimeout(() => {
       setIsAnimationLoad(true);
     }, 4000);
     return () => clearTimeout(timeout);
-  }, [isFontsLoaded]);
+  }, []);
 
   useEffect(() => {
     const allImages = document.querySelectorAll("img");
@@ -40,9 +32,10 @@ export const useLoading = () => {
 
   useEffect(() => {
     if (isAnimationLoad && imagesCount === loadedCount) {
+      console.log("IMGs loaded");
       setIsImgsLoaded(true);
     }
   }, [imagesCount, loadedCount, isAnimationLoad]);
 
-  return { isFontsLoaded, isImgsLoaded };
+  return isImgsLoaded;
 };
