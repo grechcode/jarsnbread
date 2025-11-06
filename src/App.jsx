@@ -15,34 +15,19 @@ const App = () => {
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     const hapticAnimation = async () => {
+      let count = 0;
       let tg = window.Telegram.WebApp;
       await sleep(1000);
       tg.HapticFeedback.impactOccurred("soft");
       await sleep(300);
       tg.HapticFeedback.impactOccurred("soft");
       await sleep(100);
-      tg.HapticFeedback.impactOccurred("light");
-      await sleep(100);
-      tg.HapticFeedback.impactOccurred("light");
-      await sleep(100);
-      tg.HapticFeedback.impactOccurred("light");
-      await sleep(100);
-      tg.HapticFeedback.impactOccurred("light");
-      await sleep(100);
-      tg.HapticFeedback.impactOccurred("medium");
-      await sleep(100);
-      tg.HapticFeedback.impactOccurred("medium");
-      await sleep(100);
-      tg.HapticFeedback.impactOccurred("medium");
-      await sleep(100);
-      tg.HapticFeedback.impactOccurred("medium");
-      await sleep(100);
-      tg.HapticFeedback.impactOccurred("heavy");
-      await sleep(100);
-      tg.HapticFeedback.impactOccurred("heavy");
-      await sleep(100);
-      tg.HapticFeedback.impactOccurred("heavy");
-      await sleep(400);
+      while (count < 100) {
+        count += 1;
+        tg.HapticFeedback.impactOccurred("light");
+        await sleep(10);
+      }
+      await sleep(500);
       tg.HapticFeedback.impactOccurred("rigid");
     };
 
