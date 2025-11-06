@@ -21,13 +21,7 @@ const App = () => {
       tg.HapticFeedback.impactOccurred("soft");
       await sleep(300);
       tg.HapticFeedback.impactOccurred("soft");
-      await sleep(100);
-      while (count < 100) {
-        count += 1;
-        tg.HapticFeedback.impactOccurred("light");
-        await sleep(10);
-      }
-      await sleep(500);
+      await sleep(1500);
       tg.HapticFeedback.impactOccurred("rigid");
     };
 
