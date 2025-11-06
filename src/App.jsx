@@ -8,7 +8,7 @@ import { cn } from "@/utils";
 
 const App = () => {
   const { currentPage } = useAppContext();
-  const { isImgsLoaded, hapticAnimation } = useLoading();
+  const { isAnimationLoad, hapticAnimation } = useLoading();
 
   useTelegram();
 
@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div className={styles.content}>
       <Loading />
-      <div className={cn(styles.pagesWrapper, isImgsLoaded ? styles.show : "hidden")}>
+      <div className={cn(styles.pagesWrapper, isAnimationLoad ? styles.show : "hidden")}>
         {currentPage === PAGES.menu && <Menu />}
         {currentPage === PAGES.cart && <Cart />}
       </div>
