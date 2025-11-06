@@ -32,8 +32,9 @@ const App = () => {
     <div className={styles.content}>
       <Loading isFontsLoaded={isFontsLoaded} />
       <div className={cn(styles.pagesWrapper, isImgsLoaded ? styles.show : "hidden")}>
-        {currentPage === PAGES.menu && <Menu />}
-        {currentPage === PAGES.cart && <Cart />}
+        <Cart />
+        {/* {currentPage === PAGES.menu && <Menu />}
+        {currentPage === PAGES.cart && <Cart />} */}
       </div>
     </div>
   );
