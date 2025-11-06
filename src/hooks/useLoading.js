@@ -6,10 +6,21 @@ export const useLoading = () => {
   const [imagesCount, setImagesCount] = useState(null);
   const [loadedCount, setLoadedCount] = useState(0);
 
+  const hapticAnimation = async () => {
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    let tg = window.Telegram.WebApp;
+    await sleep(1000);
+    tg.HapticFeedback.impactOccurred("soft");
+    await sleep(300);
+    tg.HapticFeedback.impactOccurred("soft");
+    await sleep(1500);
+    tg.HapticFeedback.impactOccurred("soft");
+  };
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsAnimationLoad(true);
-    }, 4000);
+    }, 3500);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -30,12 +41,12 @@ export const useLoading = () => {
     };
   }, []);
 
+  // Дожидаемся окончания анимации и следим за загрузкой изображений
   useEffect(() => {
     if (isAnimationLoad && imagesCount === loadedCount) {
-      console.log("IMGs loaded");
       setIsImgsLoaded(true);
     }
   }, [imagesCount, loadedCount, isAnimationLoad]);
 
-  return isImgsLoaded;
+  return { isImgsLoaded, hapticAnimation };
 };
