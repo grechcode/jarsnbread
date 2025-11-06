@@ -41,13 +41,11 @@
     border-radius: 2px;
     transform: translateY(-200%) translateX(10%) rotateZ(10deg);
   }
-
   50% {
     opacity: 1;
     border-radius: 2px;
     transform: translateY(0%) translateX(0%) rotateZ(0deg);
   }
-
   100% {
     opacity: 1;
     border-radius: 10px;
