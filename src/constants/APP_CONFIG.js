@@ -59,6 +59,7 @@ export const MENU = {
         hit: false,
         new: false,
         isAvailable: true,
+        publicationUrl: "https://t.me/jarsnbread/70",
       },
       {
         id: "rye_raisins_and_cumin",
