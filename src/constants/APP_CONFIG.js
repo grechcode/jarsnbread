@@ -76,6 +76,7 @@ export const MENU = {
         hit: false,
         new: false,
         isAvailable: true,
+        publicationUrl: "https://t.me/jarsnbread/73",
       },
     ],
   },

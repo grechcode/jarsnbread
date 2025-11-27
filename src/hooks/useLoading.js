@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useAppContext } from "./useAppContext";
 
 export const useLoading = () => {
-  const [isAnimationLoad, setIsAnimationLoad] = useState(false);
+  const { setIsAnimationLoad } = useAppContext();
 
   const hapticAnimation = async () => {
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -21,5 +22,5 @@ export const useLoading = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  return { isAnimationLoad, hapticAnimation };
+  return { hapticAnimation };
 };
