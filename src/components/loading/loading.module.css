@@ -53,6 +53,24 @@
   }
 }
 
+@keyframes runToRight {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(20%);
+  }
+}
+
+@keyframes runToLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
 .loading {
   position: absolute;
   display: flex;
@@ -151,4 +169,110 @@
   animation-fill-mode: forwards;
   opacity: 0;
   animation-timing-function: ease-out;
+}
+
+.jarIcon,
+.xIcon {
+  width: 40px;
+  height: 40px;
+}
+
+.breadIcon {
+  width: 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.jarIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2px;
+  justify-content: center;
+}
+
+.iconCap {
+  width: 75%;
+  height: 20%;
+  border: 2px solid var(--tg-theme-text-color);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.iconJar {
+  width: 95%;
+  height: 65%;
+  border: 2px solid var(--tg-theme-text-color);
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+.xIcon {
+  position: relative;
+}
+
+.firstStick,
+.secondStick {
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-accent-color);
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+}
+
+.firstStick {
+  rotate: 45deg;
+}
+
+.secondStick {
+  rotate: -45deg;
+}
+
+.iconBread {
+  height: 90%;
+  width: 100%;
+  border: 2px solid var(--tg-theme-text-color);
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+.animationLine {
+  height: 40px;
+  display: flex;
+  column-gap: 4px;
+  justify-content: center;
+}
+
+.upperLine,
+.downerLine {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  rotate: 2deg;
+}
+
+.upperLine {
+  top: 0px;
+}
+
+.downerLine {
+  bottom: 0px;
+}
+
+.right,
+.left {
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-duration: 60s;
+}
+
+.right {
+  animation-name: runToRight;
+}
+
+.left {
+  animation-name: runToLeft;
 }
