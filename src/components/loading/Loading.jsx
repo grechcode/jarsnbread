@@ -1,7 +1,15 @@
-import { cn } from "@/utils";
 import styles from "./loading.module.css";
+import { cn } from "@/utils";
+import { useLoading } from "@/hooks";
+import { useEffect } from "react";
 
 export const Loading = () => {
+  const { hapticAnimation } = useLoading();
+
+  useEffect(() => {
+    hapticAnimation();
+  }, []);
+
   const JarIcon = () => (
     <div className={styles.jarIcon}>
       <div className={styles.iconCap} />
@@ -15,6 +23,7 @@ export const Loading = () => {
       <div className={styles.secondStick} />
     </div>
   );
+
   const BreadIcon = () => (
     <div className={styles.breadIcon}>
       <div className={styles.iconBread} />

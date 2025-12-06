@@ -3,6 +3,7 @@ import { AppContext } from "@/contexts";
 import { ORDER_ADDRESS_REQUIRED_VALUE, PAGES } from "@/constants";
 
 export const AppProvider = ({ children }) => {
+  const [isAnimationLoad, setIsAnimationLoad] = useState(false);
   const [currentPage, setCurrentPage] = useState(PAGES.menu);
   const [cart, setCart] = useState({});
   const [receiving, setReceiving] = useState("pickup");
@@ -14,6 +15,8 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        isAnimationLoad,
+        setIsAnimationLoad,
         currentPage,
         setCurrentPage,
         cart,
