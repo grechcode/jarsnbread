@@ -4,11 +4,13 @@ import { useEffect } from "react";
 import { Logo, RunningLine } from "@/components";
 import { cn } from "@/utils";
 
-export const Loading = () => {
+export const Loading = ({ hapticFeedback = false }) => {
   const { hapticAnimation, isAnimationLoad } = useLoading();
 
   useEffect(() => {
-    hapticAnimation();
+    if (hapticFeedback) {
+      hapticAnimation();
+    }
   }, []);
 
   return (
