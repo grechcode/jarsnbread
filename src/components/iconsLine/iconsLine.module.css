@@ -1,0 +1,39 @@
+@keyframes runToRight {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(20%);
+  }
+}
+
+@keyframes runToLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+.iconsLine {
+  height: 40px;
+  display: flex;
+  column-gap: 4px;
+  justify-content: center;
+}
+
+.runToRight,
+.runToLeft {
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-duration: 60s;
+}
+
+.runToRight {
+  animation-name: runToRight;
+}
+
+.runToLeft {
+  animation-name: runToLeft;
+}

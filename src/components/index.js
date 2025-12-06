@@ -5,3 +5,7 @@ export { ButtonBar } from "./buttonBar/ButtonBar";
 export { CartItem } from "./cartItem/CartItem";
 export { Select } from "./select/Select";
 export { Loading } from "./loading/Loading";
+export { Icon } from "./icon/Icon";
+export { IconsLine } from "./iconsLine/IconsLine";
+export { RunningLine } from "./runningLine/RunningLine";
+export { Logo } from "./logo/Logo";

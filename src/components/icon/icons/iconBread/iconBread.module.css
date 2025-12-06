@@ -1,0 +1,14 @@
+.wrapper {
+  width: 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.bread {
+  height: 90%;
+  width: 100%;
+  border: 2px solid var(--tg-theme-text-color);
+  border-radius: 8px;
+  background-color: transparent;
+}
