@@ -1,3 +1,3 @@
-export * from "./iconJar/IconJar";
-export * from "./iconBread/IconBread";
-export * from "./iconXMark/IconXMark";
+export { IconJar } from "./iconJar/IconJar";
+export { IconBread } from "./iconBread/IconBread";
+export { IconXMark } from "./iconXMark/IconXMark";
