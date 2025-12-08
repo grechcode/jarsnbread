@@ -1,12 +1,39 @@
-# Jars&bread
+# О проекте 💻
+[Jars&bread](https://t.me/jarsnbread_order_bot) — Telegram Mini App для создания заказа в лавке натуральных продуктов ["Баночки и хлеб"](https://t.me/jarsnbread) в городе Екатеринбург. 
 
-## Telegram WebApp for natural products store "Баночки и хлеб" in Yekaterinburg
+# Стек ⚙️
+- HTML
+- CSS
+- JavaScript
+- ReactJS
 
-![Static Badge](https://img.shields.io/badge/jars-bread-purple?labelColor=black)
-![Static Badge](https://img.shields.io/badge/HTML-orange)
-![Static Badge](https://img.shields.io/badge/CSS-blue)
-![Static Badge](https://img.shields.io/badge/JS-Vanilla-yellow)
+# Ключевые особенности ⚡️
+- Интеграция с [Telegram Mini App API](https://core.telegram.org/bots/webapps)
 
-<hr>
 
-It is simple React app with 2 pages, which allow you to choose some dishes and create order. On final step you need share your mobile phone number, and wait response from store's manager. Manager of store will recieve order's data and send a confirmation message to the customer. 
+# Установка и запуск 🛠️
+
+### Установка зависимостей
+
+```
+npm install
+```
+
+### Запуск в режиме разработки
+
+```
+npm start
+```
+
+### Сборка
+
+```
+npm run build
+```
+
+<div align="center">
+  <a href="https://preax.ru"><img src="https://img.shields.io/badge/jars-bread-brown"></a>
+  <br><br>
+  <a href="https://github.com/grechcode/jarsnbread"><img src="https://img.shields.io/github/repo-size/grechcode/jarsnbread"></a>
+  <a href="https://github.com/grechcode/jarsnbread/commits/main"><img src="https://img.shields.io/github/last-commit/grechcode/jarsnbread"></a>
+</div>

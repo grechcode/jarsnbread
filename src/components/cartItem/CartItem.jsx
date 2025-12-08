@@ -1,3 +1,4 @@
+import { IMAGES_URL } from "@/constants";
 import styles from "./cartItem.module.css";
 import { replaceImgWithError } from "@/utils";
 
@@ -6,7 +7,7 @@ export const CartItem = ({ cart, dish }) => {
     <article className={styles.dish} key={dish}>
       <img
         className={styles.dishImg}
-        src={`/images/${dish}.jpg`}
+        src={`${IMAGES_URL}/${dish.id}.jpg`}
         onError={replaceImgWithError}
       />
       <h5 className={styles.dishName}>{cart[dish].name}</h5>

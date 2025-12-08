@@ -2,6 +2,7 @@ import styles from "./dishCard.module.css";
 import { useAppContext } from "@/hooks";
 import { replaceImgWithError } from "@/utils";
 import { ButtonBar, Stickers } from "@/components";
+import { IMAGES_URL } from "@/constants";
 
 export const DishCard = ({ dish }) => {
   const { setCart, cart } = useAppContext();
@@ -19,7 +20,7 @@ export const DishCard = ({ dish }) => {
       <button type="button" onClick={onClick} className={styles.imgButtonWrapper}>
         <img
           className={styles.dishImg}
-          src={`/images/${dish.id}.jpg`}
+          src={`${IMAGES_URL}/${dish.id}.jpg`}
           onError={replaceImgWithError}
           alt={dish.id}
         />
