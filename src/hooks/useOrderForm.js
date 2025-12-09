@@ -16,6 +16,7 @@ export const useOrderForm = () => {
     setDeliveryTime,
     orderComment,
     setOrderComment,
+    appConfig,
   } = useAppContext();
 
   const [dateOptions, setDateOptions] = useState([]);
@@ -65,5 +66,6 @@ export const useOrderForm = () => {
     setDeliveryTime,
     orderComment,
     setOrderCommentHandler,
+    appConfig,
   };
 };

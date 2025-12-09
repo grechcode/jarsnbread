@@ -1,9 +1,7 @@
-import { MENU } from "@/constants";
-
-export const getDishCategory = (dish) => {
+export const getDishCategory = (menu, dish) => {
   let res;
-  Object.keys(MENU).forEach((category) => {
-    MENU[category].dishes.forEach((dishInfo) => {
+  Object.keys(menu).forEach((category) => {
+    menu[category].dishes.forEach((dishInfo) => {
       if (dishInfo.id === dish) {
         res = category;
       }

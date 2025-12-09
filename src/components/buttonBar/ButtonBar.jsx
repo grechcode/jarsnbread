@@ -1,18 +1,19 @@
-import { UNAVAILABLE_DISH_TEXT } from "@/constants";
 import styles from "./buttonBar.module.css";
 import { getDishProperty, cn } from "@/utils";
+import { useAppContext } from "@/hooks";
 
 export const ButtonBar = ({ cart, setCart, dish }) => {
+  const { menu, appConfig } = useAppContext();
   let tg = window.Telegram.WebApp;
 
   const onAdd = (dish) => {
     tg.HapticFeedback.selectionChanged();
     setCart((prev) => {
       if (!prev[dish]) {
-        prev[dish] = { count: 0, name: getDishProperty(dish, "name"), price: 0 };
+        prev[dish] = { count: 0, name: getDishProperty(menu, dish, "name"), price: 0 };
       }
       prev[dish].count += 1;
-      prev[dish].price += getDishProperty(dish, "price");
+      prev[dish].price += getDishProperty(menu, dish, "price");
       return { ...prev };
     });
   };
@@ -22,7 +23,7 @@ export const ButtonBar = ({ cart, setCart, dish }) => {
     setCart((prev) => {
       if (prev[dish].count > 0) {
         prev[dish].count -= 1;
-        prev[dish].price -= getDishProperty(dish, "price");
+        prev[dish].price -= getDishProperty(menu, dish, "price");
       }
       return { ...prev };
     });
@@ -33,7 +34,7 @@ export const ButtonBar = ({ cart, setCart, dish }) => {
       ? "+"
       : dish.isAvailable
       ? `${dish.price} ₽`
-      : UNAVAILABLE_DISH_TEXT;
+      : appConfig.UNAVAILABLE_DISH_TEXT;
   };
 
   return (

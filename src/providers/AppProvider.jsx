@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AppContext } from "@/contexts";
-import { ORDER_ADDRESS_REQUIRED_VALUE, PAGES } from "@/constants";
+import { PAGES } from "@/constants";
 
 export const AppProvider = ({ children }) => {
   const [menu, setMenu] = useState(null);
@@ -12,7 +12,7 @@ export const AppProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState(PAGES.menu);
   const [cart, setCart] = useState({});
   const [receiving, setReceiving] = useState("pickup");
-  const [deliveryAddress, setDeliveryAddress] = useState(ORDER_ADDRESS_REQUIRED_VALUE);
+  const [deliveryAddress, setDeliveryAddress] = useState("");
   const [deliveryDate, setDeliveryDate] = useState("");
   const [deliveryTime, setDeliveryTime] = useState("");
   const [orderComment, setOrderComment] = useState("");

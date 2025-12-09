@@ -2,13 +2,6 @@ import styles from "./orderForm.module.css";
 import { useOrderForm } from "@/hooks";
 import { cn } from "@/utils";
 import { Select } from "@/components";
-import {
-  FORM_COMMENT_LABEL,
-  FORM_DATE_LABEL,
-  FORM_DELIVERY_LABEL,
-  FORM_PICKUP_LABEL,
-  FORM_TIME_LABEL,
-} from "@/constants";
 
 export const OrderForm = () => {
   const {
@@ -24,6 +17,7 @@ export const OrderForm = () => {
     setDeliveryTime,
     orderComment,
     setOrderCommentHandler,
+    appConfig,
   } = useOrderForm();
 
   return (
@@ -43,25 +37,23 @@ export const OrderForm = () => {
         <input
           className={styles.input}
           type="text"
-          value={
-            receiving === "pickup"
-              ? "г. Екатеринбург, ул. Шейнкмана, д. 19"
-              : deliveryAddress
-          }
+          value={receiving === "pickup" ? appConfig.PICKUP_ADDRESS : deliveryAddress}
           readOnly={receiving === "pickup" ? true : false}
           onChange={setDeliveryAddressHandler}
         />
         <span className={styles.inputDescription}>
-          {receiving === "pickup" ? FORM_PICKUP_LABEL : FORM_DELIVERY_LABEL}
+          {receiving === "pickup"
+            ? appConfig.FORM_PICKUP_LABEL
+            : appConfig.FORM_DELIVERY_LABEL}
         </span>
       </div>
       <div className={styles.inputWrapper}>
         <Select value={deliveryDate} setValue={setDeliveryDate} options={dateOptions} />
-        <span className={styles.inputDescription}>{FORM_DATE_LABEL}</span>
+        <span className={styles.inputDescription}>{appConfig.FORM_DATE_LABEL}</span>
       </div>
       <div className={styles.inputWrapper}>
         <Select value={deliveryTime} setValue={setDeliveryTime} options={timeOptions} />
-        <span className={styles.inputDescription}>{FORM_TIME_LABEL}</span>
+        <span className={styles.inputDescription}>{appConfig.FORM_TIME_LABEL}</span>
       </div>
       <div className={styles.inputWrapper}>
         <input
@@ -71,7 +63,7 @@ export const OrderForm = () => {
           value={orderComment}
           onChange={setOrderCommentHandler}
         />
-        <span className={styles.inputDescription}>{FORM_COMMENT_LABEL}</span>
+        <span className={styles.inputDescription}>{appConfig.FORM_COMMENT_LABEL}</span>
       </div>
     </form>
   );
