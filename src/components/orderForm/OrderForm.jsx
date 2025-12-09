@@ -38,7 +38,7 @@ export const OrderForm = () => {
         <input
           className={styles.input}
           type="text"
-          value={receiving === "pickup" ? "appConfig.PICKUP_ADDRESS" : deliveryAddress}
+          value={receiving === "pickup" ? appConfig.PICKUP_ADDRESS : deliveryAddress}
           readOnly={receiving === "pickup" ? true : false}
           onChange={setDeliveryAddressHandler}
         />
