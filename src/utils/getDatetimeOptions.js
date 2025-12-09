@@ -1,13 +1,6 @@
-import {
-  MIN_WAITING_TIME_WITH_BREAD,
-  MIN_WAITING_TIME_WITHOUT_BREAD,
-  WORK_SHEDULE,
-} from "@/constants";
 import { isStoreOpen } from "./isStoreOpen";
 import { isBreadInCart } from "./isBreadInCart";
 
-const MIN_WAITING_TIME_WITH_BREAD_MS = MIN_WAITING_TIME_WITH_BREAD * 60 * 1000; // 3 часа
-const MIN_WAITING_TIME_WITHOUT_BREAD_MS = MIN_WAITING_TIME_WITHOUT_BREAD * 60 * 1000; // 1 час 30 минут
 const MINUTE_INTERVAL_MS = 900000; // 15 минут
 const DAY_INTERVAL_MS = 86400000; // сутки
 
@@ -37,8 +30,13 @@ export const getDateOptionsList = () => {
   return dateOptionsList;
 };
 
-export const getTimeOptionsList = (selectedDeliveryDate, cart) => {
-  const { isOpen } = isStoreOpen();
+export const getTimeOptionsList = (appConfig, selectedDeliveryDate, cart) => {
+  const { isOpen } = isStoreOpen(appConfig);
+
+  const MIN_WAITING_TIME_WITH_BREAD_MS =
+    appConfig.MIN_WAITING_TIME_WITH_BREAD * 60 * 1000; // 3 часа
+  const MIN_WAITING_TIME_WITHOUT_BREAD_MS =
+    appConfig.MIN_WAITING_TIME_WITHOUT_BREAD * 60 * 1000; // 1 час 30 минут
 
   const timeOptionsList = [];
   const MIN_WAITING_TIME_MS = isBreadInCart(cart)
@@ -49,8 +47,8 @@ export const getTimeOptionsList = (selectedDeliveryDate, cart) => {
   const currentDate = new Date();
   const currentDateMS = currentDate.getTime();
   const roundedCurrentDateMS = roundTime(currentDateMS, MINUTE_INTERVAL_MS).getTime();
-  const closeTime = WORK_SHEDULE.close.split(":");
-  const openTime = WORK_SHEDULE.open.split(":");
+  const closeTime = appConfig.WORK_SHEDULE.close.split(":");
+  const openTime = appConfig.WORK_SHEDULE.open.split(":");
   let maxAvailableTimeMS;
   let minAvailableTimeMS;
 

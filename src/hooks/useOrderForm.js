@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getDateOptionsList, getTimeOptionsList } from "@/utils";
 import { useAppContext } from "./useAppContext";
-import { ORDER_ADDRESS_REQUIRED_VALUE } from "@/constants";
 
 export const useOrderForm = () => {
   const {
@@ -42,7 +41,7 @@ export const useOrderForm = () => {
   };
 
   const setDeliveryAddressHandler = (e) => {
-    const requiredValue = ORDER_ADDRESS_REQUIRED_VALUE;
+    const requiredValue = appConfig.ORDER_ADDRESS_REQUIRED_VALUE;
     const value = e.target.value;
     if (!value.includes(requiredValue)) {
       setDeliveryAddress(requiredValue);

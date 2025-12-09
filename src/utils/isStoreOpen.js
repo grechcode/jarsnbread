@@ -1,8 +1,6 @@
-import { WORK_SHEDULE } from "@/constants";
-
-export const isStoreOpen = () => {
-  const openTime = WORK_SHEDULE.open.split(":");
-  const closeTime = WORK_SHEDULE.close.split(":");
+export const isStoreOpen = (appConfig) => {
+  const openTime = appConfig.WORK_SHEDULE.open.split(":");
+  const closeTime = appConfig.WORK_SHEDULE.close.split(":");
   const currentDateMS = new Date().getTime();
   const openMS = new Date().setHours(+openTime[0], +openTime[1]);
   const closeMS = new Date().setHours(+closeTime[0], +closeTime[1]);
