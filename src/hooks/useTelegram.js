@@ -1,12 +1,7 @@
 import { useEffect } from "react";
 import { useAppContext } from "./useAppContext";
 import { calculateCart, isCartEmpty, generateOrderDetailsText } from "@/utils";
-import {
-  CART_MAIN_BUTTON_TEXT,
-  MENU_MAIN_BUTTON_TEXT,
-  PAGES,
-  PHONE_PERMISSION_ALERT,
-} from "@/constants";
+import { PAGES } from "@/constants";
 
 export const useTelegram = () => {
   const {
@@ -18,6 +13,7 @@ export const useTelegram = () => {
     deliveryDate,
     deliveryTime,
     orderComment,
+    appConfig,
   } = useAppContext();
 
   let tg = window.Telegram.WebApp;
@@ -62,7 +58,7 @@ export const useTelegram = () => {
           tg.HapticFeedback.notificationOccurred("success");
           tg.close();
         } else {
-          tg.showAlert(PHONE_PERMISSION_ALERT);
+          tg.showAlert(appConfig.PHONE_PERMISSION_ALERT);
           tg.HapticFeedback.notificationOccurred("error");
         }
       });
@@ -77,7 +73,7 @@ export const useTelegram = () => {
         const finalCartPrice = calculateCart(cart);
         tg.BackButton.hide();
         tg.MainButton.hasShineEffect = false;
-        tg.MainButton.setText(`${MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
+        tg.MainButton.setText(`${appConfig.MENU_MAIN_BUTTON_TEXT}${finalCartPrice} ₽`);
         tg.MainButton.onClick(menuMainButtonHandler);
         tg.MainButton.hideProgress();
       }
@@ -85,7 +81,7 @@ export const useTelegram = () => {
         tg.BackButton.onClick(backButtonHandler);
         tg.BackButton.show();
         tg.MainButton.hasShineEffect = true;
-        tg.MainButton.setText(CART_MAIN_BUTTON_TEXT);
+        tg.MainButton.setText(appConfig.CART_MAIN_BUTTON_TEXT);
         tg.MainButton.onClick(cartMainButtonHandler);
       }
       tg.enableClosingConfirmation();
