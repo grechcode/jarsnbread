@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getDateOptionsList, getTimeOptionsList } from "@/utils";
 import { useAppContext } from "./useAppContext";
 
@@ -41,15 +41,18 @@ export const useOrderForm = () => {
     receiving === "pickup" ? setReceiving("delivery") : setReceiving("pickup");
   };
 
-  const setDeliveryAddressHandler = (e) => {
-    const requiredValue = appConfig.ORDER_ADDRESS_REQUIRED_VALUE;
-    const value = e.target.value;
-    if (!value.includes(requiredValue)) {
-      setDeliveryAddress(requiredValue);
-    } else {
-      setDeliveryAddress(value);
-    }
-  };
+  const setDeliveryAddressHandler = useCallback(
+    (e) => {
+      const requiredValue = appConfig.ORDER_ADDRESS_REQUIRED_VALUE;
+      const value = e.target.value;
+      if (!value.includes(requiredValue)) {
+        setDeliveryAddress(requiredValue);
+      } else {
+        setDeliveryAddress(value);
+      }
+    },
+    [appConfig]
+  );
 
   const setOrderCommentHandler = (e) => setOrderComment(e.target.value);
 
