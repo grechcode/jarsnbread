@@ -12,7 +12,7 @@ export const Loading = ({ hapticFeedback = false }) => {
     if (hapticFeedback) {
       hapticAnimation();
     }
-  }, []);
+  }, [hapticFeedback, hapticAnimation]);
 
   return (
     <div className={cn(styles.loading, isOnstartActionsDone && styles.hide)}>

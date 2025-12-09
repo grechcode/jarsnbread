@@ -4,8 +4,8 @@ import { isBreadInCart } from "./isBreadInCart";
 const MINUTE_INTERVAL_MS = 900000; // 15 минут
 const DAY_INTERVAL_MS = 86400000; // сутки
 
-export const getDateOptionsList = () => {
-  const { sheduleDesc } = isStoreOpen();
+export const getDateOptionsList = (appConfig) => {
+  const { sheduleDesc } = isStoreOpen(appConfig);
 
   const dateOptionsList = [];
 

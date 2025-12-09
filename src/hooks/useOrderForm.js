@@ -22,8 +22,8 @@ export const useOrderForm = () => {
   const [timeOptions, setTimeOptions] = useState([]);
 
   useEffect(() => {
-    const dateOptionsList = getDateOptionsList();
-    const timeOptionsList = getTimeOptionsList(dateOptionsList[0], cart);
+    const dateOptionsList = getDateOptionsList(appConfig);
+    const timeOptionsList = getTimeOptionsList(appConfig, dateOptionsList[0], cart);
     setDeliveryDate(dateOptionsList[0]);
     setDeliveryTime(timeOptionsList[0]);
     setDateOptions(dateOptionsList);
@@ -31,7 +31,7 @@ export const useOrderForm = () => {
   }, []);
 
   useEffect(() => {
-    const timeOptionsList = getTimeOptionsList(deliveryDate, cart);
+    const timeOptionsList = getTimeOptionsList(appConfig, deliveryDate, cart);
     setTimeOptions(timeOptionsList);
     setDeliveryTime(timeOptionsList[0]);
   }, [deliveryDate]);
