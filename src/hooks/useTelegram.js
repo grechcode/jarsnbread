@@ -100,5 +100,6 @@ export const useTelegram = () => {
     deliveryDate,
     deliveryTime,
     orderComment,
+    appConfig,
   ]);
 };
