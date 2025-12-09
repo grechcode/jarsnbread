@@ -12,13 +12,12 @@ const App = () => {
 
   return (
     <div className={styles.content}>
-      {/* <Loading /> */}
+      <Loading />
       <div
         className={cn(styles.pagesWrapper, isOnstartActionsDone ? styles.show : "hidden")}
       >
-        {/* {currentPage === PAGES.menu && <Menu />}
-        {currentPage === PAGES.cart && <Cart />} */}
-        <Cart />
+        {currentPage === PAGES.menu && <Menu />}
+        {currentPage === PAGES.cart && <Cart />}
       </div>
     </div>
   );

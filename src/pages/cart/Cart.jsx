@@ -4,7 +4,9 @@ import { calculateCart } from "@/utils";
 import { CartItem, OrderForm } from "@/components";
 
 export const Cart = () => {
-  const { cart } = useAppContext();
+  const { cart, appConfig } = useAppContext();
+
+  if (!appConfig) return;
 
   return (
     <div className={styles.cart}>
