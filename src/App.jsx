@@ -6,11 +6,9 @@ import { Loading } from "@/components";
 import { cn } from "@/utils";
 
 const App = () => {
-  const { currentPage, setCurrentPage, isOnstartActionsDone } = useAppContext();
+  const { currentPage, isOnstartActionsDone } = useAppContext();
 
   useTelegram();
-
-  console.log("first");
 
   return (
     <div className={styles.content}>
@@ -18,7 +16,6 @@ const App = () => {
       <div
         className={cn(styles.pagesWrapper, isOnstartActionsDone ? styles.show : "hidden")}
       >
-        <button onClick={() => setCurrentPage("cart")}>К корзине</button>
         {currentPage === PAGES.menu && <Menu />}
         {currentPage === PAGES.cart && <Cart />}
       </div>
