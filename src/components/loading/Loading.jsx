@@ -5,7 +5,8 @@ import { Logo, RunningLine } from "@/components";
 import { cn } from "@/utils";
 
 export const Loading = ({ hapticFeedback = false }) => {
-  const { hapticAnimation, isAnimationLoad } = useLoading();
+  const { hapticAnimation, appDataError, isOnstartActionsDone, fetchAppData } =
+    useLoading();
 
   useEffect(() => {
     if (hapticFeedback) {
@@ -14,9 +15,10 @@ export const Loading = ({ hapticFeedback = false }) => {
   }, []);
 
   return (
-    <div className={cn(styles.loading, isAnimationLoad && styles.hide)}>
+    <div className={cn(styles.loading, isOnstartActionsDone && styles.hide)}>
       <RunningLine className={styles.upperLine} />
-      <Logo isAnimated={true} />
+      {appDataError && <button onClick={fetchAppData}>Попробовать еще раз</button>}
+      {!appDataError && <Logo isAnimated={true} />}
       <RunningLine className={styles.downerLine} />
     </div>
   );

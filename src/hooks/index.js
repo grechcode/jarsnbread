@@ -3,3 +3,4 @@ export { useClickOutside } from "./useClickOutside";
 export { useTelegram } from "./useTelegram";
 export { useOrderForm } from "./useOrderForm";
 export { useLoading } from "./useLoading";
+export { useFetchAppData } from "./useFetchAppData";

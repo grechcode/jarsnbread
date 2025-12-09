@@ -1,8 +1,18 @@
 import { useEffect } from "react";
 import { useAppContext } from "./useAppContext";
+import { useFetchAppData } from "./useFetchAppData";
 
 export const useLoading = () => {
-  const { isAnimationLoad, setIsAnimationLoad } = useAppContext();
+  const {
+    menu,
+    appConfig,
+    appDataError,
+    isOnstartActionsDone,
+    isAnimationLoad,
+    setIsAnimationLoad,
+    setIsOnstartActionsDone,
+  } = useAppContext();
+  const { fetchAppData } = useFetchAppData();
 
   const hapticAnimation = async () => {
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -16,11 +26,18 @@ export const useLoading = () => {
   };
 
   useEffect(() => {
+    fetchAppData();
     const timeout = setTimeout(() => {
       setIsAnimationLoad(true);
     }, 4000);
     return () => clearTimeout(timeout);
   }, []);
 
-  return { hapticAnimation, isAnimationLoad };
+  useEffect(() => {
+    if (isAnimationLoad && menu && appConfig) {
+      setIsOnstartActionsDone(true);
+    }
+  }, [isAnimationLoad, menu, appConfig]);
+
+  return { hapticAnimation, appDataError, isOnstartActionsDone, fetchAppData };
 };
