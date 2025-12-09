@@ -8,8 +8,8 @@ export const useFetchAppData = () => {
 
   const fetchAppData = useCallback(async () => {
     try {
-      setMenu(null);
-      setAppConfig(null);
+      // setMenu(null);
+      // setAppConfig(null);
       setAppDataError(null);
       setIsAppDataLoading(true);
       const menu = await getData(MENU_URL);
