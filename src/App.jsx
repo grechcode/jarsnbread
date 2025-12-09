@@ -6,14 +6,16 @@ import { Loading } from "@/components";
 import { cn } from "@/utils";
 
 const App = () => {
-  const { currentPage, isAnimationLoad } = useAppContext();
+  const { currentPage, isOnstartActionsDone } = useAppContext();
 
   useTelegram();
 
   return (
     <div className={styles.content}>
       <Loading />
-      <div className={cn(styles.pagesWrapper, isAnimationLoad ? styles.show : "hidden")}>
+      <div
+        className={cn(styles.pagesWrapper, isOnstartActionsDone ? styles.show : "hidden")}
+      >
         {currentPage === PAGES.menu && <Menu />}
         {currentPage === PAGES.cart && <Cart />}
       </div>
