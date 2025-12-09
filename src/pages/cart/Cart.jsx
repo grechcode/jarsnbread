@@ -6,8 +6,6 @@ import { CartItem, OrderForm } from "@/components";
 export const Cart = () => {
   const { cart, appConfig } = useAppContext();
 
-  if (!appConfig) return;
-
   return (
     <div className={styles.cart}>
       <h1 className="hidden">Корзина</h1>
@@ -23,7 +21,7 @@ export const Cart = () => {
           <span className={styles.finalPrice}>{calculateCart(cart)} ₽</span>
         </div>
       </section>
-      <OrderForm />
+      {/* <OrderForm /> */}
     </div>
   );
 };
