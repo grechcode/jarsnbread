@@ -1,11 +1,11 @@
 import { getDishCategory } from "./getDishCategory";
 
-export const isBreadInCart = (cart) => {
+export const isBreadInCart = (menu, cart) => {
   let res;
   res = false;
 
   Object.keys(cart).map((dish) => {
-    const dishCategory = getDishCategory(dish);
+    const dishCategory = getDishCategory(menu, dish);
     if (dishCategory === "breads") {
       if (cart[dish].count > 0) res = true;
     }

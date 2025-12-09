@@ -16,6 +16,7 @@ export const useOrderForm = () => {
     orderComment,
     setOrderComment,
     appConfig,
+    menu,
   } = useAppContext();
 
   const [dateOptions, setDateOptions] = useState([]);
@@ -23,7 +24,7 @@ export const useOrderForm = () => {
 
   useEffect(() => {
     const dateOptionsList = getDateOptionsList(appConfig);
-    const timeOptionsList = getTimeOptionsList(appConfig, dateOptionsList[0], cart);
+    const timeOptionsList = getTimeOptionsList(menu, appConfig, dateOptionsList[0], cart);
     setDeliveryDate(dateOptionsList[0]);
     setDeliveryTime(timeOptionsList[0]);
     setDateOptions(dateOptionsList);
@@ -31,7 +32,7 @@ export const useOrderForm = () => {
   }, []);
 
   useEffect(() => {
-    const timeOptionsList = getTimeOptionsList(appConfig, deliveryDate, cart);
+    const timeOptionsList = getTimeOptionsList(menu, appConfig, deliveryDate, cart);
     setTimeOptions(timeOptionsList);
     setDeliveryTime(timeOptionsList[0]);
   }, [deliveryDate]);

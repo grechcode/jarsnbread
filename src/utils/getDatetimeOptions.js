@@ -30,7 +30,7 @@ export const getDateOptionsList = (appConfig) => {
   return dateOptionsList;
 };
 
-export const getTimeOptionsList = (appConfig, selectedDeliveryDate, cart) => {
+export const getTimeOptionsList = (menu, appConfig, selectedDeliveryDate, cart) => {
   const { isOpen } = isStoreOpen(appConfig);
 
   const MIN_WAITING_TIME_WITH_BREAD_MS =
@@ -39,7 +39,7 @@ export const getTimeOptionsList = (appConfig, selectedDeliveryDate, cart) => {
     appConfig.MIN_WAITING_TIME_WITHOUT_BREAD * 60 * 1000; // 1 час 30 минут
 
   const timeOptionsList = [];
-  const MIN_WAITING_TIME_MS = isBreadInCart(cart)
+  const MIN_WAITING_TIME_MS = isBreadInCart(menu, cart)
     ? MIN_WAITING_TIME_WITH_BREAD_MS
     : MIN_WAITING_TIME_WITHOUT_BREAD_MS;
 
