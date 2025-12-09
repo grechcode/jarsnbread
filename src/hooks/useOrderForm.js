@@ -65,6 +65,5 @@ export const useOrderForm = () => {
     setDeliveryTime,
     orderComment,
     setOrderCommentHandler,
-    appConfig,
   };
 };

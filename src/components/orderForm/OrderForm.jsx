@@ -4,6 +4,8 @@ import { cn } from "@/utils";
 import { Select } from "@/components";
 
 export const OrderForm = () => {
+  const { appConfig } = useAppContext();
+
   const {
     dateOptions,
     timeOptions,
@@ -17,7 +19,6 @@ export const OrderForm = () => {
     setDeliveryTime,
     orderComment,
     setOrderCommentHandler,
-    appConfig,
   } = useOrderForm();
 
   return (
