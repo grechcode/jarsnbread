@@ -23,7 +23,7 @@ export const Cart = () => {
           <span className={styles.finalPrice}>{calculateCart(cart)} ₽</span>
         </div>
       </section>
-      {/* <OrderForm /> */}
+      <OrderForm />
     </div>
   );
 };
