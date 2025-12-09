@@ -1,3 +1,4 @@
+import { useAppContext } from "@/hooks";
 import styles from "./menu.module.css";
 import { DishCard } from "@/components";
 
