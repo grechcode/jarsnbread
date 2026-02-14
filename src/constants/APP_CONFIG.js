@@ -4,6 +4,15 @@ export const MENU = {
     name: "Паштеты",
     dishes: [
       {
+        id: "wine_calf",
+        name: "Винный теленок",
+        price: 400,
+        hit: false,
+        new: true,
+        isAvailable: true,
+        publicationUrl: "https://t.me/jarsnbread/77",
+      },
+      {
         id: "cream_turkey",
         name: "Индейка со сливками",
         price: 360,
