@@ -33,7 +33,7 @@ export const MENU = {
       {
         id: "carrot_rabbit",
         name: "Печень кролика с морковкой, груша",
-        price: 320,
+        price: 330,
         hit: false,
         new: false,
         isAvailable: true,
